@@ -1,27 +1,21 @@
-import AboutApp from "@/components/aboutApp";
-import Benefits from "@/components/benefits";
-import Blog from "@/components/blog";
-import Features from "@/components/features";
 import Hero from "@/components/hero";
 import LogosTicker from "@/components/logosTicker";
 import Navbar from "@/components/navbar";
-import Pricing from "@/components/pricing";
 import Reviews from "@/components/reviews";
+import WhoWeAre from "@/components/whoWeAre";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className={'flex flex-col gap-30'}>
+    <main className={'flex flex-col'}>
       <Navbar />
       <Hero />
       <div className="content">
+        <WhoWeAre />
         <LogosTicker />
-        <AboutApp />
-        <Features />
-        <Benefits />
         <Reviews />
-        <Pricing />
-        <Blog />
       </div>
+      <Footer />
     </main>
   );
 }

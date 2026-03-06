@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // @ts-ignore
+  turbopack: {
+    root: "./",
+  },
 };
 
 export default nextConfig;

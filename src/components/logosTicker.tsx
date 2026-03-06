@@ -6,6 +6,7 @@ const brandLogos = [
     { src: '/brandlogos/Pinterest-01.png', alt: 'Pinterest' },
     { src: '/brandlogos/Video-360.png', alt: 'Video 360' },
     { src: '/brandlogos/Youtube.png', alt: 'YouTube' },
+    { src: '/brandlogos/new-Reddit-logo-red-horizontal-png-large-size.png', alt: 'Reddit' },
 ];
 
 function LogosTicker() {
