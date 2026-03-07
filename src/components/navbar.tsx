@@ -56,7 +56,7 @@ function Navbar() {
                 <nav className="flex items-center justify-between md:pl-6 md:pr-2 py-2 px-6">
                     <Link href={'/'} className="pointer">
                         <div className="flex items-center justify-center gap-1">
-                            <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain grayscale brightness-0" />
+                            <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain grayscale brightness-0" priority />
                         </div>
                     </Link>
 

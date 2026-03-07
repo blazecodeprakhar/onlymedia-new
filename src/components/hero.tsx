@@ -76,15 +76,15 @@ function Hero() {
                 </div>
 
                 <div className="hero-image">
-                    <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center" />
+                    <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center" priority />
                 </div>
             </div>
 
             <div className="hero-left-cloud">
-                <Image src={'/images/left-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" />
+                <Image src={'/images/left-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" priority />
             </div>
             <div className="hero-right-cloud">
-                <Image src={'/images/right-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" />
+                <Image src={'/images/right-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" priority />
             </div>
         </section>
     )

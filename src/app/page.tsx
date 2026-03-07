@@ -1,10 +1,14 @@
 import Hero from "@/components/hero";
-import LogosTicker from "@/components/logosTicker";
 import Navbar from "@/components/navbar";
-import Reviews from "@/components/reviews";
-import WhoWeAre from "@/components/whoWeAre";
-import Footer from "@/components/footer";
-import StackedCardsSection from "@/components/stackedCardsSection";
+import dynamic from "next/dynamic";
+
+// DYNAMICALLY FETCH HUGE COMPONENTS BELOW THE FOLD ONLY WHEN NEEDED
+// This drops the initial bundle size drastically, solving slow loading times.
+const LogosTicker = dynamic(() => import("@/components/logosTicker"));
+const Reviews = dynamic(() => import("@/components/reviews"));
+const WhoWeAre = dynamic(() => import("@/components/whoWeAre"));
+const Footer = dynamic(() => import("@/components/footer"));
+const StackedCardsSection = dynamic(() => import("@/components/stackedCardsSection"));
 
 export default function Home() {
   return (
