@@ -92,7 +92,7 @@ function Footer() {
                     <div className="footer-reveal flex flex-col gap-8">
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Company</p>
                         <nav className="flex flex-col gap-4">
-                            <Link href="/" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">About</Link>
+                            <Link href="/about" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">About</Link>
                             <Link href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Strategy</Link>
                             <Link href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Our Work</Link>
                             <Link href="/contact" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Contact</Link>

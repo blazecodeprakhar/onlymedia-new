@@ -66,7 +66,7 @@ function Navbar() {
                                 <Link href={'/'}>Home</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>About</Link>
+                                <Link href={'/about'}>About</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
                                 <Link href={'#'}>Services</Link>
@@ -93,7 +93,7 @@ function Navbar() {
                             <Link href={'/'}>Home</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>About</Link>
+                            <Link href={'/about'}>About</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
                             <Link href={'#'}>Services</Link>
