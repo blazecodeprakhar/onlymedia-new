@@ -98,7 +98,7 @@ function WhoWeAre() {
 
                             <p className="text-body-xl text-neutral-20 leading-relaxed font-medium">
                                 We bridge the gap between audience insights and execution. Across digital, transit, and emerging
-                                platforms, we build campaigns that don't just reach people—they move them.
+                                platforms, we build campaigns that don't just reach people, they move them.
                             </p>
 
                             <div className="flex flex-col gap-3">

@@ -73,7 +73,7 @@ function Footer() {
                             />
                         </Link>
                         <p className="text-body-normal text-white/50 leading-relaxed">
-                            OnlyMedia is where data clarity meets human impact. We build campaigns that don't just reach people—they move them.
+                            OnlyMedia is where data clarity meets human impact. We build campaigns that don't just reach people, they move them.
                         </p>
                         <div className="flex gap-4">
                             <Link href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
