@@ -39,7 +39,7 @@ function Reviews() {
             <div className="container">
                 <div className="big-review">
                     <p className="big-testimonial">
-                        "OnlyMedia is by far the best agency tool I have ever used"
+                        "OnlyMedia Data-Driven Media Solutions That Deliver Measurable Growth"
                     </p>
 
                     <div className="user-info">
