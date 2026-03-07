@@ -14,19 +14,15 @@ import { usePathname } from 'next/navigation'
 export default function SmoothScrollManager() {
     const pathname = usePathname()
 
-    // Smooth scroll to top on EVERY page navigation
+    // Instant scroll to top on EVERY page navigation to clear old Lenis positions
     useEffect(() => {
-        // We defer slightly to allow Next.js route transition to swap the DOM
-        const timeout = setTimeout(() => {
-            const lenis = (window as any).__lenis
-            if (lenis) {
-                // Scroll up smoothly from wherever we are
-                lenis.scrollTo(0, { duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-            }
-        }, 100)
-        return () => clearTimeout(timeout)
+        const lenis = (window as any).__lenis
+        if (lenis) {
+            // INSTANT reset! Smooth scrolling across entirely new pages causes out-of-bounds height glitches.
+            lenis.scrollTo(0, { immediate: true })
+        } else {
+            window.scrollTo(0, 0)
+        }
     }, [pathname])
 
     // Handle anchor clicks globally via delegation
