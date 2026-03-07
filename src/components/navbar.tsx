@@ -75,7 +75,7 @@ function Navbar() {
                                 <Link href={'#'}>Blogs</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>FAQs</Link>
+                                <Link href={'/faqs'}>FAQs</Link>
                             </li>
                         </ul>
                     </div>
@@ -102,7 +102,7 @@ function Navbar() {
                             <Link href={'#'}>Blogs</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>FAQs</Link>
+                            <Link href={'/faqs'}>FAQs</Link>
                         </li>
                     </ul>
                     <div className="flex flex-col gap-3">
