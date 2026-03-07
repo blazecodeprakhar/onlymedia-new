@@ -5,8 +5,10 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Image from "next/image";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
     const mainRef = useRef<HTMLDivElement>(null)
