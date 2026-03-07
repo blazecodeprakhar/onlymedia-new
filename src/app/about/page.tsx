@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Linkedin } from "lucide-react";
 import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -102,9 +103,7 @@ export default function AboutPage() {
                                 rel="noopener noreferrer"
                                 className="group inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-all duration-300"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
-                                    <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm-16,160a8,8,0,0,1-16,0V136c0-13.78-7.83-20.94-17.76-20.94-11.85,0-18.06,8.74-18.24,19.23V184a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0v10.3a34,34,0,0,1,28.89-14.3C206.58,100,216,112.92,216,136.27V184Zm-96,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0V184ZM88,80a16,16,0,1,1,16-16A16,16,0,0,1,88,80Z"></path>
-                                </svg>
+                                <Linkedin className="w-5 h-5 stroke-[2] text-[#0A66C2] group-hover:scale-110 transition-transform duration-300" />
                                 <span className="transform group-hover:translate-x-1 transition-transform duration-300">Connect on LinkedIn</span>
                             </a>
                         </div>
@@ -130,9 +129,7 @@ export default function AboutPage() {
                                 rel="noopener noreferrer"
                                 className="group inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-all duration-300"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
-                                    <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm-16,160a8,8,0,0,1-16,0V136c0-13.78-7.83-20.94-17.76-20.94-11.85,0-18.06,8.74-18.24,19.23V184a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0v10.3a34,34,0,0,1,28.89-14.3C206.58,100,216,112.92,216,136.27V184Zm-96,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0V184ZM88,80a16,16,0,1,1,16-16A16,16,0,0,1,88,80Z"></path>
-                                </svg>
+                                <Linkedin className="w-5 h-5 stroke-[2] text-[#0A66C2] group-hover:scale-110 transition-transform duration-300" />
                                 <span className="transform group-hover:translate-x-1 transition-transform duration-300">Connect on LinkedIn</span>
                             </a>
                         </div>
