@@ -40,7 +40,7 @@ export default function PageLoader() {
             {visible && (
                 <motion.div
                     key="loader"
-                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-beige-40 overflow-hidden"
+                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#E8F2FC] overflow-hidden"
                     initial={{ y: 0 }}
                     exit={{ y: '-100%', transition: { duration: 0.9, ease: EXPO_EASE } }}
                 >
@@ -90,20 +90,20 @@ export default function PageLoader() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1.2, ease: EXPO_EASE }}
-                            className="flex flex-col items-center overflow-hidden py-4"
+                            className="flex flex-col items-center py-4"
                         >
-                            <div className="text-neutral-30 text-[60px] md:text-[100px] lg:text-[140px] font-black tracking-[-0.04em] leading-[0.85] flex flex-wrap justify-center overflow-hidden">
+                            <div className="text-neutral-30 text-[60px] md:text-[100px] lg:text-[140px] font-black tracking-[-0.04em] leading-[1] flex flex-wrap justify-center overflow-hidden pb-4 md:pb-8">
                                 <motion.span
-                                    initial={{ y: 150 }}
+                                    initial={{ y: '120%' }}
                                     animate={{ y: 0 }}
                                     transition={{ duration: 1.1, ease: EXPO_EASE, delay: 0.1 }}
-                                    className="pt-4"
+                                    className="pt-4 inline-block"
                                 >
                                     Only
                                 </motion.span>
                                 <motion.span
-                                    className="text-accent-blue italic font-serif font-medium pr-4 pt-4 ml-2"
-                                    initial={{ y: 150, rotate: 10, opacity: 0 }}
+                                    className="text-accent-blue italic font-serif font-medium pr-4 pt-4 ml-2 inline-block origin-bottom"
+                                    initial={{ y: '120%', rotate: 10, opacity: 0 }}
                                     animate={{ y: 0, rotate: 0, opacity: 1 }}
                                     transition={{ duration: 1.1, ease: EXPO_EASE, delay: 0.2 }}
                                 >
