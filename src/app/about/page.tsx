@@ -73,10 +73,10 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
 
                         {/* Ankita Shah */}
-                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10">
+                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10 h-full">
                             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
                                 <img
-                                    src="/images/ankita-shah.jpg"
+                                    src="/Ankita-Profile-IMage.jpeg"
                                     alt="Ankita Shah - Co-Founder"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     onError={(e) => { e.currentTarget.src = "https://placehold.co/400x400/EDDFD0/1A1615?text=Ankita+Shah" }}
@@ -101,12 +101,12 @@ export default function AboutPage() {
                         </div>
 
                         {/* Akshay Shah */}
-                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10">
+                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10 h-full">
                             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
                                 <img
-                                    src="/images/akshay-shah.jpg"
+                                    src="/AKSHAY-profile-23_OM.jpg"
                                     alt="Akshay Shah - Co-Founder"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-top"
                                     onError={(e) => { e.currentTarget.src = "https://placehold.co/400x400/EDDFD0/1A1615?text=Akshay+Shah" }}
                                 />
                             </div>
@@ -142,11 +142,14 @@ export default function AboutPage() {
                     Let's architect the perfect media strategy for your brand's future.
                 </p>
                 <div className="relative z-10">
-                    <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-accent-blue transition-all duration-300">
-                        Work with OnlyMedia
-                        <svg className="ml-3 w-6 h-6 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
+                    <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">
+                        <span className="relative z-10 flex items-center">
+                            Work with OnlyMedia
+                            <svg className="ml-3 w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </span>
+                        <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
                     </Link>
                 </div>
             </div>
