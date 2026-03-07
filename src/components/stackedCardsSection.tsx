@@ -46,43 +46,54 @@ const PROCESS_PHASES = [
 const StackedCardsSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
-    // We track the scroll progress of the entire SECTION
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
     });
 
-    // Plain transform — no spring to avoid bounce/overshoot on card stacking
     const pinY = useTransform(scrollYProgress, [0, 1], ["0vh", "275vh"]);
 
     return (
-        // Parent bounds precisely mapped so the next section slides up perfectly on cue
-        <section ref={sectionRef} className="bg-linear-to-b from-beige-0 to-[#F9F8F8] relative w-full h-[375vh]">
+        // Light sky-blue canvas — matches the site's blue-10/blue-20 palette
+        <section
+            ref={sectionRef}
+            className="relative w-full h-[375vh]"
+            style={{
+                background: 'linear-gradient(160deg, #dbeafe 0%, #e0eeff 25%, #EBF3FF 55%, #dde8f8 80%, #e2ecf5 100%)'
+            }}
+        >
+            {/* Very subtle soft glow orbs — barely visible, bleed through glass as warm light */}
+            <div className="sticky top-0 h-screen w-full overflow-hidden pointer-events-none">
+                <div className="absolute top-[-5%] left-[0%] w-[700px] h-[700px] rounded-full opacity-40"
+                    style={{ background: 'radial-gradient(circle, #bfdbfe 0%, transparent 65%)' }} />
+                <div className="absolute bottom-[0%] right-[0%] w-[600px] h-[600px] rounded-full opacity-35"
+                    style={{ background: 'radial-gradient(circle, #93c5fd 0%, transparent 65%)' }} />
+                <div className="absolute top-[35%] left-[35%] w-[450px] h-[450px] rounded-full opacity-20"
+                    style={{ background: 'radial-gradient(circle, #a5c8f0 0%, transparent 70%)' }} />
+            </div>
 
             <motion.div
                 style={{ y: pinY }}
-                className="relative top-0 h-screen w-full overflow-hidden flex items-center justify-center"
+                className="absolute top-0 left-0 h-screen w-full flex items-center justify-center"
             >
                 <div className="container px-6 xl:px-12 max-w-7xl mx-auto w-full">
-
                     <div className="grid md:grid-cols-2 gap-16 xl:gap-24 items-center h-full">
 
-                        {/* Left Content - Now safely locked inside the pinned sticky container */}
+                        {/* Left Content — dark text on light background */}
                         <div className="flex flex-col justify-center h-full max-w-lg pb-20">
                             <h5 className="text-sm uppercase tracking-widest text-accent-blue font-bold mb-4">WHY US</h5>
                             <h2 className="mb-6 mt-4 text-[40px] md:text-[52px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
                                 Smarter Media.<br />
                                 <span className="text-accent-blue font-serif italic font-medium">Stronger Business<br />Outcomes.</span>
                             </h2>
-                            <p className="max-w-prose text-body-large text-neutral-20 leading-relaxed">
+                            <p className="max-w-prose text-[17px] text-neutral-20 leading-relaxed">
                                 We combine strategy, technology, and creative thinking to build marketing systems that actually drive growth. Our approach connects audience intelligence, media performance, and creative innovation so every campaign works with purpose and delivers measurable results.
                             </p>
                         </div>
 
-                        {/* Right Scrolling Wrapper */}
+                        {/* Right — Glass Cards */}
                         <ContainerScroll className="relative w-full">
                             {PROCESS_PHASES.map((phase, index) => {
-                                // Calculate total cards to map progress correctly
                                 const total = PROCESS_PHASES.length;
 
                                 return (
@@ -91,22 +102,47 @@ const StackedCardsSection = () => {
                                         index={index}
                                         total={total}
                                         progress={scrollYProgress}
-                                        className="rounded-[40px] border border-[#E4E2E2] p-10 md:p-14 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] bg-[#FFFFFF] w-full min-h-[400px] flex flex-col justify-center transition-colors hover:border-accent-blue/30"
+                                        className="rounded-[32px] w-full min-h-[400px] flex flex-col justify-center overflow-hidden"
+                                        style={{
+                                            // Light blue glassmorphism matching site palette
+                                            background: 'linear-gradient(135deg, rgba(255,255,255,0.72) 0%, rgba(219,234,254,0.55) 50%, rgba(191,219,254,0.45) 100%)',
+                                            backdropFilter: 'blur(24px) saturate(160%)',
+                                            WebkitBackdropFilter: 'blur(24px) saturate(160%)',
+                                            border: '1px solid rgba(255,255,255,0.85)',
+                                            boxShadow: '0 8px 40px rgba(147,197,253,0.18), 0 2px 12px rgba(147,197,253,0.12), inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(147,197,253,0.15)',
+                                        }}
                                         incrementY={3}
                                         incrementZ={10}
                                     >
-                                        <div className="flex items-center justify-between gap-4 mb-8">
-                                            <h2 className="text-3xl font-bold tracking-tight text-neutral-30">
-                                                {phase.title}
-                                            </h2>
-                                            <h3 className="text-4xl font-black text-accent-blue/20">
-                                                {String(index + 1).padStart(2, "0")}
-                                            </h3>
-                                        </div>
+                                        {/* Mirror sheen — bright top-edge highlight */}
+                                        <div
+                                            className="absolute top-0 left-0 right-0 h-[1px] rounded-t-[32px]"
+                                            style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6) 80%, transparent 100%)' }}
+                                        />
+                                        {/* Soft diagonal gloss sweep — mimics glass reflection */}
+                                        <div
+                                            className="absolute inset-0 pointer-events-none rounded-[32px]"
+                                            style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 45%, rgba(191,219,254,0.08) 100%)' }}
+                                        />
 
-                                        <p className="text-lg text-neutral-20 leading-relaxed">
-                                            {phase.description}
-                                        </p>
+                                        {/* Card Content */}
+                                        <div className="relative z-10 p-10 md:p-14">
+                                            <div className="flex items-center justify-between gap-4 mb-6">
+                                                <h2 className="text-3xl font-bold tracking-tight text-neutral-30">
+                                                    {phase.title}
+                                                </h2>
+                                                <h3 className="text-4xl font-black text-accent-blue/20 tabular-nums">
+                                                    {String(index + 1).padStart(2, "0")}
+                                                </h3>
+                                            </div>
+
+                                            {/* Thin blue accent rule */}
+                                            <div className="w-10 h-[2px] rounded-full bg-accent-blue mb-6 opacity-50" />
+
+                                            <p className="text-[16px] text-neutral-20 leading-relaxed">
+                                                {phase.description}
+                                            </p>
+                                        </div>
                                     </CardSticky>
                                 )
                             })}
