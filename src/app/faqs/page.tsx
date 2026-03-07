@@ -19,11 +19,11 @@ const faqs = [
     },
     {
         question: "What is a data-driven media strategy and why is it important?",
-        answer: "A data-driven strategy uses real-time analytics, audience behavior insights, and predictive modeling to remove guesswork from media buying. It helps you:\n\n• Identify high-intent audiences\n• Optimize ad spend\n• Measure what truly matters—business growth\n\nRead: [The Ultimate Guide to Developing a Data-Driven Media Strategy]."
+        answer: "A data-driven strategy uses real-time analytics, audience behavior insights, and predictive modeling to remove guesswork from media buying. It helps you:\n\n• Identify high-intent audiences\n• Optimize ad spend\n• Measure what truly matters - business growth\n\nRead: [The Ultimate Guide to Developing a Data-Driven Media Strategy]."
     },
     {
         question: "How does OnlyMedia measure success?",
-        answer: "We measure success using SMART KPIs—Specific, Measurable, Achievable, Relevant, and Time-bound. Metrics we track include:\n\n• Awareness: Reach, impressions\n• Engagement: CTR, interactions\n• Conversions: CPA, ROAS, leads\n\nWe also provide real-time dashboards and detailed reports so you know where every rupee is going.\n\nSee our blog: [Setting SMART KPIs for Your Digital Media Campaigns]."
+        answer: "We measure success using SMART KPIs - Specific, Measurable, Achievable, Relevant, and Time-bound. Metrics we track include:\n\n• Awareness: Reach, impressions\n• Engagement: CTR, interactions\n• Conversions: CPA, ROAS, leads\n\nWe also provide real-time dashboards and detailed reports so you know where every rupee is going.\n\nSee our blog: [Setting SMART KPIs for Your Digital Media Campaigns]."
     },
     {
         question: "Which industries does OnlyMedia work with?",
@@ -43,7 +43,7 @@ const faqs = [
     },
     {
         question: "What is audience segmentation and why does it matter?",
-        answer: "Audience segmentation is the process of grouping your customers based on:\n– Demographics\n– Behavior\n– Purchase intent\n– Engagement patterns\n\nAt OnlyMedia, this allows us to create personalized campaigns that convert better, because relevance drives results."
+        answer: "Audience segmentation is the process of grouping your customers based on:\n- Demographics\n- Behavior\n- Purchase intent\n- Engagement patterns\n\nAt OnlyMedia, this allows us to create personalized campaigns that convert better, because relevance drives results."
     },
     {
         question: "Do you offer integrated campaigns (online + offline)?",
