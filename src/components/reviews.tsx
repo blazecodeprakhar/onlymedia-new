@@ -46,8 +46,8 @@ function Reviews() {
                         <Image src={'/images/paulina-punla.png'} height={100} width={100} alt="perfil" className="object-cover object-center size-15 rounded-full border border-beige-0" />
 
                         <div>
-                            <p className="text-body-normal text-neutral-30">Martha Punla</p>
-                            <p className="text-body-small text-neutral-10">VP Marketing, Meta</p>
+                            <p className="text-body-normal text-neutral-30">Kavya Reddy</p>
+                            <p className="text-body-small text-neutral-10">CMO, Mamaearth India</p>
                         </div>
                     </div>
                 </div>
