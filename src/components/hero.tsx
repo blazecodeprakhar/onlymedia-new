@@ -22,12 +22,12 @@ function Hero() {
                 trigger: '.hero',
                 start: 'top top',
                 end: 'center top',
-                scrub: 1.5, // smoother scrub with lag
+                scrub: true
             }
         }).fromTo('.hero-image', {
             rotateX: '20deg',
-            scale: 0.85,
-            translateY: '-60px'
+            scale: 0.8,
+            translateY: '-80px'
         }, {
             rotateX: '0deg',
             scale: 1,
@@ -103,15 +103,9 @@ function Hero() {
                     </motion.div>
                 </div>
 
-                {/* Hero image — perspective lift-in */}
-                <motion.div
-                    className="hero-image"
-                    initial={{ opacity: 0, y: 60, rotateX: '12deg', scale: 0.92 }}
-                    animate={{ opacity: 1, y: 0, rotateX: '0deg', scale: 1 }}
-                    transition={{ duration: 1.1, ease: EXPO_EASE, delay: 0.95 }}
-                >
+                <div className="hero-image">
                     <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center" priority />
-                </motion.div>
+                </div>
             </div>
 
             <div className="hero-left-cloud">
