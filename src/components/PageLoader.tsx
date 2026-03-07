@@ -52,22 +52,8 @@ export default function PageLoader() {
                         transition={{ duration: 1.8, ease: EXPO_EASE }}
                     />
 
-                    {/* Top HUD Area */}
-                    <motion.div
-                        className="w-full p-8 flex justify-between items-start z-10"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: EXPO_EASE, delay: 0.3 }}
-                    >
-                        <div className="flex flex-col gap-1">
-                            <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-neutral-30">Loading</span>
-                            <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-neutral-20">System Init</span>
-                        </div>
-                        <div className="flex gap-2 items-center">
-                            <div className="w-2 h-2 rounded-full bg-accent-blue animate-pulse" />
-                            <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] font-mono text-neutral-30">{progress}%</span>
-                        </div>
-                    </motion.div>
+                    {/* Top Spacer for flex layout */}
+                    <div className="w-full h-[88px]" />
 
                     {/* Center Logo Area */}
                     <div className="flex flex-col items-center gap-6 relative z-10 w-full px-4 text-center">
