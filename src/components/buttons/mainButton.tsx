@@ -112,7 +112,7 @@ const MainButton = ({
 
   if (href) {
     return (
-      <Link {...commonProps} href={href} scroll={false}>
+      <Link {...commonProps} href={href}>
         {content}
       </Link>
     )
