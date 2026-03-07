@@ -107,10 +107,12 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
                 {...props}
             >
                 {/* White Wash Overlay to obscure sinking cards perfectly */}
-                <motion.div
-                    className="absolute inset-0 bg-beige-0 z-50 pointer-events-none rounded-[40px]"
-                    style={{ opacity: overlayOpacity as any }}
-                />
+                {(
+                    <motion.div
+                        className="absolute inset-0 bg-beige-0 z-50 pointer-events-none rounded-[40px]"
+                        style={{ opacity: overlayOpacity }}
+                    />
+                ) as any}
 
                 {children}
             </motion.div>
