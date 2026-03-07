@@ -1,27 +1,30 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import { useLenis } from '@/lib/lenis'
 
 /**
  * SmoothScrollManager
  * -------------------
- * Uses the native Lenis instance exposed on window by ReactLenis
- * to handle ALL scrolling routing logic perfectly cleanly.
+ * Extends the Lenis context instance to handle all Next.js native link clicks 
+ * cleanly across route transitions.
  */
 export default function SmoothScrollManager() {
     const pathname = usePathname()
     const router = useRouter()
 
+    // Properly access instance from ReactLenis Provider context instead of window hack
+    const lenis = useLenis()
+
     // 1. Instant reset on Next.js native navigation events to stop artifacts
     useEffect(() => {
-        const lenis = (window as any).__lenis
         if (lenis) {
             lenis.scrollTo(0, { immediate: true })
         } else {
             window.scrollTo(0, 0)
         }
-    }, [pathname])
+    }, [pathname, lenis])
 
     // 2. Global interception of clicks
     useEffect(() => {
@@ -43,14 +46,14 @@ export default function SmoothScrollManager() {
                     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
 
                     e.preventDefault()
+                    e.stopPropagation() // CRITICAL: Prevent Next.js <Link> from instant routing
 
-                    const lenis = (window as any).__lenis
                     const currentScroll = window.scrollY
 
                     const executeNavigation = () => {
                         if (targetUrl.pathname === pathname) {
                             if (targetUrl.hash && targetUrl.hash !== '#') {
-                                const el = document.querySelector(targetUrl.hash)
+                                const el = document.querySelector(targetUrl.hash) as HTMLElement
                                 if (el) lenis?.scrollTo(el, { offset: -80, duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
                             } else {
                                 lenis?.scrollTo(0, { duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
@@ -92,9 +95,10 @@ export default function SmoothScrollManager() {
             }
         }
 
-        document.addEventListener('click', handler)
-        return () => document.removeEventListener('click', handler)
-    }, [pathname, router])
+        // Use capture: true so we intercept the click BEFORE Next.js <Link> handles it
+        document.addEventListener('click', handler, { capture: true })
+        return () => document.removeEventListener('click', handler, { capture: true })
+    }, [pathname, router, lenis])
 
     return null
 }
