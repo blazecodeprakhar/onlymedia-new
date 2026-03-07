@@ -5,16 +5,23 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger, SplitText } from "gsap/all"
 import { useMediaQuery } from "react-responsive"
+import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 // Shared easing curve — same as Apple's "ease-out-expo"
 const EXPO_EASE = [0.16, 1, 0.3, 1] as const
-const HERO_DELAY = 1.8;
+
+let isInitialMount = true;
 
 function Hero() {
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+    const [heroDelay] = useState(isInitialMount ? 1.8 : 0);
+
+    useEffect(() => {
+        isInitialMount = false;
+    }, []);
 
     useGSAP(() => {
         // Hero image parallax on scroll — kept from before
@@ -41,13 +48,13 @@ function Hero() {
 
         gsap.fromTo('.hero-left-cloud',
             { left: startOffset, opacity: 0, scale: 0.6 },
-            { left: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: HERO_DELAY }
+            { left: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: heroDelay }
         )
         gsap.fromTo('.hero-right-cloud',
             { right: startOffset, opacity: 0, scale: 0.6 },
-            { right: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: HERO_DELAY }
+            { right: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: heroDelay }
         )
-    })
+    }, [heroDelay])
 
     // Stagger variants for headline words
     const container = {
@@ -55,7 +62,7 @@ function Hero() {
         show: {
             transition: {
                 staggerChildren: 0.055,
-                delayChildren: HERO_DELAY + 0.1,
+                delayChildren: heroDelay + 0.1,
             }
         }
     }
@@ -74,7 +81,7 @@ function Hero() {
                             className="flex items-center gap-4 justify-center w-full mb-4 md:mb-6"
                             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: HERO_DELAY + 0.1 }}
+                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: heroDelay + 0.1 }}
                         >
                             <p className="text-accent-blue tracking-[0.4em] uppercase font-black text-[11px] md:text-sm">
                                 PERFORMANCE MEDIA AGENCY
@@ -110,7 +117,7 @@ function Hero() {
                             className="hero-description"
                             initial={{ opacity: 0, y: 24 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: HERO_DELAY + 0.5 }}
+                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: heroDelay + 0.5 }}
                         >
                             We deliver data-driven media solutions that connect brands with the right audiences and drive measurable growth across online and offline touchpoints.
                         </motion.p>
@@ -121,7 +128,7 @@ function Hero() {
                         className="buttons"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, ease: EXPO_EASE, delay: HERO_DELAY + 0.75 }}
+                        transition={{ duration: 0.7, ease: EXPO_EASE, delay: heroDelay + 0.75 }}
                     >
                         <MainButton text="Try OnlyMedia" />
                         <MainButton variant="tertiary" text="See features" />
@@ -132,7 +139,7 @@ function Hero() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.85, y: 100 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ duration: 1.4, ease: EXPO_EASE, delay: HERO_DELAY + 0.2 }}
+                        transition={{ duration: 1.4, ease: EXPO_EASE, delay: heroDelay + 0.2 }}
                         style={{ width: '100%', height: '100%' }}
                     >
                         <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center w-full h-full" priority />
