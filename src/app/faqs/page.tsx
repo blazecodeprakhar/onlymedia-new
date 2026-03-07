@@ -134,11 +134,9 @@ export default function FAQPage() {
             {/* Premium Hero Section */}
             <div ref={heroRef} className="pt-48 pb-20 bg-linear-to-b from-beige-10 via-neutral-0/30 to-neutral-0 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center gap-4 mb-10 faq-reveal">
-                    <span className="h-[2px] w-12 bg-accent-blue rounded-full" />
                     <p className="text-eyebrow-large text-accent-blue tracking-[0.5em] uppercase font-black text-xs">
                         KNOWLEDGE BASE
                     </p>
-                    <span className="h-[2px] w-12 bg-accent-blue rounded-full" />
                 </div>
                 <h1 className="text-[64px] md:text-[96px] lg:text-[120px] font-black leading-[0.85] tracking-[-0.04em] text-neutral-30 faq-reveal max-w-5xl">
                     Answers to your <br className="hidden md:block" />

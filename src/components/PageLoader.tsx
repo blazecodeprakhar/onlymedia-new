@@ -64,11 +64,9 @@ export default function PageLoader() {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             transition={{ duration: 1, ease: EXPO_EASE, delay: 0.1 }}
                         >
-                            <span className="h-[1px] w-8 md:w-16 bg-neutral-20 rounded-full hidden sm:block" />
                             <p className="text-neutral-30 tracking-[0.4em] uppercase font-bold text-[10px] md:text-[12px]">
                                 PERFORMANCE MEDIA AGENCY
                             </p>
-                            <span className="h-[1px] w-8 md:w-16 bg-neutral-20 rounded-full hidden sm:block" />
                         </motion.div>
 
                         {/* Main Logo Text mapped closely to Hero typography */}

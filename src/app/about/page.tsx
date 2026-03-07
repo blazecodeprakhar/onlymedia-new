@@ -50,11 +50,9 @@ export default function AboutPage() {
             {/* Premium Hero Section */}
             <div className="pt-48 pb-32 bg-linear-to-b from-beige-10 via-neutral-0/30 to-neutral-0 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center gap-4 mb-10 about-reveal">
-                    <span className="h-[2px] w-12 bg-accent-blue rounded-full" />
                     <p className="text-eyebrow-large text-accent-blue tracking-[0.5em] uppercase font-black text-xs">
                         WE ARE ONLYMEDIA
                     </p>
-                    <span className="h-[2px] w-12 bg-accent-blue rounded-full" />
                 </div>
 
                 <h1 className="text-[56px] md:text-[80px] lg:text-[110px] font-black leading-[0.9] tracking-[-0.04em] text-neutral-30 about-reveal max-w-6xl">

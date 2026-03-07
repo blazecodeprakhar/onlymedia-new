@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 
 // Shared easing curve — same as Apple's "ease-out-expo"
 const EXPO_EASE = [0.16, 1, 0.3, 1] as const
+const HERO_DELAY = 1.8;
 
 function Hero() {
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
@@ -34,9 +35,18 @@ function Hero() {
             translateY: '0px'
         })
 
+        // Epic cinematic cloud reveal
         const imageOffset = isMobile ? '-200px' : '-340px'
-        gsap.to('.hero-left-cloud', { left: imageOffset, duration: 1.4, ease: 'power3.out', delay: 1.2 })
-        gsap.to('.hero-right-cloud', { right: imageOffset, duration: 1.4, ease: 'power3.out', delay: 1.2 })
+        const startOffset = isMobile ? '-50px' : '-100px'
+
+        gsap.fromTo('.hero-left-cloud',
+            { left: startOffset, opacity: 0, scale: 0.6 },
+            { left: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: HERO_DELAY }
+        )
+        gsap.fromTo('.hero-right-cloud',
+            { right: startOffset, opacity: 0, scale: 0.6 },
+            { right: imageOffset, opacity: 1, scale: 1, duration: 2.5, ease: 'power3.out', delay: HERO_DELAY }
+        )
     })
 
     // Stagger variants for headline words
@@ -45,7 +55,7 @@ function Hero() {
         show: {
             transition: {
                 staggerChildren: 0.055,
-                delayChildren: 0.1,
+                delayChildren: HERO_DELAY + 0.1,
             }
         }
     }
@@ -64,13 +74,11 @@ function Hero() {
                             className="flex items-center gap-4 justify-center w-full mb-4 md:mb-6"
                             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: 0.1 }}
+                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: HERO_DELAY + 0.1 }}
                         >
-                            <span className="h-[2px] w-8 md:w-12 bg-accent-blue rounded-full" />
                             <p className="text-accent-blue tracking-[0.4em] uppercase font-black text-[11px] md:text-sm">
                                 PERFORMANCE MEDIA AGENCY
                             </p>
-                            <span className="h-[2px] w-8 md:w-12 bg-accent-blue rounded-full" />
                         </motion.div>
 
                         {/* Headline with staggered word reveal */}
@@ -102,7 +110,7 @@ function Hero() {
                             className="hero-description"
                             initial={{ opacity: 0, y: 24 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: 0.5 }}
+                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: HERO_DELAY + 0.5 }}
                         >
                             We deliver data-driven media solutions that connect brands with the right audiences and drive measurable growth across online and offline touchpoints.
                         </motion.p>
@@ -113,7 +121,7 @@ function Hero() {
                         className="buttons"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, ease: EXPO_EASE, delay: 0.75 }}
+                        transition={{ duration: 0.7, ease: EXPO_EASE, delay: HERO_DELAY + 0.75 }}
                     >
                         <MainButton text="Try OnlyMedia" />
                         <MainButton variant="tertiary" text="See features" />
@@ -121,7 +129,14 @@ function Hero() {
                 </div>
 
                 <div className="hero-image">
-                    <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center" priority />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.85, y: 100 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 1.4, ease: EXPO_EASE, delay: HERO_DELAY + 0.2 }}
+                        style={{ width: '100%', height: '100%' }}
+                    >
+                        <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center w-full h-full" priority />
+                    </motion.div>
                 </div>
             </div>
 
