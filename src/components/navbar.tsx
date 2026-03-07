@@ -54,7 +54,7 @@ function Navbar() {
         <header className='p-5 flex justify-center fixed z-50 w-full'>
             <div id="navbar" className="flex flex-col gap-4 w-5xl max-w-5xl">
                 <nav className="flex items-center justify-between md:pl-6 md:pr-2 py-2 px-6">
-                    <Link href={'/'} className="pointer">
+                    <Link href={'/'} scroll={false} className="pointer">
                         <div className="flex items-center justify-center gap-1">
                             <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain grayscale brightness-0" priority />
                         </div>
@@ -63,19 +63,19 @@ function Navbar() {
                     <div className="hidden lg:block">
                         <ul className="flex gap-2 text-body-large text-neutral-30">
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'/'}>Home</Link>
+                                <Link href={'/'} scroll={false}>Home</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>About</Link>
+                                <Link href={'#'} scroll={false}>About</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>Services</Link>
+                                <Link href={'#'} scroll={false}>Services</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>Blogs</Link>
+                                <Link href={'#'} scroll={false}>Blogs</Link>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'/contact'}>Contact</Link>
+                                <Link href={'/contact'} scroll={false}>Contact</Link>
                             </li>
                         </ul>
                     </div>
@@ -90,19 +90,19 @@ function Navbar() {
                 <div className={`${!openDropdown && 'hidden'} p-6 lg:hidden text-center mt-2 w-full `}>
                     <ul className="flex flex-col gap-2 text-body-large text-neutral-30 pb-6">
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'/'}>Home</Link>
+                            <Link href={'/'} scroll={false}>Home</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>About</Link>
+                            <Link href={'#'} scroll={false}>About</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>Services</Link>
+                            <Link href={'#'} scroll={false}>Services</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>Blogs</Link>
+                            <Link href={'#'} scroll={false}>Blogs</Link>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'/contact'}>Contact</Link>
+                            <Link href={'/contact'} scroll={false}>Contact</Link>
                         </li>
                     </ul>
                     <div className="flex flex-col gap-3">

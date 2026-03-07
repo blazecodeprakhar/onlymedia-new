@@ -16,35 +16,64 @@ export default function SmoothScrollManager() {
 
     // Smooth scroll to top on EVERY page navigation
     useEffect(() => {
-        const lenis = (window as any).__lenis
-        if (lenis) {
-            lenis.scrollTo(0, { duration: 1.4, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
-        } else {
-            // Fallback: native smooth scroll if Lenis isn't ready yet
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
+        // We defer slightly to allow Next.js route transition to swap the DOM
+        const timeout = setTimeout(() => {
+            const lenis = (window as any).__lenis
+            if (lenis) {
+                // Scroll up smoothly from wherever we are
+                lenis.scrollTo(0, { duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+        }, 100)
+        return () => clearTimeout(timeout)
     }, [pathname])
 
     // Handle anchor clicks globally via delegation
     useEffect(() => {
         const handler = (e: MouseEvent) => {
-            const target = (e.target as HTMLElement).closest('[data-scroll-to]')
+            const target = (e.target as HTMLElement).closest('a')
             if (!target) return
-            const id = target.getAttribute('data-scroll-to')
-            const el = id ? document.querySelector(id) : null
-            if (el) {
-                e.preventDefault()
-                const lenis = (window as any).__lenis
-                if (lenis) {
-                    lenis.scrollTo(el, { offset: -80, duration: 1.4, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
-                } else {
-                    el.scrollIntoView({ behavior: 'smooth' })
+
+            const href = target.getAttribute('href')
+            if (!href) return
+
+            // Handle scroll-to-id if present
+            const scrollId = target.getAttribute('data-scroll-to')
+            if (scrollId) {
+                const el = document.querySelector(scrollId)
+                if (el) {
+                    e.preventDefault()
+                    const lenis = (window as any).__lenis
+                    if (lenis) {
+                        lenis.scrollTo(el, { offset: -80, duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+                    } else {
+                        el.scrollIntoView({ behavior: 'smooth' })
+                    }
                 }
+                return
+            }
+
+            // Handle same-page links (e.g. clicking Home while on Home)
+            try {
+                const targetUrl = new URL(target.href, window.location.origin)
+                // If the link points to the exact same page without a hash, we scroll to top instead of jumping
+                if (targetUrl.pathname === pathname && (!targetUrl.hash || targetUrl.hash === '#')) {
+                    e.preventDefault()
+                    const lenis = (window as any).__lenis
+                    if (lenis) {
+                        lenis.scrollTo(0, { duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }
+                }
+            } catch (err) {
+                // Ignore invalid URLs
             }
         }
         document.addEventListener('click', handler)
         return () => document.removeEventListener('click', handler)
-    }, [])
+    }, [pathname])
 
     return null
 }
