@@ -57,7 +57,7 @@ function ContactForm() {
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-1">Call us</p>
-                                    <p className="text-xl font-bold text-neutral-30">+1 (555) 000-0000</p>
+                                    <p className="text-xl font-bold text-neutral-30">+91 9876543210</p>
                                 </div>
                             </div>
 
@@ -67,7 +67,7 @@ function ContactForm() {
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-1">Visit Hub</p>
-                                    <p className="text-xl font-bold text-neutral-30">123 Media Street, NY</p>
+                                    <p className="text-xl font-bold text-neutral-30">Mumbai, India</p>
                                 </div>
                             </div>
                         </div>
