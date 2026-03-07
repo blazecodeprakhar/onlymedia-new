@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import MainButton from './buttons/mainButton'
-import { Envelope, Phone, MapPin, LinkedinLogo, TwitterLogo, InstagramLogo } from '@phosphor-icons/react'
+import { Envelope, Phone, MapPin, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react'
 
 function ContactForm() {
     const formRef = useRef<HTMLDivElement>(null)
@@ -47,7 +47,7 @@ function ContactForm() {
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-1">Email us</p>
-                                    <p className="text-xl font-bold text-neutral-30">hello@onlymedia.com</p>
+                                    <p className="text-xl font-bold text-neutral-30">connect@onlymedia.in</p>
                                 </div>
                             </div>
 
@@ -73,11 +73,15 @@ function ContactForm() {
                         </div>
 
                         <div className="contact-reveal flex gap-5 mt-4">
-                            {[LinkedinLogo, InstagramLogo, TwitterLogo].map((Icon, idx) => (
-                                <a key={idx} href="#" className="h-14 w-14 rounded-2xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
-                                    <Icon size={24} weight="fill" />
-                                </a>
-                            ))}
+                            <a href="https://in.linkedin.com/company/onlymedia-marketing-solutions" target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
+                                <LinkedinLogo size={24} weight="fill" />
+                            </a>
+                            <a href="https://www.instagram.com/onlymedia_official/" target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
+                                <InstagramLogo size={24} weight="fill" />
+                            </a>
+                            <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
+                                <FacebookLogo size={24} weight="fill" />
+                            </a>
                         </div>
                     </div>
 

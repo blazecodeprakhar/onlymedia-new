@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Reviews from "@/components/reviews";
 import WhoWeAre from "@/components/whoWeAre";
 import Footer from "@/components/footer";
+import StackedCardsSection from "@/components/stackedCardsSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <LogosTicker />
         <Reviews />
       </div>
+      <StackedCardsSection />
       <Footer />
     </main>
   );
