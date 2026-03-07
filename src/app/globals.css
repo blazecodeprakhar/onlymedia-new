@@ -114,13 +114,13 @@ body {
 
 @layer components {
   .hero {
-    @apply relative lg:h-255 h-200 lg:min-h-[80vh] min-h-[70vh] flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
+    @apply relative lg:h-[1600px] md:h-[1200px] h-[1000px] lg:min-h-[100vh] min-h-[80vh] flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
 
     .hero-content {
-      @apply z-2 px-5 max-w-268 pt-40 flex flex-col items-center gap-16;
+      @apply z-2 px-5 w-full max-w-[1250px] pt-40 flex flex-col items-center gap-16;
 
       .top {
-        @apply max-w-198 flex flex-col items-center gap-10;
+        @apply max-w-[792px] flex flex-col items-center gap-10;
 
         .texts {
           @apply flex flex-col items-center gap-4 text-center;
@@ -130,7 +130,7 @@ body {
           }
 
           .hero-description {
-            @apply lg:text-body-xl text-body-normal max-w-175;
+            @apply lg:text-body-xl text-body-normal max-w-[700px];
           }
         }
 
@@ -140,7 +140,7 @@ body {
       }
 
       .hero-image {
-        @apply lg:h-175 md:h-125 h-119 max-w-268;
+        @apply lg:h-[1200px] md:h-[850px] h-[750px] w-full max-w-[1250px];
         transform: perspective(1000px);
       }
     }
