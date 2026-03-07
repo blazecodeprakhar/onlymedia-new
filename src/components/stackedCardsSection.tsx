@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react';
-import { useScroll, useTransform, motion, useSpring } from 'motion/react';
+import { useScroll, useTransform, motion } from 'motion/react';
 import { ContainerScroll, CardSticky } from "@/components/blocks/cards-stack"
 
 const PROCESS_PHASES = [
@@ -52,13 +52,12 @@ const StackedCardsSection = () => {
         offset: ["start start", "end end"]
     });
 
-    // We use Framer Motion to seamlessly track and push the container along with the user's scroll.
-    // We calibrate the total scrollable distance strictly to the total height needed by the 6 cards animating (275vh).
+    // Plain transform — no spring to avoid bounce/overshoot on card stacking
     const pinY = useTransform(scrollYProgress, [0, 1], ["0vh", "275vh"]);
 
     return (
         // Parent bounds precisely mapped so the next section slides up perfectly on cue
-        <section ref={sectionRef} className="bg-beige-0 relative w-full h-[375vh]">
+        <section ref={sectionRef} className="bg-linear-to-b from-beige-0 to-[#F9F8F8] relative w-full h-[375vh]">
 
             <motion.div
                 style={{ y: pinY }}
@@ -92,7 +91,7 @@ const StackedCardsSection = () => {
                                         index={index}
                                         total={total}
                                         progress={scrollYProgress}
-                                        className="rounded-[40px] border border-neutral-30/[0.03] p-10 md:p-14 shadow-[0_32px_128px_-32px_rgba(26,22,21,0.06)] bg-white w-full min-h-[400px] flex flex-col justify-center"
+                                        className="rounded-[40px] border border-[#E4E2E2] p-10 md:p-14 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] bg-[#FFFFFF] w-full min-h-[400px] flex flex-col justify-center transition-colors hover:border-accent-blue/30"
                                         incrementY={3}
                                         incrementZ={10}
                                     >
