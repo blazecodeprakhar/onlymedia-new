@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
     const mainRef = useRef<HTMLDivElement>(null)
+    const teamRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
         gsap.from(".about-reveal", {
@@ -22,17 +23,23 @@ export default function AboutPage() {
             ease: "expo.out",
         })
 
-        gsap.from(".team-card", {
-            y: 50,
-            opacity: 0,
-            duration: 1.0,
-            stagger: 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".team-section",
-                start: "top 75%",
+        gsap.fromTo(".team-card",
+            {
+                y: 50,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: teamRef.current,
+                    start: "top 85%",
+                }
             }
-        })
+        )
     }, { scope: mainRef })
 
     return (
@@ -65,7 +72,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Section */}
-            <div className="w-full bg-neutral-0 pb-32 pt-10 px-6 team-section relative">
+            <div ref={teamRef} className="w-full bg-neutral-0 pb-32 pt-10 px-6 team-section relative">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 about-reveal">
                         <h2 className="text-4xl md:text-6xl font-black text-neutral-30 tracking-tight">The Minds Behind the Metrics</h2>
@@ -93,12 +100,12 @@ export default function AboutPage() {
                                 href="https://www.linkedin.com/in/ankita-shah-b59b4923/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-colors"
+                                className="group inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-all duration-300"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm-16,160a8,8,0,0,1-16,0V136c0-13.78-7.83-20.94-17.76-20.94-11.85,0-18.06,8.74-18.24,19.23V184a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0v10.3a34,34,0,0,1,28.89-14.3C206.58,100,216,112.92,216,136.27V184Zm-96,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0V184ZM88,80a16,16,0,1,1,16-16A16,16,0,0,1,88,80Z"></path>
                                 </svg>
-                                <span>Connect on LinkedIn</span>
+                                <span className="transform group-hover:translate-x-1 transition-transform duration-300">Connect on LinkedIn</span>
                             </a>
                         </div>
 
@@ -121,12 +128,12 @@ export default function AboutPage() {
                                 href="https://www.linkedin.com/in/akshayshah18/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-colors"
+                                className="group inline-flex items-center gap-2 text-neutral-30 hover:text-accent-blue font-semibold transition-all duration-300"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
                                     <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm-16,160a8,8,0,0,1-16,0V136c0-13.78-7.83-20.94-17.76-20.94-11.85,0-18.06,8.74-18.24,19.23V184a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0v10.3a34,34,0,0,1,28.89-14.3C206.58,100,216,112.92,216,136.27V184Zm-96,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0V184ZM88,80a16,16,0,1,1,16-16A16,16,0,0,1,88,80Z"></path>
                                 </svg>
-                                <span>Connect on LinkedIn</span>
+                                <span className="transform group-hover:translate-x-1 transition-transform duration-300">Connect on LinkedIn</span>
                             </a>
                         </div>
 
