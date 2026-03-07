@@ -25,18 +25,18 @@ export default function AboutPage() {
 
         gsap.fromTo(".team-card",
             {
-                y: 50,
+                y: 80,
                 opacity: 0,
             },
             {
                 y: 0,
                 opacity: 1,
-                duration: 1.0,
-                stagger: 0.2,
-                ease: "power2.out",
+                duration: 1.4,
+                stagger: 0.25,
+                ease: "expo.out",
                 scrollTrigger: {
                     trigger: teamRef.current,
-                    start: "top 85%",
+                    start: "top 80%",
                 }
             }
         )
@@ -82,7 +82,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
 
                         {/* Ankita Shah */}
-                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10 h-full">
+                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-500 border border-neutral-10/10 h-full">
                             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
                                 <img
                                     src="/Ankita-Profile-IMage.jpeg"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Akshay Shah */}
-                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 border border-neutral-10/10 h-full">
+                        <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-500 border border-neutral-10/10 h-full">
                             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
                                 <img
                                     src="/AKSHAY-profile-23_OM.jpg"
