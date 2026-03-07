@@ -120,17 +120,17 @@ body {
       @apply z-2 px-5 w-full max-w-[1250px] pt-40 flex flex-col items-center gap-16;
 
       .top {
-        @apply max-w-[792px] flex flex-col items-center gap-10;
+        @apply max-w-[1000px] flex flex-col items-center gap-10;
 
         .texts {
-          @apply flex flex-col items-center gap-4 text-center;
+          @apply flex flex-col items-center gap-4 text-center px-4;
 
           .hero-title {
-            @apply lg:text-[76px]/[120%] text-[40px]/[120%] text-neutral-30 font-bold;
+            @apply lg:text-[110px]/[0.9] md:text-[80px]/[1] text-[56px]/[1] text-neutral-30 font-black tracking-[-0.04em];
           }
 
           .hero-description {
-            @apply lg:text-body-xl text-body-normal max-w-[700px];
+            @apply text-xl md:text-2xl text-neutral-20 leading-[1.6] max-w-[800px] mt-6;
           }
         }
 

@@ -59,25 +59,42 @@ function Hero() {
             <div className="hero-content">
                 <div className="top">
                     <div className="texts">
+                        {/* Eyebrow */}
+                        <motion.div
+                            className="flex items-center gap-4 justify-center w-full mb-4 md:mb-6"
+                            initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
+                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            transition={{ duration: 0.8, ease: EXPO_EASE, delay: 0.1 }}
+                        >
+                            <span className="h-[2px] w-8 md:w-12 bg-accent-blue rounded-full" />
+                            <p className="text-accent-blue tracking-[0.4em] uppercase font-black text-[11px] md:text-sm">
+                                PERFORMANCE MEDIA AGENCY
+                            </p>
+                            <span className="h-[2px] w-8 md:w-12 bg-accent-blue rounded-full" />
+                        </motion.div>
+
                         {/* Headline with staggered word reveal */}
                         <motion.h1
                             className="hero-title"
-                            style={isMobile ? { fontSize: '1.8rem', lineHeight: '1.2' } : {}}
+                            style={isMobile ? { fontSize: '3.5rem' } : {}}
                             variants={container}
                             initial="hidden"
                             animate="show"
                         >
-                            {['TARGETED', 'MEDIA'].map((w, i) => (
+                            {['Targeted', 'media.'].map((w, i) => (
                                 <motion.span key={i} variants={word} style={{ display: 'inline-block', marginRight: '0.25em' }}>
                                     {w}
                                 </motion.span>
                             ))}
-                            <br />
-                            {['MEASURABLE', 'GROWTH'].map((w, i) => (
-                                <motion.span key={i} variants={word} style={{ display: 'inline-block', marginRight: '0.25em', whiteSpace: 'nowrap' }}>
+                            <br className="hidden md:block" />
+                            {['Measurable'].map((w, i) => (
+                                <motion.span key={i} variants={word} style={{ display: 'inline-block', marginRight: '0.25em', marginTop: '0.1em' }}>
                                     {w}
                                 </motion.span>
                             ))}
+                            <motion.span variants={word} className="text-accent-blue italic font-serif font-medium" style={{ display: 'inline-block', whiteSpace: 'nowrap', paddingRight: '0.05em' }}>
+                                growth.
+                            </motion.span>
                         </motion.h1>
 
                         {/* Description fade-up */}
