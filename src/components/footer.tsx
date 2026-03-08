@@ -42,7 +42,7 @@ function Footer() {
                 {/* Top Call to Action Area */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 border-b border-white/5 pb-20">
                     <div className="footer-reveal">
-                        <h2 className="text-[40px] md:text-[56px] font-bold leading-tight tracking-tight mb-4">
+                        <h2 className="text-[36px] sm:text-[40px] md:text-[56px] font-bold leading-tight tracking-tight mb-4">
                             Ready to move <br />
                             <span className="text-accent-blue">your brand forward?</span>
                         </h2>

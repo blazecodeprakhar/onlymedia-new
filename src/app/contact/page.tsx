@@ -31,9 +31,9 @@ export default function ContactPage() {
                         CONNECT WITH US
                     </p>
                 </div>
-                <h1 className="text-[64px] md:text-[96px] lg:text-[120px] font-black leading-[0.85] tracking-[-0.04em] text-neutral-30 contact-reveal">
+                <h1 className="text-[42px] sm:text-[48px] md:text-[96px] lg:text-[120px] font-black leading-[0.85] tracking-[-0.04em] text-neutral-30 contact-reveal">
                     Let’s build <br />
-                    <span className="text-accent-blue italic font-serif font-medium">the future.</span>
+                    <span className="text-accent-blue italic font-serif font-medium leading-[1]">the future.</span>
                 </h1>
                 <p className="max-w-xl text-body-xl text-neutral-20 mt-12 mb-10 contact-reveal leading-relaxed">
                     Have a project in mind? We're ready to bring the strategy, data, and design to help you reach the next level.

@@ -138,9 +138,9 @@ export default function FAQPage() {
                         KNOWLEDGE BASE
                     </p>
                 </div>
-                <h1 className="text-[64px] md:text-[96px] lg:text-[120px] font-black leading-[0.85] tracking-[-0.04em] text-neutral-30 faq-reveal max-w-5xl">
+                <h1 className="text-[42px] sm:text-[48px] md:text-[96px] lg:text-[120px] font-black leading-[0.85] tracking-[-0.04em] text-neutral-30 faq-reveal max-w-5xl">
                     Answers to your <br className="hidden md:block" />
-                    <span className="text-accent-blue italic font-serif font-medium">biggest questions.</span>
+                    biggest <span className="text-accent-blue italic font-serif font-medium leading-[1]">questions.</span>
                 </h1>
                 <p className="max-w-xl text-body-xl text-neutral-20 mt-12 faq-reveal leading-[1.4]">
                     Everything you need to know about our data-driven media solutions, custom strategies, and how we measure success.
@@ -165,11 +165,11 @@ export default function FAQPage() {
             {/* Outro CTA Block */}
             <div className="w-full relative py-32 bg-neutral-30 flex flex-col items-center justify-center text-center px-6 faq-item-reveal overflow-hidden">
                 <div className="absolute inset-0 opacity-10 blur-3xl rounded-full bg-accent-blue scale-150 transform -translate-y-1/2"></div>
-                <h2 className="text-[48px] md:text-[64px] font-bold text-white mb-6 tracking-tight relative z-10 max-w-3xl leading-[1.1]">
-                    Still have questions? Let's talk strategy.
+                <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold text-white mb-6 tracking-tight relative z-10 max-w-3xl leading-[1.1]">
+                    Still have questions?
                 </h2>
-                <p className="text-xl md:text-2xl text-neutral-10 mb-12 max-w-2xl relative z-10">
-                    We're here to help you navigate the complex media landscape. Let's start a conversation about your business goals.
+                <p className="text-lg sm:text-[xl] md:text-2xl text-neutral-10 mb-10 md:mb-12 max-w-2xl relative z-10">
+                    Reach out to our team directly. We're here to help you navigate your media strategy.
                 </p>
                 <div className="relative z-10">
                     <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">

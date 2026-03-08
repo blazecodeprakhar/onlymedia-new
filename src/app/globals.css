@@ -114,33 +114,33 @@ body {
 
 @layer components {
   .hero {
-    @apply relative lg:h-[1400px] md:h-[1120px] h-[920px] lg:min-h-[100vh] min-h-[80vh] flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
+    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-32 sm:pb-40 lg:min-h-[100vh] min-h-[90vh] flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
 
     .hero-content {
-      @apply z-2 px-5 w-full max-w-[1250px] pt-40 flex flex-col items-center gap-16;
+      @apply z-2 px-4 w-full max-w-[1250px] pt-28 md:pt-40 flex flex-col items-center gap-10 md:gap-16;
 
       .top {
-        @apply max-w-[1000px] flex flex-col items-center gap-10;
+        @apply max-w-[1000px] flex flex-col items-center gap-8 md:gap-10;
 
         .texts {
-          @apply flex flex-col items-center gap-4 text-center px-4;
+          @apply flex flex-col items-center gap-4 text-center px-4 md:px-0;
 
           .hero-title {
-            @apply lg:text-[110px]/[0.9] md:text-[80px]/[1] text-[56px]/[1] text-neutral-30 font-black tracking-[-0.04em];
+            @apply lg:text-[110px]/[0.9] md:text-[80px]/[1] text-[42px]/[1] sm:text-[52px]/[1] text-neutral-30 font-black tracking-[-0.04em];
           }
 
           .hero-description {
-            @apply text-xl md:text-2xl text-neutral-20 leading-[1.6] max-w-[800px] mt-6;
+            @apply text-base sm:text-lg md:text-2xl text-neutral-20 leading-[1.6] max-w-[800px] mt-4 md:mt-6;
           }
         }
 
         .buttons {
-          @apply flex gap-2;
+          @apply flex gap-3 md:gap-4 flex-col sm:flex-row w-full sm:w-auto px-4 sm:px-0;
         }
       }
 
       .hero-image {
-        @apply lg:h-[1200px] md:h-[850px] h-[750px] w-full max-w-[1250px];
+        @apply lg:h-[1200px] md:h-[850px] h-[450px] w-full max-w-[1250px];
         transform: perspective(1000px);
       }
     }
@@ -186,7 +186,7 @@ body {
         @apply text-center flex flex-col items-center gap-5 lg:w-225;
 
         .big-testimonial {
-          @apply md:text-6xl/[145%] text-4xl/[145%] font-medium text-neutral-30;
+          @apply text-[28px]/[1.4] sm:text-4xl/[1.45] md:text-5xl/[1.45] lg:text-6xl/[1.45] font-medium text-neutral-30 px-4 md:px-0;
         }
 
         .user-info {

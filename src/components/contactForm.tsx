@@ -31,7 +31,7 @@ function ContactForm() {
                     {/* Brand Info Column */}
                     <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-14">
                         <div className="contact-reveal">
-                            <h2 className="text-[48px] md:text-[64px] font-extrabold leading-[1] tracking-tight text-neutral-30 mb-8">
+                            <h2 className="text-[36px] sm:text-[42px] md:text-[64px] font-extrabold leading-[1.1] tracking-tight text-neutral-30 mb-8">
                                 Let's start a <br />
                                 <span className="text-accent-blue font-serif italic font-medium">conversation.</span>
                             </h2>
@@ -47,7 +47,7 @@ function ContactForm() {
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-1">Email us</p>
-                                    <p className="text-xl font-bold text-neutral-30">connect@onlymedia.in</p>
+                                    <p className="text-[15px] sm:text-lg lg:text-xl font-bold text-neutral-30 break-all sm:break-normal">connect@onlymedia.in</p>
                                 </div>
                             </div>
 

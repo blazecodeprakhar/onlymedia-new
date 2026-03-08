@@ -55,7 +55,7 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <h1 className="text-[56px] md:text-[80px] lg:text-[110px] font-black leading-[0.9] tracking-[-0.04em] text-neutral-30 about-reveal max-w-6xl">
+                <h1 className="text-[42px] sm:text-[48px] md:text-[80px] lg:text-[110px] font-black leading-[0.9] tracking-[-0.04em] text-neutral-30 about-reveal max-w-6xl">
                     More than an agency. <br className="hidden md:block" />
                     We are your <span className="text-accent-blue italic font-serif font-medium">growth partners.</span>
                 </h1>
@@ -73,9 +73,9 @@ export default function AboutPage() {
             {/* Team Section */}
             <div ref={teamRef} className="w-full bg-neutral-0 pb-32 pt-10 px-6 team-section relative">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20 about-reveal">
-                        <h2 className="text-4xl md:text-6xl font-black text-neutral-30 tracking-tight">The Minds Behind the Metrics</h2>
-                        <p className="text-xl text-neutral-20 mt-4 max-w-2xl mx-auto">Decades of combined experience dedicated to navigating an ever-evolving media landscape.</p>
+                    <div className="text-center mb-16 md:mb-20 about-reveal">
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-neutral-30 tracking-tight">The Minds Behind the Metrics</h2>
+                        <p className="text-lg md:text-xl text-neutral-20 mt-4 max-w-2xl mx-auto">Decades of combined experience dedicated to navigating an ever-evolving media landscape.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
@@ -139,10 +139,10 @@ export default function AboutPage() {
             {/* Outro CTA Block */}
             <div className="w-full relative py-32 bg-neutral-30 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="absolute inset-0 opacity-10 blur-3xl rounded-full bg-accent-blue scale-150 transform -translate-y-1/2"></div>
-                <h2 className="text-[48px] md:text-[64px] font-bold text-white mb-6 tracking-tight relative z-10 max-w-3xl leading-[1.1]">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold text-white mb-6 tracking-tight relative z-10 max-w-3xl leading-[1.1]">
                     Ready to grow with us?
                 </h2>
-                <p className="text-xl md:text-2xl text-neutral-10 mb-12 max-w-2xl relative z-10">
+                <p className="text-lg sm:text-xl md:text-2xl text-neutral-10 mb-10 md:mb-12 max-w-2xl relative z-10">
                     Let's architect the perfect media strategy for your brand's future.
                 </p>
                 <div className="relative z-10">

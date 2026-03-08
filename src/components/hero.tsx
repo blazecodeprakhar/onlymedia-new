@@ -91,7 +91,6 @@ function Hero() {
                         {/* Headline with staggered word reveal */}
                         <motion.h1
                             className="hero-title"
-                            style={isMobile ? { fontSize: '3.5rem' } : {}}
                             variants={container}
                             initial="hidden"
                             animate="show"
@@ -135,7 +134,7 @@ function Hero() {
                     </motion.div>
                 </div>
 
-                <div className="hero-image">
+                <div className="hero-image hidden md:block">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.85, y: 100 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
