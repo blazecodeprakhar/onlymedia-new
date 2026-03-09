@@ -1,5 +1,5 @@
 'use client'
-import Link from "next/link"
+import SmoothLink from "./SmoothLink";
 import Image from "next/image"
 import MainButton from "./buttons/mainButton"
 import { Menu } from 'lucide-react';
@@ -54,28 +54,28 @@ function Navbar() {
         <header className='p-5 flex justify-center fixed z-50 w-full'>
             <div id="navbar" className="flex flex-col gap-4 w-5xl max-w-5xl">
                 <nav className="flex items-center justify-between md:pl-6 md:pr-2 py-2 px-6">
-                    <Link href={'/'} className="pointer">
+                    <SmoothLink href={'/'} className="pointer">
                         <div className="flex items-center justify-center gap-1">
                             <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain grayscale brightness-0" priority />
                         </div>
-                    </Link>
+                    </SmoothLink>
 
                     <div className="hidden lg:block">
                         <ul className="flex gap-2 text-body-large text-neutral-30">
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'/'}>Home</Link>
+                                <SmoothLink href={'/'}>Home</SmoothLink>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'/about'}>About</Link>
+                                <SmoothLink href={'/about'}>About</SmoothLink>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>Services</Link>
+                                <SmoothLink href={'#'}>Services</SmoothLink>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'#'}>Blogs</Link>
+                                <SmoothLink href={'/blog'}>Blogs</SmoothLink>
                             </li>
                             <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                                <Link href={'/faqs'}>FAQs</Link>
+                                <SmoothLink href={'/faqs'}>FAQs</SmoothLink>
                             </li>
                         </ul>
                     </div>
@@ -90,19 +90,19 @@ function Navbar() {
                 <div className={`${!openDropdown && 'hidden'} p-6 lg:hidden text-center mt-2 w-full `}>
                     <ul className="flex flex-col gap-2 text-body-large text-neutral-30 pb-6">
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'/'}>Home</Link>
+                            <SmoothLink href={'/'}>Home</SmoothLink>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'/about'}>About</Link>
+                            <SmoothLink href={'/about'}>About</SmoothLink>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>Services</Link>
+                            <SmoothLink href={'#'}>Services</SmoothLink>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'#'}>Blogs</Link>
+                            <SmoothLink href={'/blog'}>Blogs</SmoothLink>
                         </li>
                         <li className="py-2 px-3 hover:rounded-full hover:bg-white/20">
-                            <Link href={'/faqs'}>FAQs</Link>
+                            <SmoothLink href={'/faqs'}>FAQs</SmoothLink>
                         </li>
                     </ul>
                     <div className="flex flex-col gap-3">

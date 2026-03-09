@@ -4,6 +4,8 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import PageLoader from "@/components/PageLoader";
 import SmoothScrollManager from "@/components/SmoothScrollManager";
+import ScrollToTop from "@/components/ScrollToTop";
+import { metadata } from "./metadata";
 
 const openRunde = localFont({
   src: [
@@ -16,10 +18,7 @@ const openRunde = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "OnlyMedia - Run your freelance business like a pro",
-  description: "All-in-one platform for managing clients, projects, and payments without the chaos.",
-};
+export { metadata };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -28,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <LenisProvider>
           <PageLoader />
           <SmoothScrollManager />
+          <ScrollToTop />
           {children}
         </LenisProvider>
       </body>

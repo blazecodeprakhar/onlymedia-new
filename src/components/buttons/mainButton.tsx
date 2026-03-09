@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { twMerge } from 'tailwind-merge';
 import { SplitText } from 'gsap/all';
 import { useRef } from 'react';
-import Link from 'next/link';
+import SmoothLink from '../SmoothLink';
 
 interface MainButtonProps {
   variant?: string
@@ -112,9 +112,9 @@ const MainButton = ({
 
   if (href) {
     return (
-      <Link {...commonProps} href={href}>
+      <SmoothLink {...commonProps} href={href}>
         {content}
-      </Link>
+      </SmoothLink>
     )
   }
 
