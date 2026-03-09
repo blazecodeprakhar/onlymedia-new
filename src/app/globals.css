@@ -160,8 +160,16 @@ body {
     .logos-ticker-content {
       @apply w-full max-w-[1400px] flex flex-col items-center gap-12;
 
-      p {
-        @apply text-center text-4xl font-black text-neutral-30 tracking-tight;
+      .logos-ticker-header {
+        @apply flex flex-col items-center gap-3;
+      }
+
+      .logos-ticker-eyebrow {
+        @apply inline-flex items-center px-4 py-1.5 rounded-full border border-dark-brown/30 bg-beige-40/60 text-dark-brown text-[14px] font-semibold tracking-wider uppercase;
+      }
+
+      .logos-ticker-title {
+        @apply text-[40px]/[1.2] font-semibold tracking-[-0.03em] text-neutral-30 text-center;
       }
 
       .ticker {
@@ -208,5 +216,62 @@ body {
     .user-info {
       @apply flex gap-4 items-center;
     }
+  }
+
+
+  /* ── Benefits / Features Section ── */
+  /* Uses unique class names to avoid collisions with .hero .top, .reviews .container etc */
+  .benefits-section {
+    @apply w-full;
+  }
+
+  .benefits-inner {
+    @apply flex flex-col gap-12 w-full max-w-[1250px] mx-auto;
+  }
+
+  .benefits-header {
+    @apply flex flex-col gap-4 items-center text-center max-w-2xl mx-auto;
+  }
+
+  .benefits-eyebrow {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full border border-dark-brown/30 bg-beige-40/60 text-dark-brown text-[14px] font-semibold tracking-wider uppercase;
+  }
+
+  .benefits-cards-top {
+    @apply flex flex-col lg:flex-row gap-6 w-full;
+  }
+
+  .benefits-cards-bottom {
+    @apply flex flex-col md:flex-row gap-6 w-full;
+  }
+
+  /* Card Top 1 – Main feature SVG card */
+  .card-top-1 {
+    @apply p-8 flex flex-col gap-8 bg-[#F0EAE5] rounded-3xl flex-1 min-w-0;
+  }
+
+  /* Card Top 2 – Integration logos card (full width, centered) */
+  .card-top-2 {
+    @apply p-10 flex flex-col gap-10 items-center bg-beige-30 rounded-3xl w-full overflow-hidden;
+    border: 1.5px solid var(--color-beige-40);
+    box-shadow: 0 4px 32px 0 rgba(97, 74, 68, 0.08), 0 1.5px 6px 0 rgba(97, 74, 68, 0.06);
+  }
+
+  /* Integration logos wrapper */
+  .app-logos {
+    @apply w-full flex flex-col gap-4;
+  }
+
+  /* Integration ticker container – handles overflow & edge fade */
+  .integrations-ticker {
+    @apply w-full overflow-x-hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  /* Ticker inner rows */
+  .integrations-ticker-1,
+  .integrations-ticker-2 {
+    @apply flex flex-nowrap gap-4;
   }
 }

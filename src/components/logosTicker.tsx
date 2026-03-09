@@ -13,9 +13,10 @@ function LogosTicker() {
     return (
         <section className="logos-ticker">
             <div className="logos-ticker-content">
-                <p>
-                    Trusted Media Partners
-                </p>
+                <div className="logos-ticker-header">
+                    <span className="logos-ticker-eyebrow">Partners</span>
+                    <h2 className="logos-ticker-title">Trusted Media Partners</h2>
+                </div>
 
                 <div className="ticker">
                     <div>

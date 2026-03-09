@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 // DYNAMICALLY FETCH HUGE COMPONENTS BELOW THE FOLD ONLY WHEN NEEDED
 // This drops the initial bundle size drastically, solving slow loading times.
 const LogosTicker = dynamic(() => import("@/components/logosTicker"));
+const Benefits = dynamic(() => import("@/components/benefits"));
 const Reviews = dynamic(() => import("@/components/reviews"));
 const WhoWeAre = dynamic(() => import("@/components/whoWeAre"));
 const Footer = dynamic(() => import("@/components/footer"));
@@ -18,6 +19,7 @@ export default function Home() {
       <div className="content">
         <WhoWeAre />
         <LogosTicker />
+        <Benefits />
         <Reviews />
       </div>
       <StackedCardsSection />

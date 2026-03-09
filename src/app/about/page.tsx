@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Linkedin } from "lucide-react";
-import Link from 'next/link';
+import SmoothLink from "@/components/SmoothLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,7 +146,7 @@ export default function AboutPage() {
                     Let's architect the perfect media strategy for your brand's future.
                 </p>
                 <div className="relative z-10">
-                    <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">
+                    <SmoothLink href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">
                         <span className="relative z-10 flex items-center">
                             Work with OnlyMedia
                             <svg className="ml-3 w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -154,7 +154,7 @@ export default function AboutPage() {
                             </svg>
                         </span>
                         <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
-                    </Link>
+                    </SmoothLink>
                 </div>
             </div>
 

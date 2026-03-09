@@ -1,5 +1,6 @@
 'use client'
 
+import SmoothLink from "./SmoothLink";
 import Link from "next/link";
 import Image from "next/image";
 import MainButton from "./buttons/mainButton";
@@ -63,7 +64,7 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
                     {/* Brand Column */}
                     <div className="footer-reveal flex flex-col gap-8">
-                        <Link href="/" className="flex items-center gap-2 w-fit">
+                        <SmoothLink href="/" className="flex items-center gap-2 w-fit">
                             <Image
                                 src="/images/OM1Final-1.png"
                                 alt="OnlyMedia logo"
@@ -71,20 +72,20 @@ function Footer() {
                                 height={36}
                                 className="object-contain brightness-0 invert"
                             />
-                        </Link>
+                        </SmoothLink>
                         <p className="text-body-normal text-white/50 leading-relaxed">
                             OnlyMedia is where data clarity meets human impact. We build campaigns that don't just reach people, they move them.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
+                            <SmoothLink href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
                                 <LinkedinLogo size={20} className="text-white group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </Link>
-                            <Link href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
+                            </SmoothLink>
+                            <SmoothLink href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
                                 <InstagramLogo size={20} className="text-white group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </Link>
-                            <Link href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
+                            </SmoothLink>
+                            <SmoothLink href="#" className="p-3 rounded-full bg-white/5 hover:bg-accent-blue/20 transition-colors group">
                                 <TwitterLogo size={20} className="text-white group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </Link>
+                            </SmoothLink>
                         </div>
                     </div>
 
@@ -92,10 +93,10 @@ function Footer() {
                     <div className="footer-reveal flex flex-col gap-8">
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Company</p>
                         <nav className="flex flex-col gap-4">
-                            <Link href="/about" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">About</Link>
-                            <Link href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Strategy</Link>
-                            <Link href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Our Work</Link>
-                            <Link href="/contact" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Contact</Link>
+                            <SmoothLink href="/about" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">About</SmoothLink>
+                            <SmoothLink href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Strategy</SmoothLink>
+                            <SmoothLink href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Our Work</SmoothLink>
+                            <SmoothLink href="/contact" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">Contact</SmoothLink>
                         </nav>
                     </div>
 
@@ -103,9 +104,9 @@ function Footer() {
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Solutions</p>
                         <nav className="flex flex-col gap-4">
                             {['Digital Media', 'Transit & OOH', 'Emerging Platforms', 'Data Analytics'].map((item) => (
-                                <Link key={item} href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">
+                                <SmoothLink key={item} href="#" className="text-body-normal text-white/60 hover:text-white transition-colors w-fit">
                                     {item}
-                                </Link>
+                                </SmoothLink>
                             ))}
                         </nav>
                     </div>
@@ -136,9 +137,9 @@ function Footer() {
                         © {new Date().getFullYear()} OnlyMedia. Built for impact.
                     </p>
                     <div className="flex flex-wrap justify-center gap-8 text-sm text-white/40">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+                        <SmoothLink href="#" className="hover:text-white transition-colors">Privacy Policy</SmoothLink>
+                        <SmoothLink href="#" className="hover:text-white transition-colors">Terms of Service</SmoothLink>
+                        <SmoothLink href="#" className="hover:text-white transition-colors">Cookie Policy</SmoothLink>
                     </div>
                 </div>
 
