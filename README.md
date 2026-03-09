@@ -1,50 +1,84 @@
-# dreelio 🚀🌟
+# OnlyMedia 🎬✨
 
-Welcome to **dreelio** — a creative project inspired by a Framer template and fully rebuilt from the ground up with **Next.js**, **GSAP**, and **Tailwind CSS**!
+Welcome to **OnlyMedia** — a premium media services agency website built with **Next.js**, **GSAP**, and **Tailwind CSS**. Designed to showcase creative media services with stunning animations, smooth scrolling, and a modern dark aesthetic.
 
-✨ Every scroll unlocks captivating animations that inject life and motion into each page. Experience a vibrant, interactive feel designed for modern web users. 🎉🖥️📱
-
-[Live Website](https://dreelio.vercel.app/)
-
-![Dreelio Preview](https://drive.google.com/uc?id=1h760I0JiqadLoTqHg-XJ_zCNnCO3KsZK)
+> 🚀 Crafted for impact. Built for performance.
 
 ---
 
-## Getting Started 🛠️
+## 🌐 Live Website
 
-First, run the development server:
+[Visit OnlyMedia](https://onlymedia-new.vercel.app/)
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **Next.js 14** | Framework (App Router) |
+| **TypeScript** | Type-safe development |
+| **Tailwind CSS** | Utility-first styling |
+| **GSAP** | High-performance animations |
+| **Lenis** | Smooth scroll experience |
+| **Framer Motion** | UI micro-animations |
+
+---
+
+## ✨ Features
+
+- 🎨 **Premium Dark UI** — Modern glassmorphism design with rich gradients
+- 📱 **Fully Responsive** — Optimized for mobile, tablet, and desktop
+- ⚡ **Smooth Animations** — GSAP-powered scroll-triggered animations
+- 🔗 **WhatsApp Integration** — Direct plan inquiry via WhatsApp
+- 📄 **Multi-page** — Home, About, Services, Pricing, FAQs, Contact
+- 🎯 **SEO Optimized** — Meta tags, semantic HTML, and fast load times
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/blazecodeprakhar/onlymedia-new.git
+cd onlymedia-new
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Learn More 💡
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+onlymedia-new/
+├── src/
+│   ├── app/          # Next.js App Router pages
+│   ├── components/   # Reusable UI components
+│   └── lib/          # Utility functions
+├── constants/        # Site-wide constants & content
+├── public/           # Static assets
+└── README.md
+```
 
 ---
 
-## Deploy on Vercel 🚀
+## 📦 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app).
+Deployed on **Vercel** for seamless Next.js hosting.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/blazecodeprakhar/onlymedia-new)
+
+---
+
+## 📝 License
+
+© 2024 OnlyMedia. All rights reserved.
