@@ -4,11 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function WhoWeAre() {
     const sectionRef = useRef<HTMLElement>(null);
+    const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -33,8 +35,8 @@ function WhoWeAre() {
             ease: "power2.inOut"
         }, "-=1");
 
-        // Hover effect for the visual glow elements
-        if (sectionRef.current) {
+        // Hover effect for the visual glow elements - Desktop Only
+        if (sectionRef.current && !isMobile) {
             sectionRef.current.addEventListener("mouseenter", () => {
                 gsap.to(".who-we-are-bg", {
                     scale: 1.2,
@@ -63,13 +65,13 @@ function WhoWeAre() {
                 });
             });
         }
-    }, { scope: sectionRef });
+    }, { scope: sectionRef, dependencies: [isMobile] });
 
     return (
         <section id="about" ref={sectionRef} className="who-we-are pt-10 pb-10 lg:pt-16 lg:pb-16 bg-neutral-0/50 relative overflow-hidden">
             {/* Dynamic visual elements for pixel-perfect feel */}
-            <div className="who-we-are-bg absolute -top-40 -right-40 w-120 h-120 bg-blue-30/10 rounded-full blur-[120px] opacity-20 pointer-events-none" />
-            <div className="who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-orange/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
+            <div className="who-we-are-bg absolute -top-40 -right-40 w-80 md:w-120 h-80 md:h-120 bg-blue-30/10 rounded-full blur-[60px] md:blur-[120px] opacity-20 pointer-events-none" />
+            <div className="hidden md:block who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-orange/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
 
             <div className="wrapper max-w-7xl mx-auto px-6 relative z-10">
                 <div className="bg-white rounded-[48px] p-12 lg:p-24 shadow-2xl shadow-neutral-30/[0.03] border border-neutral-30/[0.02] grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">

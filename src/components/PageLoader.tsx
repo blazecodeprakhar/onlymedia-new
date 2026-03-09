@@ -13,7 +13,7 @@ export default function PageLoader() {
     useEffect(() => {
         setPhase('loading');
 
-        const duration = 1800; // 1.8 seconds loading experience
+        const duration = 1000; // 1.0 seconds loading experience
         const startTime = performance.now();
 
         const animateProgress = (currentTime: number) => {
@@ -28,7 +28,7 @@ export default function PageLoader() {
                 requestAnimationFrame(animateProgress);
             } else {
                 setPhase('exiting');
-                setTimeout(() => setVisible(false), 900); // Wait for exit animation to finish
+                setTimeout(() => setVisible(false), 800); // Wait for exit animation to finish
             }
         };
 
@@ -42,14 +42,14 @@ export default function PageLoader() {
                     key="loader"
                     className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#E8F2FC] overflow-hidden"
                     initial={{ y: 0 }}
-                    exit={{ y: '-100%', transition: { duration: 0.9, ease: EXPO_EASE } }}
+                    exit={{ y: '-100%', transition: { duration: 0.8, ease: EXPO_EASE } }}
                 >
                     {/* Top Top decorative line */}
                     <motion.div
                         className="absolute top-0 left-0 w-full h-[4px] bg-accent-blue z-20"
                         initial={{ scaleX: 0, transformOrigin: 'left' }}
                         animate={{ scaleX: 1 }}
-                        transition={{ duration: 1.8, ease: EXPO_EASE }}
+                        transition={{ duration: 1.0, ease: EXPO_EASE }}
                     />
 
                     {/* Top Spacer for flex layout */}

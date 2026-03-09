@@ -130,7 +130,7 @@ export default function Benefits() {
                 {/* Integration Logos card - full width */}
                 <div className="card-top-2 benefits-reveal">
                     {/* Centered heading */}
-                    <h5 className="text-h4 text-center w-full">Trusted Media Partners</h5>
+                    <h5 className="text-h4 text-center w-full">Our Media Ecosystem</h5>
 
                     <div className="app-logos">
                         {/* Ticker row 1 - slides right */}

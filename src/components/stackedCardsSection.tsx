@@ -67,13 +67,13 @@ const StackedCardsSection = () => {
                 background: 'linear-gradient(160deg, #dbeafe 0%, #e0eeff 25%, #EBF3FF 55%, #dde8f8 80%, #e2ecf5 100%)'
             }}
         >
-            {/* Glow orbs */}
+            {/* Glow orbs - simplified for mobile performance */}
             <div className="sticky top-0 h-screen w-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[-5%] left-[0%] w-[700px] h-[700px] rounded-full opacity-40"
+                <div className="absolute top-[-5%] left-[0%] w-[300px] md:w-[700px] h-[300px] md:h-[700px] rounded-full opacity-30 md:opacity-40"
                     style={{ background: 'radial-gradient(circle, #bfdbfe 0%, transparent 65%)' }} />
-                <div className="absolute bottom-[0%] right-[0%] w-[600px] h-[600px] rounded-full opacity-35"
+                <div className="absolute bottom-[0%] right-[0%] w-[250px] md:w-[600px] h-[250px] md:h-[600px] rounded-full opacity-25 md:opacity-35"
                     style={{ background: 'radial-gradient(circle, #93c5fd 0%, transparent 65%)' }} />
-                <div className="absolute top-[35%] left-[35%] w-[450px] h-[450px] rounded-full opacity-20"
+                <div className="hidden md:block absolute top-[35%] left-[35%] w-[450px] h-[450px] rounded-full opacity-20"
                     style={{ background: 'radial-gradient(circle, #a5c8f0 0%, transparent 70%)' }} />
             </div>
 
@@ -82,21 +82,21 @@ const StackedCardsSection = () => {
                 style={{ y: pinY }}
                 className="absolute top-0 left-0 w-full flex items-start md:items-center justify-center"
             >
-                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 xl:px-14 py-16 md:py-0 md:h-screen md:flex md:items-center">
-                    <div className="flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-16 xl:gap-24 w-full">
+                <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 xl:px-14 py-20 md:py-0 md:h-screen md:flex md:items-center">
+                    <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 xl:gap-24 w-full">
 
                         {/* Left heading block */}
-                        <div className="flex flex-col justify-center max-w-lg">
+                        <div className="flex flex-col justify-center max-w-lg mb-4 md:mb-0">
                             <h5 className="text-xs md:text-sm uppercase tracking-widest text-accent-blue font-bold mb-2 md:mb-3">
                                 WHY US
                             </h5>
-                            <h2 className="mb-4 md:mb-5 mt-2 text-[32px] md:text-[44px] xl:text-[52px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
+                            <h2 className="mb-4 md:mb-5 mt-2 text-[28px] md:text-[44px] xl:text-[52px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
                                 Smarter Media.<br />
                                 <span className="text-accent-blue font-serif italic font-medium">
                                     Stronger Business <br className="hidden md:block" />Outcomes.
                                 </span>
                             </h2>
-                            <p className="max-w-sm text-[14px] md:text-[16px] xl:text-[17px] text-neutral-20 leading-relaxed">
+                            <p className="max-w-sm text-[14px] md:text-[16px] xl:text-[17px] text-neutral-20 leading-relaxed opacity-90">
                                 Strategy, technology, and creative thinking united to build marketing systems that drive real, measurable growth.
                             </p>
                         </div>
@@ -111,11 +111,11 @@ const StackedCardsSection = () => {
                                     progress={scrollYProgress}
                                     className="rounded-[20px] md:rounded-[28px] w-full min-h-[220px] md:min-h-[340px] flex flex-col justify-center overflow-hidden"
                                     style={{
-                                        background: 'linear-gradient(135deg, rgba(255,255,255,0.72) 0%, rgba(219,234,254,0.55) 50%, rgba(191,219,254,0.45) 100%)',
-                                        backdropFilter: 'blur(24px) saturate(160%)',
-                                        WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-                                        border: '1px solid rgba(255,255,255,0.85)',
-                                        boxShadow: '0 8px 40px rgba(147,197,253,0.18), 0 2px 12px rgba(147,197,253,0.12), inset 0 1px 0 rgba(255,255,255,0.95)',
+                                        background: 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(219,234,254,0.7) 50%, rgba(191,219,254,0.6) 100%)',
+                                        backdropFilter: 'blur(10px)', // Drastically reduced for mobile performance
+                                        WebkitBackdropFilter: 'blur(10px)',
+                                        border: '1px solid rgba(255,255,255,0.9)',
+                                        boxShadow: '0 8px 30px rgba(147,197,253,0.12)',
                                     }}
                                     incrementY={3}
                                     incrementZ={10}

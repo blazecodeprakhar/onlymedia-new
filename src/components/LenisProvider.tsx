@@ -5,11 +5,11 @@ import { ReactLenis } from '@/lib/lenis'
 // Lenis options for a perfectly silky, premium scroll feel
 // Must be in a client component — functions can't be serialized in server components
 const lenisOptions = {
-    lerp: 0.08,
+    lerp: 0.1, // Slightly faster lerp for better responsiveness
     smoothWheel: true,
-    syncTouch: true,
-    touchMultiplier: 1.5,
-    duration: 1.4,
+    syncTouch: false, // DON'T sync touch on mobile as it feels sticky/laggy
+    touchMultiplier: 1.2,
+    duration: 1.2,
     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 }
 
