@@ -1,28 +1,28 @@
 export const testimonials = [
   {
     id: 'priya-sharma',
-    testimonial: "OnlyMedia completely transformed how we approach digital advertising. Their team understood our audience deeply and crafted campaigns that drove real conversions, not just impressions. Our ROAS jumped 3x within the first quarter.",
+    testimonial: "OnlyMedia transformed our digital advertising. Their deep audience insights drove a 3x ROAS jump in our first quarter.",
     name: 'Priya Sharma',
     career: 'Marketing Director, Nykaa',
     perfilImage: '/images/leah-daniel.png'
   },
   {
     id: 'rohit-verma',
-    testimonial: "Working with OnlyMedia felt like having a full in-house strategy team. They handled everything from media planning to creative execution across Meta and Google. The results spoke for themselves, revenue up 40% in 6 months.",
+    testimonial: "Feels like having an in-house strategy team. They boosted our revenue by 40% in just six months across all platforms.",
     name: 'Rohit Verma',
     career: 'Founder & CEO, Ventrum Labs',
     perfilImage: '/images/sergio-walker.png'
   },
   {
     id: 'ananya-iyer',
-    testimonial: "We had tried multiple agencies before, but OnlyMedia was different. They brought both data intelligence and creative storytelling together. Our brand awareness campaigns finally felt purposeful and our leads almost doubled.",
+    testimonial: "A perfect blend of data and storytelling. Our leads doubled as soon as we launched their purposeful brand campaigns.",
     name: 'Ananya Iyer',
     career: 'Head of Growth, Razorpay',
     perfilImage: '/images/jane-jay-jay.png'
   },
   {
     id: 'arjun-mehta',
-    testimonial: "The OnlyMedia team is sharp, strategic, and genuinely invested in your growth. They helped us build a multi-channel media strategy that connected our offline and digital presence seamlessly. Outstanding work, every single time.",
+    testimonial: "Sharp, strategic, and genuinely invested in our growth. They flawlessly connected our offline and digital presence.",
     name: 'Arjun Mehta',
     career: 'VP Marketing, Lenskart',
     perfilImage: '/images/amos-chen.png'

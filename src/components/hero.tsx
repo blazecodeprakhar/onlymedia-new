@@ -129,8 +129,8 @@ function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: EXPO_EASE, delay: heroDelay + 0.75 }}
                     >
-                        <MainButton text="Try OnlyMedia" />
-                        <MainButton variant="tertiary" text="See features" />
+                        <MainButton text="Why OnlyMedia" href="#why-us" />
+                        <MainButton variant="tertiary" text="Services" href="#features" />
                     </motion.div>
                 </div>
 

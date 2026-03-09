@@ -103,22 +103,21 @@ export default function BlogPage() {
             {/* Blog Posts Section */}
             <div ref={postsRef} className="w-full bg-beige-0 pb-32 pt-10 px-6">
                 <div className="max-w-7xl mx-auto">
-                    
+
                     {/* Section Header */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16 blog-reveal">
                         <div>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-30 tracking-tight">Latest Articles</h2>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-30 tracking-tight">Latest Blogs</h2>
                             <p className="text-lg text-neutral-20 mt-3 max-w-xl">Explore our latest thinking on media strategy, data analytics, and digital transformation.</p>
                         </div>
                         <div className="flex gap-3">
                             {['All', 'Strategy', 'Planning', 'Analytics'].map((filter, index) => (
-                                <button 
+                                <button
                                     key={filter}
-                                    className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                                        index === 0 
-                                            ? 'bg-neutral-30 text-white' 
+                                    className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${index === 0
+                                            ? 'bg-neutral-30 text-white'
                                             : 'bg-white/50 text-neutral-20 hover:bg-neutral-30 hover:text-white'
-                                    }`}
+                                        }`}
                                 >
                                     {filter}
                                 </button>
@@ -139,10 +138,10 @@ export default function BlogPage() {
                                                 <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
                                                     <span className="text-4xl font-black text-accent-blue">{featuredPost.id}</span>
                                                 </div>
-                                                <p className="text-sm font-semibold text-accent-blue uppercase tracking-widest">Featured Article</p>
+                                                <p className="text-sm font-semibold text-accent-blue uppercase tracking-widest">Featured Blog</p>
                                             </div>
                                         </div>
-                                        
+
                                         {/* Content Side */}
                                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                                             <div className="flex items-center gap-4 mb-4 text-sm text-neutral-10">
@@ -158,15 +157,15 @@ export default function BlogPage() {
                                                     {featuredPost.readTime}
                                                 </span>
                                             </div>
-                                            
+
                                             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-30 mb-4 leading-tight group-hover:text-accent-blue transition-colors duration-300">
                                                 {featuredPost.title}
                                             </h3>
-                                            
+
                                             <p className="text-neutral-20 text-lg leading-relaxed mb-6">
                                                 {featuredPost.excerpt}
                                             </p>
-                                            
+
                                             <div className="flex items-center justify-between">
                                                 <div className="flex items-center gap-3">
                                                     <div className="w-10 h-10 rounded-full bg-beige-20 flex items-center justify-center">
@@ -174,9 +173,9 @@ export default function BlogPage() {
                                                     </div>
                                                     <span className="font-semibold text-neutral-30">{featuredPost.author}</span>
                                                 </div>
-                                                
+
                                                 <span className="flex items-center gap-2 text-accent-blue font-bold group-hover:gap-4 transition-all duration-300">
-                                                    Read Article
+                                                    Read Blog
                                                     <ArrowRight className="w-5 h-5" />
                                                 </span>
                                             </div>
@@ -203,24 +202,24 @@ export default function BlogPage() {
                                                 {post.date}
                                             </span>
                                         </div>
-                                        
+
                                         {/* Title */}
                                         <h3 className="text-xl md:text-2xl font-bold text-neutral-30 mb-4 leading-tight group-hover:text-accent-blue transition-colors duration-300">
                                             {post.title}
                                         </h3>
-                                        
+
                                         {/* Excerpt */}
                                         <p className="text-neutral-20 leading-relaxed mb-6 flex-grow">
                                             {post.excerpt}
                                         </p>
-                                        
+
                                         {/* Footer */}
                                         <div className="flex items-center justify-between pt-6 border-t border-neutral-10/10">
                                             <div className="flex items-center gap-2 text-sm text-neutral-10">
                                                 <Clock className="w-4 h-4" />
                                                 {post.readTime}
                                             </div>
-                                            
+
                                             <span className="flex items-center gap-2 text-accent-blue font-bold group-hover:gap-3 transition-all duration-300">
                                                 Read More
                                                 <ArrowRight className="w-4 h-4" />
@@ -236,7 +235,7 @@ export default function BlogPage() {
                     <div className="mt-20 blog-card">
                         <div className="bg-neutral-30 rounded-3xl p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-blue/10 blur-[100px] rounded-full pointer-events-none" />
-                            
+
                             <div className="relative z-10 max-w-2xl mx-auto">
                                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                                     Never Miss an Insight
@@ -244,7 +243,7 @@ export default function BlogPage() {
                                 <p className="text-white/60 text-lg mb-8">
                                     Subscribe to our newsletter for the latest strategies, tips, and industry updates delivered straight to your inbox.
                                 </p>
-                                
+
                                 <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                                     <input
                                         type="email"

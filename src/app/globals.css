@@ -35,23 +35,19 @@ body {
 }
 
 @utility text-h2 {
-  @apply text-[52px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
+  @apply text-[32px]/[120%] md:text-[44px]/[120%] lg:text-[52px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
 }
 
 @utility text-h3 {
-  @apply text-[40px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
+  @apply text-[28px]/[120%] md:text-[36px]/[120%] lg:text-[40px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
 }
 
 @utility text-h4 {
-  @apply text-[32px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
+  @apply text-[24px]/[120%] md:text-[28px]/[120%] lg:text-[32px]/[120%] font-semibold tracking-[-0.03em] text-neutral-30;
 }
 
 @utility text-h5 {
-  @apply text-[28px]/[140%] font-semibold tracking-[-0.03em] text-neutral-30;
-}
-
-@utility text-h5 {
-  @apply text-[20px]/[140%] font-semibold tracking-[-0.03em] text-neutral-30;
+  @apply text-[20px]/[140%] md:text-[24px]/[140%] lg:text-[28px]/[140%] font-semibold tracking-[-0.03em] text-neutral-30;
 }
 
 @utility text-body-xl {
@@ -135,7 +131,7 @@ body {
         }
 
         .buttons {
-          @apply flex gap-3 md:gap-4 flex-col sm:flex-row w-full sm:w-auto px-4 sm:px-0;
+          @apply flex gap-3 md:gap-4 flex-col sm:flex-row w-full sm:w-auto px-4 sm:px-0 items-center;
         }
       }
 
@@ -211,10 +207,14 @@ body {
   }
 
   .review-card {
-    @apply bg-white/70 p-8 flex flex-col gap-8 rounded-3xl h-fit w-full sm:w-95 mx-auto;
+    @apply bg-white/70 p-6 sm:p-8 flex flex-col justify-between gap-4 rounded-3xl w-[280px] sm:w-[320px] aspect-square shrink-0 mx-0;
 
     .user-info {
-      @apply flex gap-4 items-center;
+      @apply flex gap-3 sm:gap-4 items-center;
+    }
+
+    &>p:first-child {
+      @apply text-[15px] sm:text-[16px] leading-relaxed font-medium;
     }
   }
 
@@ -242,7 +242,7 @@ body {
   }
 
   .benefits-cards-bottom {
-    @apply flex flex-col md:flex-row gap-6 w-full;
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full;
   }
 
   /* Card Top 1 – Main feature SVG card */

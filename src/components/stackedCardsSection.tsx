@@ -58,6 +58,7 @@ const StackedCardsSection = () => {
 
     return (
         <section
+            id="why-us"
             ref={sectionRef}
             className="relative w-full"
             style={{
