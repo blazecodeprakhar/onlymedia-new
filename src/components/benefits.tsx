@@ -13,8 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 // Triple the logo arrays so rows overflow on both sides, giving clean fade edges
 const BASE_1 = [1, 2, 3, 4, 5, 6, 7, 8];
 const BASE_2 = [6, 4, 7, 1, 3, 8, 5, 2];
-const TICKER_1_IMAGES = [...BASE_1, ...BASE_1, ...BASE_1]; // 24 logos
-const TICKER_2_IMAGES = [...BASE_2, ...BASE_2, ...BASE_2]; // 24 logos
+const TICKER_1_IMAGES = [...BASE_1, ...BASE_1, ...BASE_1, ...BASE_1, ...BASE_1]; // 40 logos
+const TICKER_2_IMAGES = [...BASE_2, ...BASE_2, ...BASE_2, ...BASE_2, ...BASE_2]; // 40 logos
 
 export default function Benefits() {
     const mainRef = useRef<HTMLDivElement>(null)
@@ -28,80 +28,57 @@ export default function Benefits() {
                 scrollTrigger: {
                     trigger: '.integrations-ticker-1',
                     start: 'top bottom',
-                    end: 'top top',
-                    scrub: true
+                    end: 'bottom top',
+                    scrub: 1
                 }
             }).from('.integrations-ticker-1', {
-                translateX: '-200px',
-                ease: 'power2.inOut'
+                translateX: '-250px',
+                ease: 'none'
             })
 
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.integrations-ticker-2',
                     start: 'top bottom',
-                    end: 'top top',
-                    scrub: true
+                    end: 'bottom top',
+                    scrub: 1
                 }
             }).to('.integrations-ticker-2', {
-                translateX: '-200px',
-                ease: 'power2.inOut'
+                translateX: '-250px',
+                ease: 'none'
             })
         });
 
         mm.add("(max-width: 767px)", () => {
-            // Mobile (Phone) movement - auto scrolls continuously BUT only when the user is actively scrolling.
-
-            // 1. Create infinite looping animations for both rows
-            const ticker1Anim = gsap.to('.integrations-ticker-1', {
-                x: "-50%", // Move by half (since we tripled the array, we have plenty of runway)
-                duration: 20,
-                ease: "none",
-                repeat: -1,
-                paused: true // Start paused
-            });
-
-            const ticker2Anim = gsap.to('.integrations-ticker-2', {
-                x: "50%",
-                duration: 20, // Same perfect speed
-                ease: "none",
-                repeat: -1,
-                paused: true // Start paused
-            });
-
-            // 2. We need a timer to detect when the user STOPS scrolling
-            let scrollTimeout: NodeJS.Timeout;
-
-            // 3. Hook into ScrollTrigger to play/pause the animations
-            ScrollTrigger.create({
-                trigger: '.benefits-section',
-                start: 'top bottom',
-                end: 'bottom top',
-                onUpdate: (self) => {
-                    // If the user is actively scrolling inside the section, play the animations
-                    if (Math.abs(self.getVelocity()) > 0) {
-                        ticker1Anim.play();
-                        ticker2Anim.play();
-
-                        // Clear the timeout if they are still scrolling
-                        clearTimeout(scrollTimeout);
-
-                        // If they stop scrolling for 150ms, pause the animations
-                        scrollTimeout = setTimeout(() => {
-                            ticker1Anim.pause();
-                            ticker2Anim.pause();
-                        }, 150);
-                    }
-                },
-                onLeave: () => {
-                    ticker1Anim.pause();
-                    ticker2Anim.pause();
-                },
-                onLeaveBack: () => {
-                    ticker1Anim.pause();
-                    ticker2Anim.pause();
+            // Mobile (Phone) movement
+            // Logic: Centered symmetrical rows. Moves faster (400px) but always stays full.
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.integrations-ticker-1',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
                 }
-            });
+            }).fromTo('.integrations-ticker-1', {
+                translateX: '-400px'
+            }, {
+                translateX: '400px',
+                ease: 'none'
+            })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.integrations-ticker-2',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            }).fromTo('.integrations-ticker-2', {
+                translateX: '400px'
+            }, {
+                translateX: '-400px',
+                ease: 'none'
+            })
         });
 
         // Reveal animation for header + cards
@@ -124,18 +101,18 @@ export default function Benefits() {
                 {/* Header */}
                 <div className="benefits-header benefits-reveal">
                     <span className="benefits-eyebrow">WHAT WE DO</span>
-                    <h2 className="text-h2 max-w-3xl">Strategic Media Solutions Built for Performance</h2>
+                    <h2 className="text-h2 max-w-3xl text-neutral-30">Strategic Media Solutions Built for Performance</h2>
                 </div>
 
                 {/* Integration Logos card - full width */}
                 <div className="card-top-2 benefits-reveal">
                     {/* Centered heading */}
-                    <h5 className="text-h4 text-center w-full">Our Media Ecosystem</h5>
+                    <h5 className="text-h4 text-center w-full text-neutral-30">Our Media Ecosystem</h5>
 
                     <div className="app-logos">
                         {/* Ticker row 1 - slides right */}
-                        <div className="integrations-ticker">
-                            <div className="integrations-ticker-1">
+                        <div className="integrations-ticker flex justify-center">
+                            <div className="integrations-ticker-1 px-4 flex flex-nowrap gap-4">
                                 {TICKER_1_IMAGES.map((num, i) => (
                                     <Image
                                         key={i}
@@ -143,14 +120,14 @@ export default function Benefits() {
                                         height={200}
                                         width={200}
                                         alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-18 flex-shrink-0"
+                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0"
                                     />
                                 ))}
                             </div>
                         </div>
                         {/* Ticker row 2 - slides left */}
-                        <div className="integrations-ticker">
-                            <div className="integrations-ticker-2">
+                        <div className="integrations-ticker flex justify-center">
+                            <div className="integrations-ticker-2 px-4 flex flex-nowrap gap-4">
                                 {TICKER_2_IMAGES.map((num, i) => (
                                     <Image
                                         key={i}
@@ -158,7 +135,7 @@ export default function Benefits() {
                                         height={200}
                                         width={200}
                                         alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-18 flex-shrink-0"
+                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0"
                                     />
                                 ))}
                             </div>
