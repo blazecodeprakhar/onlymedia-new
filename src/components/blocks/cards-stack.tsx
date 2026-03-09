@@ -54,6 +54,14 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
         const defaultProgress = useMotionValue(0);
         const currentProgress = progress || defaultProgress;
 
+        // PERFORMANCE FIX FOR MOBILE: Disable scale on phones to prevent "stickiness" and lag
+        const mobileScale = useMotionValue(1);
+        const [isMobile, setIsMobile] = React.useState(false);
+
+        React.useEffect(() => {
+            setIsMobile(window.innerWidth < 1024);
+        }, []);
+
         // Map the container's progress to the card's Y position using 'vh' directly
         // This ensures the cards look like they are scrolling up natively.
         // Once they hit their stack position, they remain there.
@@ -61,10 +69,18 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
         if (index === 0) {
             y = "0vh"; // Card 0 establishes the top of the deck
         } else {
+            // MOBILE PERFORMANCE & FEEL FIX:
+            // On desktop, we want a smooth, lazy scroll.
+            // On mobile, the user wants "direct swapping" with no lag or "peeking" cards.
+            // We make the card stay at the bottom (offscreen) until it's about to swap, then move it quickly.
             y = useTransform(
                 currentProgress,
-                [0, hitProgress, 1],
-                [`${index * cardSpacingVh}vh`, `${index * stackOffsetVh}vh`, `${index * stackOffsetVh}vh`]
+                isMobile
+                    ? [0, hitProgress - 0.001, hitProgress, 1] // INSTANT "SWAP" for mobile - no intermediate state
+                    : [0, hitProgress, 1], // Linear smooth scroll on desktop
+                isMobile
+                    ? [`100vh`, `100vh`, `${index * stackOffsetVh}vh`, `${index * stackOffsetVh}vh`]
+                    : [`${index * cardSpacingVh}vh`, `${index * stackOffsetVh}vh`, `${index * stackOffsetVh}vh`]
             );
         }
 
@@ -79,10 +95,12 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
             [1, scaleTarget] // Shrink backwards dynamically
         );
 
+        const finalScale = isMobile ? mobileScale : scale;
+
         // White Fog Overlay: Instead of dropping opacity (which makes cards transparent and bleed text),
         // we fade in a solid white overlay to wash out the background text cleanly.
         // The last card should stay perfectly clear and opaque.
-        const opacityTarget = isLastCard ? 0 : 0.4;
+        const opacityTarget = isLastCard || isMobile ? 0 : 0.4; // REMOVE overlay fog for mobile
         const overlayOpacity = useTransform(
             currentProgress,
             [hitProgress, 1],
@@ -94,7 +112,7 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
                 ref={ref}
                 style={{
                     y,
-                    scale,
+                    scale: finalScale,
                     zIndex: index * incrementZ,
                     backfaceVisibility: "hidden",
                     position: index === 0 ? "relative" : "absolute",
@@ -103,7 +121,11 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
                     transformOrigin: "top center",
                     ...style,
                 }}
-                className={cn("w-full shadow-2xl relative", className)}
+                className={cn(
+                    "w-full relative transition-shadow duration-300",
+                    isMobile ? "shadow-none" : "shadow-2xl", // REMOVE heavy shadow for mobile
+                    className
+                )}
                 {...props}
             >
                 {/* Light blue wash overlay — fades older cards into the airy background cleanly */}
@@ -112,7 +134,8 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
                         className="absolute inset-0 z-50 pointer-events-none rounded-[32px]"
                         style={{
                             opacity: overlayOpacity,
-                            background: 'linear-gradient(135deg, #dbeafe 0%, #e0eeff 100%)'
+                            background: 'linear-gradient(135deg, #dbeafe 0%, #e0eeff 100%)',
+                            borderRadius: isMobile ? '20px' : '32px'
                         }}
                     />
                 ) as any}

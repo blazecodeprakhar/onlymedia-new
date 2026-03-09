@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const blogPosts = [
     {
         id: 1,
+        slug: 'setting-smart-kpis',
         title: "Setting SMART KPIs for Your Digital Media Campaigns",
         excerpt: "Running a digital campaign without KPIs is like sailing without direction. SMART KPIs help you set clear, measurable goals so you can track performance and improve results.",
         date: "September 4, 2025",
@@ -24,6 +25,7 @@ const blogPosts = [
     },
     {
         id: 2,
+        slug: 'custom-media-plan',
         title: "Why Your Business Needs a Custom Media Plan",
         excerpt: "Every business has different goals and audiences. A custom media plan helps you target the right people with the right message and get better results.",
         date: "September 4, 2025",
@@ -34,6 +36,7 @@ const blogPosts = [
     },
     {
         id: 3,
+        slug: 'data-driven-media-strategy',
         title: "The Ultimate Guide to a Data Driven Media Strategy",
         excerpt: "Successful campaigns rely on data, not guesswork. Using insights and performance metrics helps you make smarter decisions and improve marketing results.",
         date: "September 4, 2025",
@@ -115,8 +118,8 @@ export default function BlogPage() {
                                 <button
                                     key={filter}
                                     className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${index === 0
-                                            ? 'bg-neutral-30 text-white'
-                                            : 'bg-white/50 text-neutral-20 hover:bg-neutral-30 hover:text-white'
+                                        ? 'bg-neutral-30 text-white'
+                                        : 'bg-white/50 text-neutral-20 hover:bg-neutral-30 hover:text-white'
                                         }`}
                                 >
                                     {filter}
@@ -128,7 +131,7 @@ export default function BlogPage() {
                     {/* Featured Post */}
                     {featuredPost && (
                         <div className="blog-card mb-16 group">
-                            <SmoothLink href="#" className="block">
+                            <SmoothLink href={`/blog/${featuredPost.slug}`} className="block">
                                 <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-all duration-500 border border-neutral-10/10">
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                                         {/* Image Side */}
@@ -190,7 +193,7 @@ export default function BlogPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {regularPosts.map((post) => (
                             <div key={post.id} className="blog-card group">
-                                <SmoothLink href="#" className="block h-full">
+                                <SmoothLink href={`/blog/${post.slug}`} className="block h-full">
                                     <div className="bg-white rounded-3xl p-8 h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-all duration-500 border border-neutral-10/10 flex flex-col">
                                         {/* Card Header */}
                                         <div className="flex items-center gap-4 mb-5 text-sm text-neutral-10">

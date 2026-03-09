@@ -1,0 +1,93 @@
+# ──────────────────────────────────────────────
+#  OnlyMedia — Apache .htaccess
+#  Optimized for Next.js static export hosting
+# ──────────────────────────────────────────────
+
+# Enable rewrite engine
+Options -MultiViews
+RewriteEngine On
+
+# ── Security Headers ───────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always unset X-Powered-By
+</IfModule>
+
+# ── Force HTTPS ────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── Remove www (canonical) ─────────────────────
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ── Next.js Static Export Routing ─────────────
+# Route requests to .html files if they exist (Next.js static export)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Fallback: send all other requests to index.html (SPA fallback)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
+
+# ── Cache Control ──────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Default
+    ExpiresDefault "access plus 1 month"
+
+    # HTML — no cache (always fresh)
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # JS & CSS — long cache (Next.js hashes filenames)
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript         "access plus 1 year"
+    ExpiresByType text/css                "access plus 1 year"
+
+    # Images & fonts
+    ExpiresByType image/webp              "access plus 1 year"
+    ExpiresByType image/png               "access plus 1 year"
+    ExpiresByType image/jpeg              "access plus 1 year"
+    ExpiresByType image/svg+xml           "access plus 1 year"
+    ExpiresByType image/gif               "access plus 1 year"
+    ExpiresByType image/ico               "access plus 1 year"
+    ExpiresByType image/x-icon            "access plus 1 year"
+    ExpiresByType font/woff               "access plus 1 year"
+    ExpiresByType font/woff2              "access plus 1 year"
+    ExpiresByType application/font-woff   "access plus 1 year"
+    ExpiresByType application/font-woff2  "access plus 1 year"
+</IfModule>
+
+# ── Gzip Compression ───────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ── Block Common Attacks ───────────────────────
+# Block access to hidden files (e.g. .env, .git)
+RewriteRule (^|/)\. - [F,L]
+
+# Block access to sensitive files
+<FilesMatch "\.(env|log|sh|sql|bak|config|dist|lock)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ── Custom Error Pages ─────────────────────────
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html

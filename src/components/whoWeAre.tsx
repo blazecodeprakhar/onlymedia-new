@@ -115,7 +115,7 @@ function WhoWeAre() {
                         </div>
 
                         <div className="flex items-center gap-6 pl-8">
-                            <MainButton text="Explore The Strategy" className="px-10 py-5 shadow-2xl shadow-accent-blue/5 hover:shadow-accent-blue/15" />
+                            <MainButton text="Explore The Strategy" href="#why-us" className="px-10 py-5 shadow-2xl shadow-accent-blue/5 hover:shadow-accent-blue/15" />
                         </div>
                     </div>
                 </div>

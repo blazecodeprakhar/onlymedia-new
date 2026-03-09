@@ -112,10 +112,10 @@ body {
 
 @layer components {
   .hero {
-    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-48 sm:pb-52 lg:min-h-[100vh] min-h-[115vh] flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
+    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-10 sm:pb-16 lg:min-h-[100vh] min-h-screen max-h-screen md:max-h-none flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
 
     .hero-content {
-      @apply z-2 px-4 w-full max-w-[1250px] pt-32 md:pt-40 flex flex-col items-center gap-12 md:gap-16;
+      @apply z-2 px-4 w-full max-w-[1250px] pt-28 md:pt-40 flex flex-col items-center gap-6 md:gap-16;
 
       .top {
         @apply max-w-[1000px] flex flex-col items-center gap-10 md:gap-12;

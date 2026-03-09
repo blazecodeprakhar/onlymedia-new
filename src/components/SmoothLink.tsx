@@ -2,8 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import { gsap } from 'gsap'
-import { useRef } from 'react'
+import { useLenis } from '@/lib/lenis'
 import React from 'react'
 
 interface SmoothLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -16,64 +15,44 @@ interface SmoothLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 }
 
 export default function SmoothLink({ href, children, className, onClick, prefetch = false, ref, ...props }: SmoothLinkProps) {
-    const router = useRouter()
     const pathname = usePathname()
-    const isNavigating = useRef(false)
+    const lenis = useLenis()
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        // Prevent default behavior
-        e.preventDefault()
-
-        // If already navigating, ignore
-        if (isNavigating.current) return
-
-        // Check if it's the same page
-        // Allow checking for hash links
         const isHashLink = href.startsWith('#') || href.startsWith(`${pathname}#`)
 
-        if (pathname === href && !isHashLink) {
-            // Smooth scroll to top for same page without hash
-            gsap.to(window, {
-                duration: 0.8,
-                scrollTo: { y: 0, autoKill: false },
-                ease: "power2.inOut"
-            })
+        if (isHashLink) {
+            // Same-page anchor: smooth scroll to element
+            e.preventDefault()
+            const hashIndex = href.indexOf('#')
+            const hash = href.substring(hashIndex)
+            const target = document.querySelector(hash) as HTMLElement
+            if (target) {
+                if (lenis) {
+                    lenis.scrollTo(target, { offset: -80, duration: 1.0, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth' })
+                }
+            }
             if (onClick) onClick(e)
             return
         }
 
-        if (isHashLink) {
-            // For hash links, let's manually scroll there instead of letting next.js jump abruptly
-            const hashIndex = href.indexOf('#');
-            const hash = href.substring(hashIndex);
-            const target = document.querySelector(hash);
-            if (target) {
-                gsap.to(window, {
-                    duration: 0.8,
-                    scrollTo: { y: target, autoKill: false, offsetY: 50 },
-                    ease: "power2.inOut"
-                });
-                if (onClick) onClick(e);
-                return;
-            }
-        }
-
-        // For different pages, navigate directly without any scrolling
-        isNavigating.current = true
-
-        // Use router.push for Next.js navigation without scrolling
-        router.push(href)
-
-        // Reset flag after navigation
-        setTimeout(() => {
-            isNavigating.current = false
-        }, 1000)
-
+        // All other navigation: let Next.js <Link> handle it instantly.
+        // DO NOT scroll or animate anything on the current page.
         if (onClick) onClick(e)
     }
 
     return (
-        <Link ref={ref} href={href} className={className} onClick={handleClick} prefetch={prefetch} {...props}>
+        <Link
+            ref={ref}
+            href={href}
+            className={className}
+            onClick={handleClick}
+            prefetch={prefetch}
+            scroll={true}
+            {...props}
+        >
             {children}
         </Link>
     )
