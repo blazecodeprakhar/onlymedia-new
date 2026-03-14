@@ -70,7 +70,7 @@ function Footer() {
                                 alt="OnlyMedia logo"
                                 width={120}
                                 height={36}
-                                className="object-contain brightness-0 invert"
+                                className="object-contain"
                             />
                         </SmoothLink>
                         <p className="text-body-normal text-white/50 leading-relaxed">

@@ -93,7 +93,7 @@ function Navbar() {
                 >
                     <SmoothLink href={'/'} className="pointer flex-shrink-0">
                         <div className="flex items-center justify-center gap-1">
-                            <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain grayscale brightness-0" priority />
+                            <Image src="/images/OM1Final-1.png" alt="OnlyMedia Logo" width={80} height={24} className="object-contain" priority />
                         </div>
                     </SmoothLink>
 
