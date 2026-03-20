@@ -1,129 +1,103 @@
 'use client'
-
+ 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-
+import Image from 'next/image'
+ 
 export default function PageLoader() {
     const [visible, setVisible] = useState(true)
     const [progress, setProgress] = useState(0)
-    const [, setPhase] = useState<'entering' | 'loading' | 'exiting'>('entering')
-
+ 
     const EXPO_EASE = [0.16, 1, 0.3, 1] as const;
-
+ 
     useEffect(() => {
-        setPhase('loading');
-
-        const duration = 1000; // 1.0 seconds loading experience
+        const duration = 2000; // 2 seconds for a more premium cinematic feel
         const startTime = performance.now();
-
+ 
         const animateProgress = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const nextProgress = Math.min((elapsed / duration) * 100, 100);
-
-            // Easing out curve for the counter
-            const easeOutProgress = 1 - Math.pow(1 - (nextProgress / 100), 3);
-            setProgress(Math.floor(easeOutProgress * 100));
-
+            
+            // Smoother easing for the scale/progress
+            const easeOutProgress = 1 - Math.pow(1 - (nextProgress / 100), 4);
+            setProgress(easeOutProgress * 100);
+ 
             if (elapsed < duration) {
                 requestAnimationFrame(animateProgress);
             } else {
-                setPhase('exiting');
-                setTimeout(() => setVisible(false), 800); // Wait for exit animation to finish
+                setTimeout(() => setVisible(false), 500);
             }
         };
-
+ 
         requestAnimationFrame(animateProgress);
     }, []);
-
+ 
     return (
         <AnimatePresence>
             {visible && (
                 <motion.div
                     key="loader"
-                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#E8F2FC] overflow-hidden"
-                    initial={{ y: 0 }}
-                    exit={{ y: '-100%', transition: { duration: 0.8, ease: EXPO_EASE } }}
+                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#F9FBFF] overflow-hidden"
+                    initial={{ opacity: 1 }}
+                    exit={{ 
+                        y: '-100%', 
+                        transition: { duration: 1, ease: EXPO_EASE } 
+                    }}
                 >
-                    {/* Top Top decorative line */}
+                    {/* Subtle top loading line */}
                     <motion.div
-                        className="absolute top-0 left-0 w-full h-[4px] bg-accent-blue z-20"
+                        className="absolute top-0 left-0 w-full h-[6px] bg-accent-blue z-30"
                         initial={{ scaleX: 0, transformOrigin: 'left' }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 1.0, ease: EXPO_EASE }}
+                        animate={{ scaleX: progress / 100 }}
+                        transition={{ duration: 0.1, ease: "linear" }}
                     />
-
-                    {/* Top Spacer for flex layout */}
-                    <div className="w-full h-[88px]" />
-
-                    {/* Center Logo Area */}
-                    <div className="flex flex-col items-center gap-6 relative z-10 w-full px-4 text-center">
-                        {/* Decorative Subheadline */}
+ 
+                    {/* Animated Logo Central Area */}
+                    <div className="relative flex flex-col items-center justify-center">
                         <motion.div
-                            className="flex items-center gap-4 justify-center w-full"
-                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            transition={{ duration: 1, ease: EXPO_EASE, delay: 0.1 }}
+                            initial={{ opacity: 0, scale: 0.8, filter: 'blur(20px)' }}
+                            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                            transition={{ duration: 1.5, ease: EXPO_EASE }}
+                            className="relative z-10"
                         >
-                            <p className="text-neutral-30 tracking-[0.4em] uppercase font-bold text-[10px] md:text-[12px]">
-                                PERFORMANCE MEDIA AGENCY
-                            </p>
+                            <Image 
+                                src="/images/OM1Final-1.png" 
+                                alt="OnlyMedia" 
+                                width={280} 
+                                height={80} 
+                                className="object-contain w-[140px] md:w-[280px] h-auto"
+                                priority
+                            />
                         </motion.div>
-
-                        {/* Main Logo Text mapped closely to Hero typography */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1.2, ease: EXPO_EASE }}
-                            className="flex flex-col items-center py-4"
-                        >
-                            <div className="text-neutral-30 text-[60px] md:text-[100px] lg:text-[140px] font-black tracking-[-0.04em] leading-[1] flex flex-wrap justify-center overflow-hidden pb-4 md:pb-8">
-                                <motion.span
-                                    initial={{ y: '120%' }}
-                                    animate={{ y: 0 }}
-                                    transition={{ duration: 1.1, ease: EXPO_EASE, delay: 0.1 }}
-                                    className="pt-4 inline-block"
-                                >
-                                    Only
-                                </motion.span>
-                                <motion.span
-                                    className="text-accent-blue italic font-serif font-medium pr-4 pt-4 ml-2 inline-block origin-bottom"
-                                    initial={{ y: '120%', rotate: 10, opacity: 0 }}
-                                    animate={{ y: 0, rotate: 0, opacity: 1 }}
-                                    transition={{ duration: 1.1, ease: EXPO_EASE, delay: 0.2 }}
-                                >
-                                    Media.
-                                </motion.span>
-                            </div>
-                        </motion.div>
+ 
+                        {/* Cinematic Pulse Ring */}
+                        <motion.div 
+                            className="absolute inset-0 -m-8 border-2 border-accent-blue/10 rounded-full"
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: [0.5, 1.2], opacity: [0, 0.3, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: EXPO_EASE }}
+                        />
                     </div>
-
-                    {/* Bottom Area - Progress Bar */}
-                    <div className="w-full h-32 md:h-40 flex flex-col justify-end p-8 md:p-16 z-10 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards_0.5s]">
-                        <div className="w-full max-w-4xl mx-auto flex flex-col gap-4">
-                            <div className="flex justify-between items-end">
-                                <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-neutral-30">Initiating sequence</span>
-                                <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-neutral-30 font-mono">00:0{Math.floor(progress / 33)}</span>
-                            </div>
-                            <div className="w-full h-[2px] bg-neutral-20/20 relative overflow-hidden rounded-full">
-                                <motion.div
-                                    className="absolute top-0 left-0 h-full bg-accent-blue rounded-full"
-                                    style={{ width: `${progress}%` }}
-                                    transition={{ ease: "linear" }}
-                                />
-                            </div>
-                        </div>
+ 
+                    {/* Minimal Progress Bar at bottom */}
+                    <div className="absolute bottom-20 w-40 h-[2px] bg-neutral-30/5 overflow-hidden rounded-full">
+                        <motion.div 
+                            className="h-full bg-accent-blue"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${progress}%` }}
+                            transition={{ ease: "linear" }}
+                        />
                     </div>
-
+ 
                     {/* Background architectural lines for premium feel */}
-                    <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0 flex justify-between px-10 md:px-32">
-                        <div className="w-[1px] h-full bg-black"></div>
-                        <div className="w-[1px] h-full bg-black hidden md:block"></div>
-                        <div className="w-[1px] h-full bg-black hidden lg:block"></div>
-                        <div className="w-[1px] h-full bg-black"></div>
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0 flex justify-between px-10 md:px-32">
+                        <div className="w-[1px] h-full bg-neutral-30"></div>
+                        <div className="w-[1px] h-full bg-neutral-30 hidden md:block"></div>
+                        <div className="w-[1px] h-full bg-neutral-30 hidden lg:block"></div>
+                        <div className="w-[1px] h-full bg-neutral-30"></div>
                     </div>
                 </motion.div>
             )}
         </AnimatePresence>
     )
 }
-
