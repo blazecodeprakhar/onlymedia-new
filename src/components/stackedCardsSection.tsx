@@ -8,12 +8,12 @@ const PROCESS_PHASES = [
     {
         id: "process-1",
         title: "Results First",
-        description: "Every strategy ties directly to business impact, growing revenue, reducing acquisition costs, and delivering outcomes that actually move the needle.",
+        description: "Every decision starts with outcomes. Campaigns are structured to align with revenue goals, cost efficiency and meaningful engagement ensuring media contributes to real business impact.",
     },
     {
         id: "process-2",
-        title: "Platform Masters",
-        description: "We operate across Meta, Google, YouTube, DV360, and affiliate networks, unlocking growth opportunities others miss.",
+        title: "Platform Expertise",
+        description: "Deep expertise across Meta, Google, YouTube, DV360, Pinterest, Snapchat, Reddit and affiliate ecosystems ensures campaigns are structured and scaled effectively.",
     },
     {
         id: "process-3",
@@ -23,7 +23,7 @@ const PROCESS_PHASES = [
     {
         id: "process-4",
         title: "Audience Precision",
-        description: "Data-driven targeting ensures your brand reaches the right people, at the right moment, with maximum efficiency.",
+        description: "Better outcomes begin with better audience signals. We activate campaigns using behavioural, intent and engagement data to ensure media reaches users with higher relevance.",
     },
     {
         id: "process-5",
@@ -33,7 +33,7 @@ const PROCESS_PHASES = [
     {
         id: "process-6",
         title: "Continuous Growth",
-        description: "We monitor, learn, and optimise in real time so your campaigns get sharper and stronger every week.",
+        description: "We monitor performance across audiences, creatives and platforms, refining strategies continuously to improve efficiency and outcomes.",
     },
 ]
 
@@ -100,7 +100,7 @@ function MobileCardCarousel() {
                     </span>
                 </h2>
                 <p className="text-[14px] text-neutral-20 leading-relaxed opacity-90">
-                    Strategy, technology, and creative thinking united to build marketing systems that drive real, measurable growth.
+                    Media works best when executed with clarity, precision and continuous optimization.
                 </p>
             </div>
 
@@ -234,7 +234,7 @@ function DesktopStackedCards() {
                                 </span>
                             </h2>
                             <p className="max-w-sm text-[16px] xl:text-[17px] text-neutral-20 leading-relaxed opacity-90">
-                                Strategy, technology, and creative thinking united to build marketing systems that drive real, measurable growth.
+                                Media works best when executed with clarity, precision and continuous optimization.
                             </p>
                         </div>
 

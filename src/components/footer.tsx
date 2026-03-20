@@ -68,14 +68,16 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
                     {/* Brand Column */}
                     <div className="footer-reveal flex flex-col gap-8">
-                        <SmoothLink href="/" className="flex items-center gap-2 w-fit">
-                            <div className="bg-white rounded-xl px-3 py-2 shadow-sm">
+                        <SmoothLink href="/" className="flex items-center gap-2 w-fit group">
+                            <div className="relative px-4 py-2.5 rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_24px_rgba(255,255,255,0.45)] group-hover:shadow-[0_6px_32px_rgba(255,255,255,0.65)] transition-all duration-500">
+                                {/* Inner glow */}
+                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 to-white/20 pointer-events-none" />
                                 <Image
                                     src="/images/OM1Final-1.png"
                                     alt="OnlyMedia logo"
                                     width={120}
                                     height={36}
-                                    className="object-contain"
+                                    className="object-contain relative z-10"
                                 />
                             </div>
                         </SmoothLink>
