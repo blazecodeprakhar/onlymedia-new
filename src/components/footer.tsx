@@ -52,8 +52,7 @@ function Footer() {
                             <span className="text-accent-blue">your brand forward?</span>
                         </h2>
                         <p className="text-base md:text-xl text-neutral-30/70 leading-relaxed font-medium">
-                            OnlyMedia is where data clarity meets human impact. <br className="hidden lg:block" />
-                            We build campaigns that don't just reach people, they move them.
+                            OnlyMedia partners with brands and agencies to activate media with precision, clarity and measurable impact.
                         </p>
                     </div>
                     <div className="shrink-0">
@@ -70,17 +69,24 @@ function Footer() {
                     {/* Brand Column */}
                     <div className="footer-reveal flex flex-col gap-8">
                         <SmoothLink href="/" className="flex items-center gap-2 w-fit">
-                            <Image
-                                src="/images/OM1Final-1.png"
-                                alt="OnlyMedia logo"
-                                width={120}
-                                height={36}
-                                className="object-contain"
-                            />
+                            <div className="bg-white rounded-xl px-3 py-2 shadow-sm">
+                                <Image
+                                    src="/images/OM1Final-1.png"
+                                    alt="OnlyMedia logo"
+                                    width={120}
+                                    height={36}
+                                    className="object-contain"
+                                />
+                            </div>
                         </SmoothLink>
-                        <p className="text-body-normal text-neutral-30/50 leading-relaxed">
-                            OnlyMedia is where data clarity meets human impact. We build campaigns that don't just reach people, they move them.
-                        </p>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm font-black text-neutral-30 tracking-tight">
+                                Targeted Media. Measurable Growth.
+                            </p>
+                            <p className="text-body-normal text-neutral-30/60 leading-relaxed">
+                                At OnlyMedia, every campaign is shaped by audience insight, executed with precision and refined to deliver meaningful outcomes.
+                            </p>
+                        </div>
                         <div className="flex gap-4">
                             <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <LinkedinLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />

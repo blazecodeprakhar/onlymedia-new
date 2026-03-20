@@ -74,50 +74,64 @@ function WhoWeAre() {
             <div className="hidden md:block who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-orange/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
 
             <div className="wrapper max-w-7xl mx-auto px-6 relative z-10">
-                <div className="bg-white rounded-[48px] p-12 lg:p-24 shadow-2xl shadow-neutral-30/[0.03] border border-neutral-30/[0.02] grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+                {/* Card: flex-col on mobile/tablet, flex-row on xl, always items-center on xl */}
+                <div className="bg-white rounded-[48px] p-12 lg:p-20 xl:p-24 shadow-2xl shadow-neutral-30/[0.03] border border-neutral-30/[0.02] flex flex-col xl:flex-row gap-16 xl:gap-24 xl:items-center min-h-[520px]">
+
                     {/* Left Side: Bold Impact Statement */}
-                    <div className="lg:col-span-12 xl:col-span-7 flex flex-col gap-10">
-                        <div className="animate-up">
-                            <div className="flex items-center gap-4 mb-8">
-                                <span className="h-1 w-12 bg-accent-blue rounded-full" />
-                                <p className="text-eyebrow-large text-accent-blue tracking-[0.4em] uppercase font-bold text-sm">
-                                    OUR CORE STRATEGY
-                                </p>
-                            </div>
-                            <h2 className="main-headline text-[48px] md:text-[64px] lg:text-[72px] leading-[1.05] text-neutral-30 font-bold tracking-tight transition-all duration-500">
-                                OnlyMedia is where <br className="hidden md:block" />
-                                <span className="text-accent-blue">data clarity </span> <br className="hidden md:block" />
-                                meets <span className="text-accent-orange italic">human impact</span>.
-                            </h2>
+                    <div className="xl:w-[55%] flex-shrink-0 flex flex-col gap-10 animate-up">
+                        <div className="flex items-center gap-4">
+                            <span className="h-1 w-12 bg-accent-blue rounded-full" />
+                            <p className="text-accent-blue tracking-[0.4em] uppercase font-bold text-sm">
+                                OUR CORE STRATEGY
+                            </p>
                         </div>
+                        <h2 className="main-headline text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] text-neutral-30 font-black tracking-tight transition-all duration-500">
+                            OnlyMedia is where <span className="text-accent-blue">precision targeting</span> delivers <span className="text-accent-orange italic">measurable outcomes.</span>
+                        </h2>
                     </div>
 
                     {/* Right Side: Detailed Philosophy */}
-                    <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-12 animate-up">
-                        <div className="flex flex-col gap-8 relative border-l-2 border-neutral-30/5 pl-8 hover:border-accent-blue/40 transition-colors duration-700">
+                    <div className="xl:flex-1 flex flex-col gap-10 animate-up">
+                        {/* Content block with left blue border */}
+                        <div className="flex flex-col gap-7 relative border-l-2 border-neutral-30/10 pl-8 hover:border-accent-blue/50 transition-colors duration-700">
                             {/* Animated progress line overlay */}
                             <div className="absolute left-[-2px] top-0 bottom-0 w-0.5 bg-accent-blue origin-top z-20" id="progress-line" />
 
-                            <p className="text-body-xl text-neutral-20 leading-relaxed font-medium">
-                                We bridge the gap between audience insights and execution. Across digital, transit, and emerging
-                                platforms, we build campaigns that don't just reach people, they move them.
+                            {/* Hook line */}
+                            <p className="text-[20px] md:text-[22px] text-neutral-30 leading-[1.45] font-bold">
+                                Access to platforms is no longer the challenge.
+                                <span className="text-accent-blue"> Execution is.</span>
                             </p>
 
-                            <div className="flex flex-col gap-3">
-                                <p className="text-body-large text-neutral-10 leading-relaxed">
-                                    Our mission is simple: transform raw insights into a measurable competitive advantage for your brand in an ever-shifting media landscape.
+                            {/* Body paragraphs */}
+                            <div className="flex flex-col gap-5">
+                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                    OnlyMedia focuses on making media work harder by combining audience intelligence, structured campaign management and interactive formats.
+                                </p>
+                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                    We align the right audiences with the right platforms and continuously refine campaigns based on real signals.
+                                </p>
+                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                    The result is media that is not just delivered, but optimized to drive measurable outcomes.
                                 </p>
                             </div>
 
-                            <p className="text-body-large font-bold text-accent-blue uppercase tracking-widest text-[13px] pt-4">
-                                Strategy • Creativity • Execution
+                            {/* Tag line — reduced tracking to prevent 3-line wrap */}
+                            <p className="text-[12px] md:text-[13px] font-black text-accent-blue uppercase tracking-[0.12em] leading-[1.8]">
+                                Audience Intelligence &bull; Execution &bull; Creative Innovation
                             </p>
                         </div>
 
-                        <div className="flex items-center gap-6 pl-8">
-                            <MainButton text="Explore The Strategy" href="#why-us" className="px-10 py-5 shadow-2xl shadow-accent-blue/5 hover:shadow-accent-blue/15" />
+                        {/* CTA Button */}
+                        <div className="flex items-center pl-8">
+                            <MainButton
+                                text="Explore The Strategy"
+                                href="#why-us"
+                                className="px-10 py-[18px] text-base font-bold shadow-xl shadow-accent-blue/10 hover:shadow-accent-blue/20 min-w-[220px] text-center"
+                            />
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -125,4 +139,3 @@ function WhoWeAre() {
 }
 
 export default WhoWeAre;
-
