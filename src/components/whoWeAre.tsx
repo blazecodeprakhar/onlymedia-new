@@ -105,19 +105,19 @@ function WhoWeAre() {
 
                             {/* Body paragraphs */}
                             <div className="flex flex-col gap-5">
-                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                <p className="text-[18px] md:text-[20px] text-neutral-20 leading-[1.75]">
                                     OnlyMedia focuses on making media work harder by combining audience intelligence, structured campaign management and interactive formats.
                                 </p>
-                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                <p className="text-[18px] md:text-[20px] text-neutral-20 leading-[1.75]">
                                     We align the right audiences with the right platforms and continuously refine campaigns based on real signals.
                                 </p>
-                                <p className="text-[16px] md:text-[17px] text-neutral-20 leading-[1.75]">
+                                <p className="text-[18px] md:text-[20px] text-neutral-20 leading-[1.75]">
                                     The result is media that is not just delivered, but optimized to drive measurable outcomes.
                                 </p>
                             </div>
 
                             {/* Tag line — reduced tracking to prevent 3-line wrap */}
-                            <p className="text-[12px] md:text-[13px] font-black text-accent-blue uppercase tracking-[0.12em] leading-[1.8]">
+                            <p className="text-[14px] md:text-[15px] font-black text-accent-blue uppercase tracking-[0.12em] leading-[1.8]">
                                 Audience Intelligence &bull; Execution &bull; Creative Innovation
                             </p>
                         </div>

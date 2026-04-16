@@ -39,7 +39,7 @@ function BenefitsCard({ icon, title, description }: { icon: JSX.Element, title: 
             {title}
           </h6>
 
-          <p className="text-[14px]/[150%] xl:text-[15px]/[150%] font-normal text-neutral-20">
+          <p className="text-[16px]/[150%] xl:text-[17px]/[150%] font-normal text-neutral-20">
             {description}
           </p>
         </div>

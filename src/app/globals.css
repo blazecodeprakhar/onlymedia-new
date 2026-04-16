@@ -20,6 +20,80 @@
   --color-accent-yellow: #CF8D13;
   --color-accent-green: #0EA158;
   --color-accent-orange: #C9502E;
+
+  /* Typographic Scale Variables */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+}
+
+@layer base {
+  :root {
+    --font-primary-family: var(--font-primary), system-ui, sans-serif;
+    --font-secondary-family: var(--font-secondary), system-ui, sans-serif;
+    --font-mono-family: var(--font-mono), monospace;
+    
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+  }
+
+  html {
+    font-family: var(--font-secondary-family);
+    /* Cross-browser Compatibility for smoother rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Implement font-feature-settings for OpenType features */
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Responsive Typography with clamp() for Accessibility & Performance */
+  h1 { font-family: var(--font-primary-family); font-size: clamp(2.5rem, 5vw + 1rem, 4rem); line-height: var(--leading-tight); }
+  h2 { font-family: var(--font-primary-family); font-size: clamp(2rem, 4vw + 1rem, 3.25rem); line-height: var(--leading-tight); }
+  h3 { font-family: var(--font-primary-family); font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); line-height: var(--leading-tight); }
+  h4 { font-family: var(--font-primary-family); font-size: clamp(1.25rem, 2.5vw + 1rem, 2rem); line-height: var(--leading-tight); }
+  h5 { font-family: var(--font-primary-family); font-size: clamp(1.125rem, 2vw + 1rem, 1.5rem); line-height: var(--leading-normal); }
+  h6 { font-family: var(--font-primary-family); font-size: clamp(1rem, 1.5vw + 1rem, 1.25rem); line-height: var(--leading-normal); }
+
+  p, li {
+    font-size: clamp(1.125rem, 1vw + 0.9rem, 1.25rem);
+    line-height: var(--leading-relaxed);
+  }
+
+  p, span, div, a, li {
+    font-family: var(--font-secondary-family);
+  }
+
+  code, pre {
+    font-family: var(--font-mono-family);
+  }
+}
+
+/* Animations & Transitions */
+@utility font-weight-transition {
+  transition: font-weight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes textReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility text-reveal {
+  animation: textReveal 0.6s ease-out forwards;
+}
+
+@utility hover-lift {
+  &:hover {
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+  }
 }
 
 html,
@@ -53,23 +127,23 @@ body {
 }
 
 @utility text-body-xl {
-  @apply text-[20px]/[150%] font-normal text-neutral-20;
+  @apply text-[24px]/[150%] font-normal text-neutral-20;
 }
 
 @utility text-body-large {
-  @apply text-[18px]/[150%] font-normal text-neutral-20;
+  @apply text-[20px]/[150%] font-normal text-neutral-20;
 }
 
 @utility text-body-normal {
-  @apply text-[16px]/[150%] font-normal text-neutral-20;
+  @apply text-[18px]/[150%] font-normal text-neutral-20;
 }
 
 @utility text-body-small {
-  @apply text-[14px]/[150%] font-normal text-neutral-20;
+  @apply text-[16px]/[150%] font-normal text-neutral-20;
 }
 
 @utility text-body-xs {
-  @apply text-[13px]/[120%] font-normal text-neutral-30;
+  @apply text-[14px]/[120%] font-normal text-neutral-30;
 }
 
 @utility text-label {
@@ -89,7 +163,7 @@ body {
 }
 
 @utility text-body-normal {
-  @apply text-[16px]/[150%] font-medium text-neutral-20;
+  @apply text-[18px]/[150%] font-medium text-neutral-20;
 }
 
 @utility content {
@@ -216,7 +290,7 @@ body {
     }
 
     &>p:first-child {
-      @apply text-[15px] sm:text-[16px] leading-relaxed font-medium;
+      @apply text-[17px] sm:text-[19px] leading-relaxed font-medium;
     }
   }
 

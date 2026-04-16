@@ -99,7 +99,7 @@ function MobileCardCarousel() {
                         Stronger Business Outcomes.
                     </span>
                 </h2>
-                <p className="text-[14px] text-neutral-20 leading-relaxed opacity-90">
+                <p className="text-[16px] text-neutral-20 leading-relaxed opacity-90">
                     Media works best when executed with clarity, precision and continuous optimization.
                 </p>
             </div>
@@ -135,7 +135,7 @@ function MobileCardCarousel() {
                             </span>
                         </div>
                         <div className="w-6 h-[2px] rounded-full bg-accent-blue mb-3 opacity-50" />
-                        <p className="text-[13px] text-neutral-20 leading-relaxed">
+                        <p className="text-[15px] text-neutral-20 leading-relaxed">
                             {phase.description}
                         </p>
                     </motion.div>
@@ -233,7 +233,7 @@ function DesktopStackedCards() {
                                     Stronger Business <br className="hidden xl:block" />Outcomes.
                                 </span>
                             </h2>
-                            <p className="max-w-sm text-[16px] xl:text-[17px] text-neutral-20 leading-relaxed opacity-90">
+                            <p className="max-w-sm text-[18px] xl:text-[19px] text-neutral-20 leading-relaxed opacity-90">
                                 Media works best when executed with clarity, precision and continuous optimization.
                             </p>
                         </div>
@@ -274,7 +274,7 @@ function DesktopStackedCards() {
                                             </h3>
                                         </div>
                                         <div className="w-8 h-[2px] rounded-full bg-accent-blue mb-4 opacity-50" />
-                                        <p className="text-[15px] xl:text-[16px] text-neutral-20 leading-relaxed">
+                                        <p className="text-[17px] xl:text-[18px] text-neutral-20 leading-relaxed">
                                             {phase.description}
                                         </p>
                                     </div>
