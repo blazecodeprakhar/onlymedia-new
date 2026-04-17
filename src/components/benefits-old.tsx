@@ -121,9 +121,9 @@ function Benefits() {
                     </div>
 
                     <div className="bottom">
-                        <BenefitsCard icon={<HandshakeIcon size={24}/>} title="Collaborate in realtime" description="Keep every conversation in sync use comments, messages, and project chats to stay on the same page."/>
-                        <BenefitsCard icon={<LanguagesIcon size={24}/>} title="Speaks your language" description="Set your language, currency, time, and date preferences for a seamless experience that feels truly local."/>
-                        <BenefitsCard icon={<RectangleGogglesIcon size={24}/>} title="View things your way" description="Easily toggle between various views, including Kanban, cards, list, table, timeline, and calendar."/>
+                        <BenefitsCard icon={<HandshakeIcon size={24}/>} title="Collaborate in realtime" frontQuote="Keep every conversation in sync use comments, messages, and project chats to stay on the same page." backDescription="Keep every conversation in sync use comments, messages, and project chats to stay on the same page."/>
+                        <BenefitsCard icon={<LanguagesIcon size={24}/>} title="Speaks your language" frontQuote="Set your language, currency, time, and date preferences for a seamless experience that feels truly local." backDescription="Set your language, currency, time, and date preferences for a seamless experience that feels truly local."/>
+                        <BenefitsCard icon={<RectangleGogglesIcon size={24}/>} title="View things your way" frontQuote="Easily toggle between various views, including Kanban, cards, list, table, timeline, and calendar." backDescription="Easily toggle between various views, including Kanban, cards, list, table, timeline, and calendar."/>
                     </div>
                 </div>
             </div>
