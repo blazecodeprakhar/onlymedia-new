@@ -90,7 +90,7 @@ function MobileCardCarousel() {
         <div className="flex flex-col gap-6 w-full">
             {/* Left heading block */}
             <div className="flex flex-col justify-center">
-                <h5 className="text-xs uppercase tracking-widest text-accent-blue font-bold mb-2">
+                <h5 className="text-sm md:text-base uppercase tracking-widest text-accent-blue font-bold mb-2">
                     WHY US
                 </h5>
                 <h2 className="mb-3 mt-1 text-[28px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
@@ -224,7 +224,7 @@ function DesktopStackedCards() {
 
                         {/* Left heading block */}
                         <div className="flex flex-col justify-center max-w-lg">
-                            <h5 className="text-sm uppercase tracking-widest text-accent-blue font-bold mb-3">
+                            <h5 className="text-lg uppercase tracking-widest text-accent-blue font-bold mb-3">
                                 WHY US
                             </h5>
                             <h2 className="mb-5 mt-2 text-[44px] xl:text-[52px] font-bold tracking-tight text-neutral-30 leading-[1.1]">

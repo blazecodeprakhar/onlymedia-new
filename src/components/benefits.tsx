@@ -152,22 +152,26 @@ export default function Benefits() {
                     <BenefitsCard
                         icon={<Target size={24} />}
                         title="Media Strategy"
-                        description="Design custom media strategies perfectly aligned with your business goals. We combine channel expertise and full funnel thinking to deliver measurable performance."
+                        frontQuote="Media works best when it is structured with intent."
+                        backDescription="We design strategies that align audiences, platforms and campaign architecture to deliver clarity in execution and consistency in outcomes."
                     />
                     <BenefitsCard
                         icon={<Users size={24} />}
                         title="Audience Insights"
-                        description="Connect your brand with highly intent audiences via smart behavioral data, transactional signals, and deep segmentation to maximize complete targeting efficiency."
+                        frontQuote="Better targeting starts with better signals."
+                        backDescription="We use behavioural, transactional and intent-based data to reach audiences that are more relevant and more likely to engage."
                     />
                     <BenefitsCard
                         icon={<Lightbulb size={24} />}
-                        title="Creative Formats"
-                        description="From interactive ad units to gamified storytelling experiences, we build highly immersive, creative components specifically designed to boldly drive high conversions."
+                        title="Rich Media Formats"
+                        frontQuote="Attention is earned through interaction."
+                        backDescription="We create formats that transform passive impressions into active engagement, making brand experiences more memorable."
                     />
                     <BenefitsCard
                         icon={<Handshake size={24} />}
                         title="Affiliate Growth"
-                        description="Manage highly scalable affiliate programs backed by smart partner selections, rigorous fraud protections, and full real-time tracking to effortlessly maximize your ROI."
+                        frontQuote="Scale requires structure."
+                        backDescription="We build and manage affiliate programs that balance growth, efficiency and transparency at every stage."
                     />
                 </div>
             </div>

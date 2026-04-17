@@ -18,8 +18,8 @@ export default function Home() {
       <Hero />
       <div className="content">
         <WhoWeAre />
-        <LogosTicker />
         <Benefits />
+        <LogosTicker />
         <Reviews />
       </div>
       <StackedCardsSection />

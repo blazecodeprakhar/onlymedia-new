@@ -56,6 +56,7 @@ function Hero() {
         });
 
         // 3. Cloud Entry & Continuous Floating
+        /*
         const imageOffset = isMobile ? '-200px' : '-340px'
         const startOffset = isMobile ? '-50px' : '-100px'
 
@@ -85,6 +86,7 @@ function Hero() {
             ease: "sine.inOut",
             delay: heroDelay + 2
         })
+        */
 
         // 4. Background Pulse Glow
         gsap.fromTo('.hero-bg-glow',
@@ -114,10 +116,10 @@ function Hero() {
                         <motion.div
                             className="flex items-center gap-4 justify-center w-full mb-4 md:mb-6"
                             initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            animate={{ opacity: 0, y: 0, filter: 'blur(0px)' }}
                             transition={{ duration: 1, ease: EXPO_EASE, delay: heroDelay + 0.1 }}
                         >
-                            <p className="text-accent-blue tracking-[0.45em] uppercase font-black text-[10px] md:text-sm">
+                            <p className="text-accent-blue tracking-[0.45em] uppercase font-black text-[10px] md:text-sm opacity-0">
                                 PERFORMANCE MEDIA AGENCY
                             </p>
                         </motion.div>
@@ -138,7 +140,9 @@ function Hero() {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             transition={{ duration: 0.9, ease: EXPO_EASE, delay: heroDelay + 0.8 }}
                         >
-                            We deliver data-driven media solutions that connect brands with the right audiences and drive measurable growth across online and offline touchpoints.
+                            OnlyMedia is a managed media partner helping brands and agencies plan, activate and optimize campaigns across leading digital platforms.
+                            <br />
+                            We combine audience intelligence, platform expertise and creative innovation to deliver accountable media outcomes.
                         </motion.p>
                     </div>
 
@@ -166,12 +170,14 @@ function Hero() {
                 </div>
             </div>
 
+            {/*
             <div className="hero-left-cloud">
                 <Image src={'/images/left-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" priority />
             </div>
             <div className="hero-right-cloud">
                 <Image src={'/images/right-cloud.png'} height={550} width={550} alt="left-cloud" className="object-cover object-center" priority />
             </div>
+            */}
         </section>
     )
 }

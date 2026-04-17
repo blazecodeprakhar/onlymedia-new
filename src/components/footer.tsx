@@ -107,8 +107,8 @@ function Footer() {
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Company</p>
                         <nav className="flex flex-col gap-4">
                             <SmoothLink href="/about" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">About</SmoothLink>
-                            <SmoothLink href="#" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">Strategy</SmoothLink>
-                            <SmoothLink href="#" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">Our Work</SmoothLink>
+                            <SmoothLink href="/blog" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">Blogs</SmoothLink>
+                            <SmoothLink href="/faqs" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">FAQs</SmoothLink>
                             <SmoothLink href="/contact" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">Contact</SmoothLink>
                         </nav>
                     </div>

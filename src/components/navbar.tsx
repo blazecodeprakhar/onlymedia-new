@@ -75,8 +75,8 @@ function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Services', href: '/#features' },
-        { name: 'Blogs', href: '/blog' },
-        { name: 'FAQs', href: '/faqs' },
+        { name: 'Case Study', href: '/blog' },
+        { name: 'Rich Media', href: '/faqs' },
     ]
 
     return (

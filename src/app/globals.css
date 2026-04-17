@@ -184,6 +184,19 @@ body {
   animation: marquee 40s linear infinite;
 }
 
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+
 @layer components {
   .hero {
     @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-10 sm:pb-16 lg:min-h-[100vh] min-h-screen max-h-screen md:max-h-none flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
@@ -227,7 +240,7 @@ body {
   }
 
   .logos-ticker {
-    @apply flex w-full justify-center py-20;
+    @apply flex w-full justify-center py-20 overflow-hidden;
 
     .logos-ticker-content {
       @apply w-full max-w-[1400px] flex flex-col items-center gap-12;
