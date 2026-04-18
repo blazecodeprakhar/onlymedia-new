@@ -73,17 +73,17 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
 
         {/* BACK FACE */}
         <div 
-          className="absolute inset-0 w-full h-full p-6 xl:p-8 flex flex-col gap-4 bg-[#1A1615] rounded-3xl shadow-xl"
+          className="absolute inset-0 w-full h-full p-6 xl:p-8 flex flex-col gap-4 bg-[#E2ECF5] rounded-3xl shadow-xl"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
-          <h6 className="text-[12px] uppercase tracking-widest text-[#d4d0c8]/50 font-bold mb-2">
+          <h6 className="text-[12px] uppercase tracking-widest text-neutral-30/60 font-bold mb-2">
             {title}
           </h6>
-          <p className="text-[16px]/[160%] lg:text-[18px]/[160%] font-medium text-[#d4d0c8] flex-grow">
+          <p className="text-[16px]/[160%] lg:text-[18px]/[160%] font-medium text-neutral-30 flex-grow">
             {backDescription}
           </p>
           
-          <div className="mt-auto pt-4 text-[13px] font-medium text-[#d4d0c8]/40 flex items-center gap-1.5">
+          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-30/50 flex items-center gap-1.5 hover:text-accent-blue transition-colors">
             <span className="rotate-180 text-lg leading-none">&rarr;</span> Tap to close
           </div>
         </div>
