@@ -66,7 +66,7 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
             </p>
           </div>
           
-          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-20/40 flex items-center gap-1.5 transition-colors lg:group-hover:text-accent-blue/80">
+          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-20/40 flex lg:hidden items-center gap-1.5 transition-colors lg:group-hover:text-accent-blue/80">
             Tap to reveal <span className="text-lg leading-none">&rarr;</span>
           </div>
         </div>
@@ -83,7 +83,7 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
             {backDescription}
           </p>
           
-          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-30/50 flex items-center gap-1.5 hover:text-accent-blue transition-colors">
+          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-30/50 flex lg:hidden items-center gap-1.5 hover:text-accent-blue transition-colors">
             <span className="rotate-180 text-lg leading-none">&rarr;</span> Tap to close
           </div>
         </div>
