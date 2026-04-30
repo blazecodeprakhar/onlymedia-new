@@ -311,7 +311,7 @@ body {
   /* ── Benefits / Features Section ── */
   /* Uses unique class names to avoid collisions with .hero .top, .reviews .container etc */
   .benefits-section {
-    @apply w-full;
+    @apply w-full pt-24 md:pt-40 lg:pt-56;
   }
 
   .benefits-inner {

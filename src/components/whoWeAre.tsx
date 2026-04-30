@@ -68,7 +68,7 @@ function WhoWeAre() {
     }, { scope: sectionRef, dependencies: [isMobile] });
 
     return (
-        <section id="about" ref={sectionRef} className="who-we-are pt-10 pb-10 lg:pt-16 lg:pb-16 bg-neutral-0/50 relative overflow-hidden">
+        <section id="about" ref={sectionRef} className="who-we-are md:hidden pt-10 pb-10 lg:pt-16 lg:pb-16 bg-neutral-0/50 relative overflow-hidden">
             {/* Dynamic visual elements for pixel-perfect feel */}
             <div className="who-we-are-bg absolute -top-40 -right-40 w-80 md:w-120 h-80 md:h-120 bg-blue-30/10 rounded-full blur-[60px] md:blur-[120px] opacity-20 pointer-events-none" />
             <div className="hidden md:block who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-orange/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
