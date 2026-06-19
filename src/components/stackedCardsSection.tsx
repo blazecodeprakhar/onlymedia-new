@@ -7,28 +7,28 @@ import { ContainerScroll, CardSticky } from "@/components/blocks/cards-stack"
 const PROCESS_PHASES = [
     {
         id: "process-1",
-        title: "Results First",
-        description: "Every decision starts with outcomes. Campaigns are structured to align with revenue goals, cost efficiency and meaningful engagement ensuring media contributes to real business impact.",
+        title: "Built for Partnership",
+        description: "OnlyMedia integrates seamlessly with brand and agency teams across planning, activation and optimization. Our approach combines execution strength, platform expertise and operational clarity to ensure campaigns remain structured, scalable and measurable.",
     },
     {
         id: "process-2",
-        title: "Platform Expertise",
-        description: "Deep expertise across Meta, Google, YouTube, DV360, Pinterest, Snapchat, Reddit and affiliate ecosystems ensures campaigns are structured and scaled effectively.",
+        title: "Audience-First Thinking",
+        description: "Better outcomes begin with better audience understanding. Campaigns are activated using transactional and intent-driven audience signals to improve targeting relevance, engagement quality and media efficiency.",
     },
     {
         id: "process-3",
-        title: "Hybrid Reach",
-        description: "We blend digital performance campaigns with strategic offline placements to build brand visibility across the full customer journey.",
+        title: "Platform Expertise",
+        description: "Execution improves with platform depth. Campaigns are structured and managed across Meta, Google, YouTube, DV360, Pinterest, Snapchat and Reddit ensuring each platform is aligned to its role within the consumer journey.",
     },
     {
         id: "process-4",
-        title: "Audience Precision",
-        description: "Better outcomes begin with better audience signals. We activate campaigns using behavioural, intent and engagement data to ensure media reaches users with higher relevance.",
+        title: "Impact Frames - Creative Innovations",
+        description: "Attention is earned through interaction. Immersive innovation formats are designed to transform passive impressions into active engagement through gamified experiences, swipeable storytelling and interactive brand journeys",
     },
     {
         id: "process-5",
-        title: "Creative Impact",
-        description: "Compelling creative built to capture attention, spark interaction, and drive decisions. Not just impressions.",
+        title: "Impact Screens - CTV Solutions",
+        description: "Premium video environments demand more than reach. Enabling brands to activate campaigns across Connected TV, YouTube and premium OTT ecosystems designed to drive attention, visibility and measurable brand impact across large-screen viewing experiences.",
     },
     {
         id: "process-6",
@@ -91,7 +91,7 @@ function MobileCardCarousel() {
             {/* Left heading block */}
             <div className="flex flex-col justify-center">
                 <h5 className="text-sm md:text-base uppercase tracking-widest text-accent-blue font-bold mb-2">
-                    WHY US
+                    WHY ONLYMEDIA
                 </h5>
                 <h2 className="mb-3 mt-1 text-[28px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
                     Smarter Media.<br />
@@ -225,7 +225,7 @@ function DesktopStackedCards() {
                         {/* Left heading block */}
                         <div className="flex flex-col justify-center max-w-lg">
                             <h5 className="text-lg uppercase tracking-widest text-accent-blue font-bold mb-3">
-                                WHY US
+                                WHY ONLYMEDIA
                             </h5>
                             <h2 className="mb-5 mt-2 text-[44px] xl:text-[52px] font-bold tracking-tight text-neutral-30 leading-[1.1]">
                                 Smarter Media.<br />

@@ -2,7 +2,7 @@
 import SmoothLink from "./SmoothLink";
 import Image from "next/image"
 import MainButton from "./buttons/mainButton"
-import { Menu } from 'lucide-react';
+import { Menu, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -74,9 +74,9 @@ function Navbar() {
     const navigationLinks = [
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
-        { name: 'Services', href: '/#features' },
-        { name: 'Case Study', href: '/blog' },
-        { name: 'Rich Media', href: '/faqs' },
+        { name: 'Solutions', href: '/#features' },
+        { name: 'Insights', href: '/blog' },
+        { name: 'ImpactFrames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
     ]
 
     return (
@@ -101,8 +101,13 @@ function Navbar() {
                     <div className="hidden lg:block">
                         <ul className="flex gap-1 text-body-large text-neutral-30">
                             {navigationLinks.map((link) => (
-                                <li key={link.name} className="py-2 px-4 hover:rounded-full hover:bg-white/30 transition-colors">
-                                    <SmoothLink href={link.href}>{link.name}</SmoothLink>
+                                <li key={link.name} className="py-2 px-4 hover:rounded-full hover:bg-white/30 transition-colors group">
+                                    <SmoothLink href={link.href} target={link.target} rel={link.rel} className="flex items-center gap-1">
+                                        <span>{link.name}</span>
+                                        {link.target === '_blank' && (
+                                            <ArrowUpRight size={14} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                                        )}
+                                    </SmoothLink>
                                 </li>
                             ))}
                         </ul>
@@ -135,8 +140,13 @@ function Navbar() {
                             <div className="p-6 flex flex-col gap-2">
                                 <ul className="flex flex-col gap-1 text-body-large text-neutral-30 pb-6 border-b border-white/20">
                                     {navigationLinks.map((link) => (
-                                        <li key={link.name} className="py-3 px-3 rounded-2xl hover:bg-white/30 transition-colors" onClick={() => setOpenDropdown(false)}>
-                                            <SmoothLink href={link.href}>{link.name}</SmoothLink>
+                                        <li key={link.name} className="py-3 px-3 rounded-2xl hover:bg-white/30 transition-colors group flex justify-center" onClick={() => setOpenDropdown(false)}>
+                                            <SmoothLink href={link.href} target={link.target} rel={link.rel} className="flex items-center gap-1 justify-center w-full">
+                                                <span>{link.name}</span>
+                                                {link.target === '_blank' && (
+                                                    <ArrowUpRight size={16} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                                                )}
+                                            </SmoothLink>
                                         </li>
                                     ))}
                                 </ul>

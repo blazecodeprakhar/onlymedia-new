@@ -8,12 +8,20 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { InstagramLogo, LinkedinLogo, TwitterLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { InstagramLogo, LinkedinLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Footer() {
     const footerRef = useRef<HTMLElement>(null);
+
+    const solutions = [
+        { name: 'Managed Media Services', href: '#' },
+        { name: 'Audience Intelligence', href: '#' },
+        { name: 'Impact Frames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
+        { name: 'Impact Screens', href: '#' },
+    ];
 
     useGSAP(() => {
         gsap.from(".footer-reveal", {
@@ -81,23 +89,15 @@ function Footer() {
                                 />
                             </div>
                         </SmoothLink>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-black text-neutral-30 tracking-tight">
-                                Targeted Media. Measurable Growth.
-                            </p>
-                            <p className="text-body-normal text-neutral-30/60 leading-relaxed">
-                                At OnlyMedia, every campaign is shaped by audience insight, executed with precision and refined to deliver meaningful outcomes.
-                            </p>
-                        </div>
+                        <p className="text-body-normal text-neutral-30/60 leading-relaxed">
+                            At OnlyMedia, audience intelligence, structured execution and creative innovation come together to deliver clarity in media and consistency in outcomes.
+                        </p>
                         <div className="flex gap-4">
                             <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <LinkedinLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
                             </SmoothLink>
                             <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <InstagramLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </SmoothLink>
-                            <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
-                                <TwitterLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
                             </SmoothLink>
                         </div>
                     </div>
@@ -116,9 +116,18 @@ function Footer() {
                     <div className="footer-reveal flex flex-col gap-8">
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Solutions</p>
                         <nav className="flex flex-col gap-4">
-                            {['Digital Media', 'Transit & OOH', 'Emerging Platforms', 'Data Analytics'].map((item) => (
-                                <SmoothLink key={item} href="#" className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit">
-                                    {item}
+                            {solutions.map((item) => (
+                                <SmoothLink 
+                                    key={item.name} 
+                                    href={item.href} 
+                                    target={item.target} 
+                                    rel={item.rel} 
+                                    className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit flex items-center gap-1 group/item"
+                                >
+                                    <span>{item.name}</span>
+                                    {item.target === '_blank' && (
+                                        <ArrowUpRight size={14} className="opacity-60 group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition-transform duration-200" />
+                                    )}
                                 </SmoothLink>
                             ))}
                         </nav>

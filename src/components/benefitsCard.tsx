@@ -50,7 +50,7 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
         
         {/* FRONT FACE */}
         <div 
-          className="relative w-full h-full p-6 xl:p-8 flex flex-col gap-6 lg:gap-8 bg-[#F0EAE5] rounded-3xl hover:shadow-xl transition-shadow duration-300"
+          className="relative w-full h-full p-6 xl:p-8 flex flex-col gap-6 lg:gap-8 bg-[#F0EAE5] rounded-3xl hover:shadow-xl transition-shadow duration-300 min-h-[350px] md:min-h-[320px]"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <div className="icon bg-beige-0 size-12 xl:size-14 flex items-center justify-center rounded-full shrink-0 transition-transform duration-300 lg:group-hover:scale-110">
@@ -58,7 +58,7 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
           </div>
 
           <div className="texts flex flex-col gap-4 flex-grow">
-            <h6 className="text-[20px]/[120%] xl:text-[22px]/[120%] font-semibold text-neutral-30 whitespace-nowrap overflow-hidden text-ellipsis shadow-none">
+            <h6 className="text-[20px]/[120%] xl:text-[22px]/[120%] font-semibold text-neutral-30">
               {title}
             </h6>
             <p className="text-[15px]/[150%] xl:text-[17px]/[150%] font-medium italic text-neutral-20">

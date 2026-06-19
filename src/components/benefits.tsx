@@ -6,7 +6,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import BenefitsCard from "./benefitsCard"
-import { Handshake, Lightbulb, Target, Users } from "lucide-react"
+import { Lightbulb, Target, Users, Tv } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,21 +157,21 @@ export default function Benefits() {
                     />
                     <BenefitsCard
                         icon={<Users size={24} />}
-                        title="Audience Insights"
+                        title="Audience Intelligence"
                         frontQuote="Better targeting starts with better signals."
                         backDescription="We use behavioural, transactional and intent-based data to reach audiences that are more relevant and more likely to engage."
                     />
                     <BenefitsCard
                         icon={<Lightbulb size={24} />}
-                        title="Rich Media Formats"
+                        title="Impact Frames"
                         frontQuote="Attention is earned through interaction."
                         backDescription="We create formats that transform passive impressions into active engagement, making brand experiences more memorable."
                     />
                     <BenefitsCard
-                        icon={<Handshake size={24} />}
-                        title="Affiliate Growth"
-                        frontQuote="Scale requires structure."
-                        backDescription="We build and manage affiliate programs that balance growth, efficiency and transparency at every stage."
+                        icon={<Tv size={24} />}
+                        title="Impact Views - CTV Solutions"
+                        frontQuote="Premium video environments demand more than reach."
+                        backDescription="Audience-led CTV and video strategies across YouTube, OTT and Connected TV ecosystems designed to drive attention, engagement and measurable brand impact."
                     />
                 </div>
             </div>

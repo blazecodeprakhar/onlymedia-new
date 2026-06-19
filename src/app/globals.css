@@ -167,7 +167,7 @@ body {
 }
 
 @utility content {
-  @apply bg-linear-to-t box-border from-blue-20 via-beige-20 to-beige-0 flex flex-col items-center lg:pb-40 md:pb-24 pb-20 lg:px-0 md:px-10 px-4 lg:gap-40 md:gap-24 gap-20;
+  @apply bg-linear-to-t box-border from-blue-20 via-beige-20 to-beige-0 flex flex-col items-center lg:pb-40 md:pb-24 pb-20 lg:px-0 md:px-10 px-4 lg:gap-24 md:gap-16 gap-12;
 }
 
 @keyframes marquee {
@@ -240,7 +240,7 @@ body {
   }
 
   .logos-ticker {
-    @apply flex w-full justify-center py-20 overflow-hidden;
+    @apply flex w-full justify-center pt-0 pb-16 overflow-hidden;
 
     .logos-ticker-content {
       @apply w-full max-w-[1400px] flex flex-col items-center gap-12;

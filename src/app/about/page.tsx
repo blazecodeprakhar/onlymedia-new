@@ -62,7 +62,7 @@ export default function AboutPage() {
 
                 <div className="max-w-3xl mx-auto mt-16 about-reveal flex flex-col gap-6 text-xl md:text-2xl text-neutral-20 leading-[1.6]">
                     <p>
-                        We bridge the gap between creative ambition and data-driven reality. At OnlyMedia, we are strategic thinkers and execution specialists, uniting deep expertise across performance marketing, media innovation, and audience strategy.
+                        OnlyMedia is a managed media partner combining audience intelligence, platform expertise and creative innovation to deliver structured media execution across modern digital ecosystems. We work closely with brands and agencies to activate campaigns with greater precision, clarity and accountability.
                     </p>
                     <p className="font-medium text-neutral-30">
                         Our singular vision is creating measurable impact for the world’s most ambitious brands.
@@ -74,26 +74,18 @@ export default function AboutPage() {
             <div ref={teamRef} className="w-full bg-neutral-0 pb-32 pt-10 px-6 team-section relative">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 md:mb-20 about-reveal">
-                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-neutral-30 tracking-tight">The Minds Behind the Metrics</h2>
-                        <p className="text-lg md:text-xl text-neutral-20 mt-4 max-w-2xl mx-auto">Decades of combined experience dedicated to navigating an ever-evolving media landscape.</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-neutral-30 tracking-tight">BUILT BY MEDIA SPECIALISTS</h2>
+                        <p className="text-lg md:text-xl text-neutral-20 mt-4 max-w-2xl mx-auto">Experience across audience strategy, platform ecosystems and structured media execution built around measurable outcomes.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
 
                         {/* Ankita Shah */}
                         <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-500 border border-neutral-10/10 h-full">
-                            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
-                                <img
-                                    src="/Ankita-Profile-IMage.jpeg"
-                                    alt="Ankita Shah - Co-Founder"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    onError={(e) => { e.currentTarget.src = "https://placehold.co/400x400/EDDFD0/1A1615?text=Ankita+Shah" }}
-                                />
-                            </div>
                             <h3 className="text-3xl font-bold text-neutral-30 mb-2">Ankita Shah</h3>
-                            <p className="text-accent-blue font-semibold uppercase tracking-widest text-sm mb-6">Co-Founder & Head of Strategy</p>
+                            <p className="text-accent-blue font-semibold uppercase tracking-widest text-sm mb-6">Co-Founder</p>
                             <p className="text-neutral-20 text-lg leading-relaxed mb-8 flex-grow">
-                                Ankita is the driving force behind our strategic vision and client success. With over 14 years shaping the digital media landscape, she elegantly combines crystal-clear strategy with platform mastery and an unrelenting performance-first mindset to ensure every campaign delivers true, long-term impact.
+                                Leads strategy, brand partnerships and client success across the OnlyMedia ecosystem. With 14+ years of experience in digital media, the focus remains on building audience-led strategies that combine platform precision, structured planning and measurable business outcomes across evolving digital ecosystems.
                             </p>
                             <a
                                 href="https://www.linkedin.com/in/ankita-shah-b59b4923/"
@@ -108,18 +100,10 @@ export default function AboutPage() {
 
                         {/* Akshay Shah */}
                         <div className="team-card group flex flex-col items-center text-center bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-500 border border-neutral-10/10 h-full">
-                            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-beige-10 relative bg-beige-20 flex-shrink-0">
-                                <img
-                                    src="/AKSHAY-profile-23_OM.jpg"
-                                    alt="Akshay Shah - Co-Founder"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-top"
-                                    onError={(e) => { e.currentTarget.src = "https://placehold.co/400x400/EDDFD0/1A1615?text=Akshay+Shah" }}
-                                />
-                            </div>
                             <h3 className="text-3xl font-bold text-neutral-30 mb-2">Akshay Shah</h3>
-                            <p className="text-accent-blue font-semibold uppercase tracking-widest text-sm mb-6">Co-Founder & Head of Innovation</p>
+                            <p className="text-accent-blue font-semibold uppercase tracking-widest text-sm mb-6">Co-Founder</p>
                             <p className="text-neutral-20 text-lg leading-relaxed mb-8 flex-grow">
-                                Overseeing media strategy and brand partnerships, Akshay transforms bold, innovative ideas into high-impact realities across digital, transit, and emerging media. Backed by more than 17 years of executional excellence, his leadership ensures that every solution we build delivers the precise results that matter most.
+                                Drives integrated media execution, innovation and platform-led growth solutions across digital, transit and emerging media environments. With 16+ years of experience spanning VAS, digital and programmatic ecosystems, the approach combines executional depth with immersive media thinking to create scalable and high-impact brand experiences.
                             </p>
                             <a
                                 href="https://www.linkedin.com/in/akshayshah18/"
