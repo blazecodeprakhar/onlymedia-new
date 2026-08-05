@@ -15,6 +15,16 @@ const brandLogos = [
     { src: '/images/Logos/nirma-logo-png_seeklogo-529186.png', alt: 'Nirma', rounded: false },
     { src: '/images/Logos/Philips-Logo.wine.png', alt: 'Philips', rounded: false },
     { src: '/images/Logos/vtion-blue-logo.svg', alt: 'Vtion', rounded: false },
+    { src: '/images/Logos/Acer-logo.jpg', alt: 'Acer', rounded: true },
+    { src: '/images/Logos/Avigna House.png', alt: 'Avigna House', rounded: true },
+    { src: '/images/Logos/Dawai India.jpeg', alt: 'Dawai India', rounded: true },
+    { src: '/images/Logos/Farzana.jpeg', alt: 'Farzana', rounded: true },
+    { src: '/images/Logos/Goodside.png', alt: 'Goodside', rounded: true },
+    { src: '/images/Logos/Nuvoico Cement.png', alt: 'Nuvoico Cement', rounded: false },
+    { src: '/images/Logos/Only fashion.png', alt: 'Only Fashion', rounded: true },
+    { src: '/images/Logos/Sandisk-Logo.jpg', alt: 'SanDisk', rounded: true },
+    { src: '/images/Logos/Sebamed.png', alt: 'Sebamed', rounded: false },
+    { src: '/images/Logos/stockgro.png', alt: 'StockGro', rounded: true },
 ];
 
 function LogosTicker() {
