@@ -46,7 +46,13 @@ function Reviews() {
                 </div>
 
                 {/* Rotating Case Study Cards Row */}
-                <div className="w-full overflow-hidden py-4 case-studies-reveal">
+                <div
+                    className="w-full overflow-hidden py-4 case-studies-reveal"
+                    style={{
+                        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
+                    }}
+                >
                     <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-6 pl-4">
                         {[...caseStudies, ...caseStudies].map((study, i) => (
                             <CaseStudyCard key={`${study.id}-${i}`} study={study} />
