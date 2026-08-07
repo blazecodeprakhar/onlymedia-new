@@ -32,8 +32,7 @@ function LogosTicker() {
         <section className="logos-ticker overflow-hidden">
             <div className="logos-ticker-content">
                 <div className="logos-ticker-header">
-                    <span className="logos-ticker-eyebrow">Partners</span>
-                    <h2 className="logos-ticker-title">Trusted Media Partners</h2>
+                    <h2 className="logos-ticker-title">Powering Growth Across Brands</h2>
                 </div>
 
                 {/* Ticker wrapper — no scroll, clips overflow */}

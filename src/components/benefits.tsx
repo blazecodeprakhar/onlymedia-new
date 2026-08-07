@@ -101,13 +101,13 @@ export default function Benefits() {
                 {/* Header */}
                 <div className="benefits-header benefits-reveal">
                     <span className="benefits-eyebrow">WHAT WE DO</span>
-                    <h2 className="text-h2 max-w-3xl text-neutral-30">Strategic Media Solutions Built for Performance</h2>
+                    <h2 className="text-h2 max-w-3xl text-neutral-30">Strategic Media Solutions Built for Measurable Growth</h2>
                 </div>
 
                 {/* Integration Logos card - full width */}
                 <div className="card-top-2 benefits-reveal">
                     {/* Centered heading */}
-                    <h5 className="text-h4 text-center w-full text-neutral-30">Our Media Ecosystem</h5>
+                    <h5 className="text-h4 text-center w-full text-neutral-30">Connecting Brands Across Platforms</h5>
 
                     <div className="app-logos">
                         {/* Ticker row 1 - slides right */}
