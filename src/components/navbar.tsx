@@ -75,7 +75,7 @@ function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Solutions', href: '/#features' },
-        { name: 'Insights', href: '/blog' },
+        { name: 'Insights', href: '/insights' },
         { name: 'ImpactFrames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
     ]
 

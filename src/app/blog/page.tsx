@@ -98,9 +98,15 @@ export default function BlogPage() {
                     OnlyMedia <span className="text-accent-blue italic font-serif font-medium">Journal</span>
                 </h1>
 
-                <p className="max-w-2xl mx-auto mt-12 blog-reveal text-xl md:text-2xl text-neutral-20 leading-[1.6]">
+                <p className="max-w-2xl mx-auto mt-6 blog-reveal text-xl md:text-2xl text-neutral-20 leading-[1.6]">
                     Expert insights, strategies, and thought leadership from the forefront of digital media innovation.
                 </p>
+
+                <div className="mt-8 flex gap-4 blog-reveal">
+                    <SmoothLink href="/insights" className="px-6 py-3 rounded-full bg-accent-blue text-white font-bold text-sm hover:bg-neutral-30 transition-all duration-300 shadow-md">
+                        View Campaign Case Studies →
+                    </SmoothLink>
+                </div>
             </div>
 
             {/* Blog Posts Section */}
