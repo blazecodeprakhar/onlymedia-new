@@ -22,15 +22,24 @@
   --color-accent-orange: #C9502E;
 
   /* Typographic Scale Variables */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 1.875rem;  /* 30px */
-  --text-4xl: 2.25rem;   /* 36px */
-  --text-5xl: 3rem;      /* 48px */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.875rem;
+  /* 30px */
+  --text-4xl: 2.25rem;
+  /* 36px */
+  --text-5xl: 3rem;
+  /* 48px */
 }
 
 @layer base {
@@ -38,7 +47,7 @@
     --font-primary-family: var(--font-primary), system-ui, sans-serif;
     --font-secondary-family: var(--font-secondary), system-ui, sans-serif;
     --font-mono-family: var(--font-mono), monospace;
-    
+
     --leading-tight: 1.25;
     --leading-normal: 1.5;
     --leading-relaxed: 1.75;
@@ -54,23 +63,58 @@
   }
 
   /* Responsive Typography with clamp() for Accessibility & Performance */
-  h1 { font-family: var(--font-primary-family); font-size: clamp(2.5rem, 5vw + 1rem, 4rem); line-height: var(--leading-tight); }
-  h2 { font-family: var(--font-primary-family); font-size: clamp(2rem, 4vw + 1rem, 3.25rem); line-height: var(--leading-tight); }
-  h3 { font-family: var(--font-primary-family); font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); line-height: var(--leading-tight); }
-  h4 { font-family: var(--font-primary-family); font-size: clamp(1.25rem, 2.5vw + 1rem, 2rem); line-height: var(--leading-tight); }
-  h5 { font-family: var(--font-primary-family); font-size: clamp(1.125rem, 2vw + 1rem, 1.5rem); line-height: var(--leading-normal); }
-  h6 { font-family: var(--font-primary-family); font-size: clamp(1rem, 1.5vw + 1rem, 1.25rem); line-height: var(--leading-normal); }
+  h1 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: var(--leading-tight);
+  }
 
-  p, li {
+  h2 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+    line-height: var(--leading-tight);
+  }
+
+  h3 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+    line-height: var(--leading-tight);
+  }
+
+  h4 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(1.25rem, 2.5vw + 1rem, 2rem);
+    line-height: var(--leading-tight);
+  }
+
+  h5 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(1.125rem, 2vw + 1rem, 1.5rem);
+    line-height: var(--leading-normal);
+  }
+
+  h6 {
+    font-family: var(--font-primary-family);
+    font-size: clamp(1rem, 1.5vw + 1rem, 1.25rem);
+    line-height: var(--leading-normal);
+  }
+
+  p,
+  li {
     font-size: clamp(1.125rem, 1vw + 0.9rem, 1.25rem);
     line-height: var(--leading-relaxed);
   }
 
-  p, span, div, a, li {
+  p,
+  span,
+  div,
+  a,
+  li {
     font-family: var(--font-secondary-family);
   }
 
-  code, pre {
+  code,
+  pre {
     font-family: var(--font-mono-family);
   }
 }
@@ -81,8 +125,15 @@
 }
 
 @keyframes textReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @utility text-reveal {
@@ -167,7 +218,7 @@ body {
 }
 
 @utility content {
-  @apply bg-linear-to-t box-border from-blue-20 via-beige-20 to-beige-0 flex flex-col items-center lg:pb-40 md:pb-24 pb-20 lg:px-0 md:px-10 px-4 lg:gap-24 md:gap-16 gap-12;
+  @apply bg-gradient-to-b box-border from-beige-0 via-beige-10 to-blue-10/30 flex flex-col items-center lg:pb-32 md:pb-20 pb-16 lg:px-0 md:px-10 px-4 lg:gap-16 md:gap-12 gap-8;
 }
 
 @keyframes marquee {
@@ -188,6 +239,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -240,7 +292,7 @@ body {
   }
 
   .logos-ticker {
-    @apply flex w-full justify-center pt-0 pb-16 overflow-hidden;
+    @apply flex w-full justify-center pt-0 pb-4 sm:pb-6 overflow-hidden;
 
     .logos-ticker-content {
       @apply w-full max-w-[1400px] flex flex-col items-center gap-12;
@@ -311,7 +363,7 @@ body {
   /* ── Benefits / Features Section ── */
   /* Uses unique class names to avoid collisions with .hero .top, .reviews .container etc */
   .benefits-section {
-    @apply w-full pt-24 md:pt-40 lg:pt-56;
+    @apply w-full pt-12 sm:pt-16 md:pt-20;
   }
 
   .benefits-inner {
@@ -323,7 +375,7 @@ body {
   }
 
   .benefits-eyebrow {
-    @apply inline-flex items-center px-4 py-1.5 rounded-full border border-dark-brown/30 bg-beige-40/60 text-dark-brown text-[14px] font-semibold tracking-wider uppercase;
+    @apply inline-flex items-center px-4 py-1.5 rounded-full bg-accent-blue/10 text-accent-blue text-[13px] font-bold tracking-wider uppercase;
   }
 
   .benefits-cards-top {
@@ -336,14 +388,12 @@ body {
 
   /* Card Top 1 – Main feature SVG card */
   .card-top-1 {
-    @apply p-8 flex flex-col gap-8 bg-[#F0EAE5] rounded-3xl flex-1 min-w-0;
+    @apply p-8 flex flex-col gap-8 bg-gradient-to-br from-[#F4F8FE] via-[#EBF3FE] to-[#E2ECFD] rounded-3xl flex-1 min-w-0 shadow-[0_12px_32px_rgba(15,23,42,0.05)];
   }
 
   /* Card Top 2 – Integration logos card (full width, centered) */
   .card-top-2 {
-    @apply p-10 flex flex-col gap-10 items-center bg-beige-30 rounded-3xl w-full overflow-hidden;
-    border: 1.5px solid var(--color-beige-40);
-    box-shadow: 0 4px 32px 0 rgba(97, 74, 68, 0.08), 0 1.5px 6px 0 rgba(97, 74, 68, 0.06);
+    @apply p-10 flex flex-col gap-10 items-center bg-gradient-to-br from-[#F4F8FE] via-[#EBF3FE] to-[#E2ECFD] rounded-3xl w-full overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.06)] hover:shadow-[0_24px_50px_rgba(0,102,255,0.12)] transition-all duration-300;
   }
 
   /* Integration logos wrapper */

@@ -32,58 +32,58 @@ function BenefitsCard({ icon, title, frontQuote, backDescription }: { icon: JSX.
   const showFront = !(isHovered && !isMobile) && !flipped;
 
   return (
-    <div 
-        ref={cardRef} 
-        className="benefits-card-wrapper w-full h-full lg:group" 
-        style={{ perspective: '1000px' }}
-        onClick={() => { if (isMobile) setFlipped(!flipped) }}
-        onMouseEnter={() => { if (!isMobile) setIsHovered(true) }}
-        onMouseLeave={() => { if (!isMobile) setIsHovered(false) }}
+    <div
+      ref={cardRef}
+      className="benefits-card-wrapper w-full h-full lg:group"
+      style={{ perspective: '1000px' }}
+      onClick={() => { if (isMobile) setFlipped(!flipped) }}
+      onMouseEnter={() => { if (!isMobile) setIsHovered(true) }}
+      onMouseLeave={() => { if (!isMobile) setIsHovered(false) }}
     >
-      <div 
+      <div
         className="relative w-full h-full transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer"
-        style={{ 
-            transformStyle: 'preserve-3d', 
-            transform: showFront ? 'rotateY(0deg)' : 'rotateY(180deg)' 
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: showFront ? 'rotateY(0deg)' : 'rotateY(180deg)'
         }}
       >
-        
+
         {/* FRONT FACE */}
-        <div 
-          className="relative w-full h-full p-6 xl:p-8 flex flex-col gap-6 lg:gap-8 bg-[#F0EAE5] rounded-3xl hover:shadow-xl transition-shadow duration-300 min-h-[350px] md:min-h-[320px]"
+        <div
+          className="relative w-full h-full p-6 xl:p-8 flex flex-col gap-6 lg:gap-8 bg-[#E4EEFD] rounded-3xl hover:shadow-[0_20px_45px_rgba(0,102,255,0.12)] hover:-translate-y-1 transition-all duration-300 min-h-[320px] shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <div className="icon bg-beige-0 size-12 xl:size-14 flex items-center justify-center rounded-full shrink-0 transition-transform duration-300 lg:group-hover:scale-110">
+          <div className="icon bg-white text-accent-blue size-12 xl:size-14 flex items-center justify-center rounded-2xl shrink-0 transition-transform duration-300 lg:group-hover:scale-110 shadow-sm">
             {icon}
           </div>
 
           <div className="texts flex flex-col gap-4 flex-grow">
-            <h6 className="text-[20px]/[120%] xl:text-[22px]/[120%] font-semibold text-neutral-30">
+            <h6 className="text-[20px]/[120%] xl:text-[22px]/[120%] font-bold text-neutral-30">
               {title}
             </h6>
             <p className="text-[15px]/[150%] xl:text-[17px]/[150%] font-medium italic text-neutral-20">
               "{frontQuote}"
             </p>
           </div>
-          
-          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-20/40 flex lg:hidden items-center gap-1.5 transition-colors lg:group-hover:text-accent-blue/80">
+
+          <div className="mt-auto pt-4 text-[13px] font-bold text-accent-blue flex lg:hidden items-center gap-1.5">
             Tap to reveal <span className="text-lg leading-none">&rarr;</span>
           </div>
         </div>
 
         {/* BACK FACE */}
-        <div 
-          className="absolute inset-0 w-full h-full p-6 xl:p-8 flex flex-col gap-4 bg-[#E2ECF5] rounded-3xl shadow-xl"
+        <div
+          className="absolute inset-0 w-full h-full p-6 xl:p-8 flex flex-col gap-4 bg-white text-neutral-30 rounded-3xl shadow-xl"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
-          <h6 className="text-[12px] uppercase tracking-widest text-neutral-30/60 font-bold mb-2">
+          <h6 className="text-[12px] uppercase tracking-widest text-accent-blue font-bold mb-2">
             {title}
           </h6>
           <p className="text-[16px]/[160%] lg:text-[18px]/[160%] font-medium text-neutral-30 flex-grow">
             {backDescription}
           </p>
-          
-          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-30/50 flex lg:hidden items-center gap-1.5 hover:text-accent-blue transition-colors">
+
+          <div className="mt-auto pt-4 text-[13px] font-medium text-neutral-20 flex lg:hidden items-center gap-1.5 hover:text-accent-blue transition-colors">
             <span className="rotate-180 text-lg leading-none">&rarr;</span> Tap to close
           </div>
         </div>

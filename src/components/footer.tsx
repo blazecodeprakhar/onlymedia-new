@@ -117,11 +117,11 @@ function Footer() {
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent-blue">Solutions</p>
                         <nav className="flex flex-col gap-4">
                             {solutions.map((item) => (
-                                <SmoothLink 
-                                    key={item.name} 
-                                    href={item.href} 
-                                    target={item.target} 
-                                    rel={item.rel} 
+                                <SmoothLink
+                                    key={item.name}
+                                    href={item.href}
+                                    target={item.target}
+                                    rel={item.rel}
                                     className="text-body-normal text-neutral-30/60 hover:text-accent-blue transition-colors w-fit flex items-center gap-1 group/item"
                                 >
                                     <span>{item.name}</span>
