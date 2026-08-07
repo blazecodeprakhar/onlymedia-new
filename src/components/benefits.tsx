@@ -83,14 +83,13 @@ export default function Benefits() {
 
         // Reveal animation for header + cards
         gsap.from('.benefits-reveal', {
-            y: 40,
-            opacity: 0,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: 'expo.out',
+            y: 30,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out',
             scrollTrigger: {
                 trigger: mainRef.current,
-                start: 'top 85%',
+                start: 'top 90%',
             }
         })
     }, { scope: mainRef })
@@ -101,13 +100,13 @@ export default function Benefits() {
                 {/* Header */}
                 <div className="benefits-header benefits-reveal">
                     <span className="benefits-eyebrow">WHAT WE DO</span>
-                    <h2 className="text-h2 max-w-3xl text-neutral-30">Strategic Media Solutions Built for Measurable Growth</h2>
+                    <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Measurable Growth</h2>
                 </div>
 
                 {/* Integration Logos card - full width */}
                 <div className="card-top-2 benefits-reveal">
                     {/* Centered heading */}
-                    <h5 className="text-h4 text-center w-full text-neutral-30">Connecting Brands Across Platforms</h5>
+                    <h5 className="text-[22px] sm:text-[26px] font-black text-[#1A1615] text-center w-full tracking-tight">Connecting Brands Across Platforms</h5>
 
                     <div className="app-logos">
                         {/* Ticker row 1 - slides right */}
@@ -120,7 +119,7 @@ export default function Benefits() {
                                         height={200}
                                         width={200}
                                         alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0"
+                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0 opacity-100"
                                     />
                                 ))}
                             </div>
@@ -135,14 +134,14 @@ export default function Benefits() {
                                         height={200}
                                         width={200}
                                         alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0"
+                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0 opacity-100"
                                     />
                                 ))}
                             </div>
                         </div>
                     </div>
 
-                    <p className="text-body-large text-center max-w-3xl mx-auto">
+                    <p className="text-[15px] sm:text-[16px] text-[#332E2C] font-semibold leading-relaxed text-center max-w-3xl mx-auto">
                         Our campaigns are powered by trusted media platforms and data partners. We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
                     </p>
                 </div>

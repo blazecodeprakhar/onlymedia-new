@@ -393,7 +393,7 @@ body {
 
   /* Card Top 2 – Integration logos card (full width, centered) */
   .card-top-2 {
-    @apply p-10 flex flex-col gap-10 items-center bg-gradient-to-br from-[#F4F8FE] via-[#EBF3FE] to-[#E2ECFD] rounded-3xl w-full overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.06)] hover:shadow-[0_24px_50px_rgba(0,102,255,0.12)] transition-all duration-300;
+    @apply p-10 flex flex-col gap-10 items-center bg-[#E4EEFD] rounded-3xl w-full overflow-hidden opacity-100 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300;
   }
 
   /* Integration logos wrapper */
