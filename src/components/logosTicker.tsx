@@ -49,7 +49,7 @@ function LogosTicker() {
                                     <img
                                         src={logo.src}
                                         alt={logo.alt}
-                                        className={`max-w-full max-h-full w-auto h-auto object-contain transition-transform hover:scale-110 duration-300 ${logo.rounded ? 'rounded-[16px]' : ''}`}
+                                        className={`max-w-full max-h-full w-auto h-auto object-contain ${logo.rounded ? 'rounded-[16px]' : ''}`}
                                     />
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ function LogosTicker() {
                                     <img
                                         src={logo.src}
                                         alt={logo.alt}
-                                        className={`max-w-full max-h-full w-auto h-auto object-contain transition-transform hover:scale-110 duration-300 ${logo.rounded ? 'rounded-[16px]' : ''}`}
+                                        className={`max-w-full max-h-full w-auto h-auto object-contain ${logo.rounded ? 'rounded-[16px]' : ''}`}
                                     />
                                 </div>
                             </div>

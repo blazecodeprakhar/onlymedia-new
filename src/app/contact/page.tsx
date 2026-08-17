@@ -25,17 +25,17 @@ export default function ContactPage() {
             <Navbar />
 
             {/* Simple Hero Section for Page Context */}
-            <div ref={heroRef} className="pt-32 md:pt-48 pb-10 bg-linear-to-b from-beige-10 via-neutral-0/30 to-neutral-0/50 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-                <div className="flex items-center gap-4 mb-8 md:mb-10 contact-reveal">
+            <div ref={heroRef} className="pt-28 md:pt-36 pb-6 bg-linear-to-b from-beige-10 via-neutral-0/30 to-neutral-0/50 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+                <div className="flex items-center gap-4 mb-4 contact-reveal">
                     <p className="text-eyebrow-large text-accent-blue tracking-[0.5em] uppercase font-black text-[10px] md:text-xs">
                         CONNECT WITH US
                     </p>
                 </div>
-                <h1 className="text-[34px] sm:text-[48px] md:text-[96px] lg:text-[120px] font-black leading-[1.05] md:leading-[0.85] tracking-tight md:tracking-[-0.04em] text-neutral-30 contact-reveal">
-                    Let’s build <br />
+                <h1 className="text-[32px] sm:text-[44px] md:text-[64px] lg:text-[80px] font-black leading-[1.05] md:leading-[0.95] tracking-tight md:tracking-[-0.04em] text-neutral-30 contact-reveal">
+                    Let’s build <br className="hidden sm:block" />
                     <span className="text-accent-blue italic font-serif font-medium leading-[1]">the future.</span>
                 </h1>
-                <p className="max-w-xl text-lg md:text-body-xl text-neutral-20 mt-8 md:mt-12 mb-10 contact-reveal leading-relaxed">
+                <p className="max-w-xl text-base md:text-lg text-neutral-20 mt-4 md:mt-6 mb-6 contact-reveal leading-relaxed">
                     Have a project in mind? We're ready to bring the strategy, data, and design to help you reach the next level.
                 </p>
             </div>

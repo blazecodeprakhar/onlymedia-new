@@ -33,18 +33,30 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
     return (
         <SmoothLink
             href={`/insights#${study.slug}`}
-            className={`group block shrink-0 w-[300px] sm:w-[360px] md:w-[380px] bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-neutral-10/20 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(21,108,194,0.12)] hover:border-accent-blue/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
+            className={`group block shrink-0 w-[300px] sm:w-[360px] md:w-[380px] bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-neutral-10/20 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(21,108,194,0.15)] hover:border-accent-blue/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
         >
             <div>
-                {/* Header: Brand + Platform Pill */}
-                <div className="flex items-center justify-between gap-3 mb-4">
-                    <span
-                        className="text-xl sm:text-2xl font-black tracking-tight text-neutral-30 group-hover:text-accent-blue transition-colors duration-300"
-                        style={{ color: study.brandColor }}
-                    >
-                        {study.brand}
-                    </span>
-                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border ${getPlatformBadgeStyle(study.platform)}`}>
+                {/* Header: Brand Logo Image + Platform Pill */}
+                <div className="flex items-center justify-between gap-3 mb-4 h-10">
+                    {study.brandLogo ? (
+                        <div className="h-9 sm:h-10 max-w-[140px] flex items-center shrink-0">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={study.brandLogo}
+                                alt={study.brand}
+                                className="max-h-full max-w-[130px] w-auto object-contain rounded-md border border-neutral-200/60 p-1 bg-white shadow-2xs group-hover:border-accent-blue/40 transition-all duration-300"
+                            />
+                        </div>
+                    ) : (
+                        <span
+                            className="text-xl sm:text-2xl font-black tracking-tight text-neutral-30 group-hover:text-accent-blue transition-colors duration-300"
+                            style={{ color: study.brandColor }}
+                        >
+                            {study.brand}
+                        </span>
+                    )}
+
+                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border shrink-0 ${getPlatformBadgeStyle(study.platform)}`}>
                         <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
                         {study.platform}
                     </span>
@@ -60,16 +72,16 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
                     {study.dateLocation}
                 </p>
 
-                {/* Metric Block - Dark theme box inside card without heartbeat lines */}
-                <div className="bg-neutral-30 rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:bg-black transition-colors duration-300 border border-neutral-20/40">
-                    <p className="text-[11px] font-bold tracking-widest text-neutral-10 uppercase mb-1">
+                {/* Metric Block - Website Theme Blue box inside card */}
+                <div className="bg-gradient-to-r from-accent-blue to-[#0E5196] rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:from-[#0E5196] group-hover:to-accent-blue transition-all duration-500 border border-blue-400/30 shadow-md shadow-accent-blue/15">
+                    <p className="text-[11px] font-bold tracking-widest text-white/80 uppercase mb-1">
                         {study.metricLabel}
                     </p>
                     <div className="flex items-baseline justify-between">
-                        <span className="text-3xl sm:text-4xl font-black text-emerald-400 tracking-tight">
+                        <span className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-sm">
                             {study.metricValue}
                         </span>
-                        <ArrowUpRight className="w-5 h-5 text-emerald-400/80 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                        <ArrowUpRight className="w-5 h-5 text-white/90 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                     </div>
                 </div>
 
@@ -81,3 +93,4 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
         </SmoothLink>
     )
 }
+

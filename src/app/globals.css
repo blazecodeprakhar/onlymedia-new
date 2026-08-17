@@ -232,7 +232,7 @@ body {
 }
 
 @utility animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 18s linear infinite;
 }
 
 @keyframes ticker {
@@ -246,7 +246,7 @@ body {
 }
 
 @utility animate-ticker {
-  animation: ticker 30s linear infinite;
+  animation: ticker 16s linear infinite;
 }
 
 @layer components {

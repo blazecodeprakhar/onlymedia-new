@@ -4,83 +4,26 @@ import React, { useRef } from 'react'
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Image from 'next/image'
 import BenefitsCard from "./benefitsCard"
 import { Lightbulb, Target, Users, Tv } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Triple the logo arrays so rows overflow on both sides, giving clean fade edges
-const BASE_1 = [1, 2, 3, 4, 5, 6, 7, 8];
-const BASE_2 = [6, 4, 7, 1, 3, 8, 5, 2];
-const TICKER_1_IMAGES = [...BASE_1, ...BASE_1, ...BASE_1, ...BASE_1, ...BASE_1]; // 40 logos
-const TICKER_2_IMAGES = [...BASE_2, ...BASE_2, ...BASE_2, ...BASE_2, ...BASE_2]; // 40 logos
+const SOCIAL_LOGOS = [
+    { src: '/images/social-media-logo-with-text/DV-360-Logo-e1744105620751.png', alt: 'DV360' },
+    { src: '/images/social-media-logo-with-text/Meta.png', alt: 'Meta' },
+    { src: '/images/social-media-logo-with-text/Youtube.png', alt: 'YouTube' },
+    { src: '/images/social-media-logo-with-text/facebook.png', alt: 'Facebook' },
+    { src: '/images/social-media-logo-with-text/instagram.png', alt: 'Instagram' },
+    { src: '/images/social-media-logo-with-text/LInked-In.png', alt: 'LinkedIn' },
+    { src: '/images/social-media-logo-with-text/Pinterest-01.png', alt: 'Pinterest' },
+    { src: '/images/social-media-logo-with-text/reddit-1-logo-png-transparent.png', alt: 'Reddit' },
+];
 
 export default function Benefits() {
     const mainRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        let mm = gsap.matchMedia();
-
-        mm.add("(min-width: 768px)", () => {
-            // Desktop movement
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.integrations-ticker-1',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            }).from('.integrations-ticker-1', {
-                translateX: '-250px',
-                ease: 'none'
-            })
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.integrations-ticker-2',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            }).to('.integrations-ticker-2', {
-                translateX: '-250px',
-                ease: 'none'
-            })
-        });
-
-        mm.add("(max-width: 767px)", () => {
-            // Mobile (Phone) movement
-            // Logic: Centered symmetrical rows. Moves faster (400px) but always stays full.
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.integrations-ticker-1',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            }).fromTo('.integrations-ticker-1', {
-                translateX: '-400px'
-            }, {
-                translateX: '400px',
-                ease: 'none'
-            })
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.integrations-ticker-2',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            }).fromTo('.integrations-ticker-2', {
-                translateX: '400px'
-            }, {
-                translateX: '-400px',
-                ease: 'none'
-            })
-        });
-
         // Reveal animation for header + cards
         gsap.from('.benefits-reveal', {
             y: 30,
@@ -103,45 +46,39 @@ export default function Benefits() {
                     <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Measurable Growth</h2>
                 </div>
 
-                {/* Integration Logos card - full width */}
-                <div className="card-top-2 benefits-reveal">
+                {/* Integration Logos card - full width remake */}
+                <div className="card-top-2 benefits-reveal p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full overflow-hidden shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
                     {/* Centered heading */}
-                    <h5 className="text-[22px] sm:text-[26px] font-black text-[#1A1615] text-center w-full tracking-tight">Connecting Brands Across Platforms</h5>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1615] text-center w-full tracking-tight">
+                        Connecting Brands Across Platforms
+                    </h3>
 
-                    <div className="app-logos">
-                        {/* Ticker row 1 - slides right */}
-                        <div className="integrations-ticker flex justify-center">
-                            <div className="integrations-ticker-1 px-4 flex flex-nowrap gap-4">
-                                {TICKER_1_IMAGES.map((num, i) => (
-                                    <Image
-                                        key={i}
-                                        src={`/images/image-${num}.png`}
-                                        height={200}
-                                        width={200}
-                                        alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0 opacity-100"
+                    {/* Single-line Infinite Ticker Row */}
+                    <div
+                        className="w-full overflow-hidden py-2"
+                        style={{
+                            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent)',
+                            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent)'
+                        }}
+                    >
+                        <div className="flex w-max animate-marquee gap-5 sm:gap-7 items-center">
+                            {[...SOCIAL_LOGOS, ...SOCIAL_LOGOS, ...SOCIAL_LOGOS, ...SOCIAL_LOGOS].map((logo, i) => (
+                                <div
+                                    key={`${logo.alt}-${i}`}
+                                    className="h-14 sm:h-16 px-6 py-2.5 bg-white/95 backdrop-blur-md rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(21,108,194,0.06)] flex items-center justify-center shrink-0 transition-all duration-300"
+                                >
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={logo.src}
+                                        alt={logo.alt}
+                                        className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] object-contain"
                                     />
-                                ))}
-                            </div>
-                        </div>
-                        {/* Ticker row 2 - slides left */}
-                        <div className="integrations-ticker flex justify-center">
-                            <div className="integrations-ticker-2 px-4 flex flex-nowrap gap-4">
-                                {TICKER_2_IMAGES.map((num, i) => (
-                                    <Image
-                                        key={i}
-                                        src={`/images/image-${num}.png`}
-                                        height={200}
-                                        width={200}
-                                        alt={`Integration tool ${num}`}
-                                        className="object-cover object-center size-20 md:size-24 flex-shrink-0 opacity-100"
-                                    />
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <p className="text-[15px] sm:text-[16px] text-[#332E2C] font-semibold leading-relaxed text-center max-w-3xl mx-auto">
+                    <p className="text-sm sm:text-base text-[#332E2C] font-semibold leading-relaxed text-center max-w-3xl mx-auto">
                         Our campaigns are powered by trusted media platforms and data partners. We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
                     </p>
                 </div>
@@ -177,3 +114,4 @@ export default function Benefits() {
         </section>
     )
 }
+

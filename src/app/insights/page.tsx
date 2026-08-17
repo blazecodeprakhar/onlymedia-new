@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { caseStudies, CaseStudy } from '@/data/caseStudies'
-import { ArrowUpRight, Filter, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Filter, TrendingUp } from 'lucide-react'
 
 export default function InsightsPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('All')
@@ -39,7 +39,7 @@ export default function InsightsPage() {
             <div className="pt-48 pb-16 bg-gradient-to-b from-beige-10 via-beige-0 to-beige-0 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center gap-2 mb-6">
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-blue/20 bg-accent-blue/10 text-accent-blue text-xs font-bold tracking-widest uppercase">
-                        <Sparkles className="w-3.5 h-3.5" />
+                        <TrendingUp className="w-3.5 h-3.5" />
                         Campaign Case Studies & Insights
                     </span>
                 </div>
@@ -91,13 +91,26 @@ export default function InsightsPage() {
                             >
                                 {/* Top Brand & Platform Badge Header */}
                                 <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-10/10">
-                                    <div>
-                                        <h2 className="text-2xl sm:text-3xl font-black text-neutral-30 tracking-tight" style={{ color: study.brandColor || '#1A1615' }}>
-                                            {study.brand}
-                                        </h2>
-                                        <p className="text-sm font-bold text-neutral-30/80 mt-1">
-                                            {study.campaign}
-                                        </p>
+                                    <div className="flex items-center gap-4">
+                                        {study.brandLogo ? (
+                                            <div className="h-11 max-w-[160px] flex items-center shrink-0">
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img
+                                                    src={study.brandLogo}
+                                                    alt={study.brand}
+                                                    className="max-h-full max-w-[140px] w-auto object-contain rounded-md border border-neutral-200/60 p-1.5 bg-white shadow-2xs"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <h2 className="text-2xl sm:text-3xl font-black text-neutral-30 tracking-tight" style={{ color: study.brandColor || '#1A1615' }}>
+                                                {study.brand}
+                                            </h2>
+                                        )}
+                                        <div>
+                                            <h2 className="text-xl sm:text-2xl font-bold text-neutral-30 tracking-tight">
+                                                {study.campaign}
+                                            </h2>
+                                        </div>
                                     </div>
 
                                     <div className="flex items-center gap-3">

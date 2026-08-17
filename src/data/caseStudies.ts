@@ -2,6 +2,7 @@ export interface CaseStudy {
     id: string;
     slug: string;
     brand: string;
+    brandLogo?: string;
     brandColor?: string;
     platform: 'DV360' | 'YouTube' | 'Meta' | 'Pinterest' | 'CTV / OTT' | 'Prog. Video';
     campaign: string;
@@ -22,9 +23,10 @@ export const caseStudies: CaseStudy[] = [
         id: 'sharp-dv360',
         slug: 'sharp-dv360',
         brand: 'SHARP',
+        brandLogo: '/images/Logos/logo-sharp.svg',
         brandColor: '#E60012',
         platform: 'DV360',
-        campaign: '55th Anniversary — Omotenashi',
+        campaign: '55th Anniversary: Omotenashi',
         dateLocation: 'INDONESIA · JUN 2025',
         metricLabel: 'CTA',
         metricValue: '1.94%',
@@ -40,13 +42,14 @@ export const caseStudies: CaseStudy[] = [
         id: 'fujifilm-dv360',
         slug: 'fujifilm-dv360',
         brand: 'FUJIFILM',
+        brandLogo: '/images/Logos/Fujifilms.png',
         brandColor: '#009944',
         platform: 'DV360',
         campaign: 'Instax Mini 13 launch',
         dateLocation: 'MAR 2026',
         metricLabel: 'VIDEO COMPLETION RATE',
         metricValue: '51%',
-        blurb: '"Perfectly timed selfies" video units held over half the audience to the end — proof for an instant-capture product.',
+        blurb: '"Perfectly timed selfies" video units held over half the audience to the end, proof for an instant-capture product.',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'March 2026',
@@ -58,9 +61,10 @@ export const caseStudies: CaseStudy[] = [
         id: 'sony-max-dv360',
         slug: 'sony-max-dv360',
         brand: 'SONY MAX',
+        brandLogo: '/images/Logos/sony-max.svg',
         brandColor: '#F58220',
         platform: 'DV360',
-        campaign: 'Thamma — World TV Premiere',
+        campaign: 'Thamma: World TV Premiere',
         dateLocation: 'MAR 2026',
         metricLabel: 'ENGAGEMENT RATE',
         metricValue: '3.62%',
@@ -76,9 +80,10 @@ export const caseStudies: CaseStudy[] = [
         id: 'sandisk-dv360',
         slug: 'sandisk-dv360',
         brand: 'SanDisk',
+        brandLogo: '/images/Logos/Sandisk-Logo.jpg',
         brandColor: '#ED1C24',
         platform: 'DV360',
-        campaign: 'MicroSD — Space for Your Moments',
+        campaign: 'MicroSD: Space for Your Moments',
         dateLocation: 'MAY 2026',
         metricLabel: 'ENGAGEMENT RATE',
         metricValue: '2.02%',
@@ -94,6 +99,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'la-shield-youtube',
         slug: 'la-shield-youtube',
         brand: 'La Shield',
+        brandLogo: '/images/Logos/la-shield-600x600-1.jpg',
         brandColor: '#FF0000',
         platform: 'YouTube',
         campaign: 'Own the Sun',
@@ -105,16 +111,17 @@ export const caseStudies: CaseStudy[] = [
             platformFull: 'YOUTUBE',
             dateLocation: 'March 2026',
             headlineMetric: '12.42Mn+ Reach · +2.7% Ad Recall Lift',
-            paragraph: 'To drive awareness and engagement among women 18–34 for La Shield\'s sunscreen range, the campaign ran a multi-format YouTube strategy — Non-Skip (20s), Skip (30s) and Shorts (30s) ads to balance reach, engagement and video completion. The mix delivered 12.42Mn+ unified reach and 12.41Mn+ true views and an independent BLS brand study recorded a +2.7% ad recall lift over a 7-day window.'
+            paragraph: 'To drive awareness and engagement among women 18–34 for La Shield\'s sunscreen range, the campaign ran a multi-format YouTube strategy using Non-Skip (20s), Skip (30s) and Shorts (30s) ads to balance reach, engagement and video completion. The mix delivered 12.42Mn+ unified reach and 12.41Mn+ true views and an independent BLS brand study recorded a +2.7% ad recall lift over a 7-day window.'
         }
     },
     {
         id: 'nirma-ctv-ott',
         slug: 'nirma-ctv-ott',
         brand: 'NIRMA',
+        brandLogo: '/images/Logos/nirma-logo-png_seeklogo-529186.png',
         brandColor: '#0055A5',
         platform: 'CTV / OTT',
-        campaign: 'Advance — Ziddi Daagon Ke Liye',
+        campaign: 'Advance: Ziddi Daagon Ke Liye',
         dateLocation: '30 SEC · MAR 2026',
         metricLabel: 'VIDEO COMPLETION RATE',
         metricValue: '80%',
@@ -130,9 +137,10 @@ export const caseStudies: CaseStudy[] = [
         id: 'gopal-namkeen-prog-video',
         slug: 'gopal-namkeen-prog-video',
         brand: 'Gopal Namkeen',
+        brandLogo: '/images/Logos/gopal-namkeen-logo-png_seeklogo-443236.png',
         brandColor: '#F7941D',
         platform: 'Prog. Video',
-        campaign: 'Gathiya — Dhamaal 4 tie-in',
+        campaign: 'Gathiya: Dhamaal 4 tie-in',
         dateLocation: 'GUJ · RAJ · MAH',
         metricLabel: 'VCR — 10 SEC (JAN–FEB \'26)',
         metricValue: '65%',
@@ -141,16 +149,17 @@ export const caseStudies: CaseStudy[] = [
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'February – July 2026 · Gujarat, Rajasthan & Maharashtra',
             headlineMetric: '65% VCR (10s) · 44% VCR (40s)',
-            paragraph: 'Gopal Namkeen ran regional programmatic video across Gujarat, Rajasthan and Maharashtra on top vernacular apps and sites such as ABP Live, ShareChat, OLX and TV9 Gujarati. A punchy 10-second film delivered a 65% completion rate in Jan–Feb \'26, while a longer 40-second film tied to the Dhamaal 4 release still held 44% of viewers to the end in July \'26 — strong retention for regional, snack-occasion storytelling.'
+            paragraph: 'Gopal Namkeen ran regional programmatic video across Gujarat, Rajasthan and Maharashtra on top vernacular apps and sites such as ABP Live, ShareChat, OLX and TV9 Gujarati. A punchy 10-second film delivered a 65% completion rate in Jan–Feb \'26, while a longer 40-second film tied to the Dhamaal 4 release still held 44% of viewers to the end in July \'26: strong retention for regional, snack-occasion storytelling.'
         }
     },
     {
         id: 'axis-max-life-meta',
         slug: 'axis-max-life-meta',
         brand: 'AXIS MAX LIFE',
+        brandLogo: '/images/Logos/Axis_Max_Life_Insurance_logo.svg.png',
         brandColor: '#000000',
         platform: 'Meta',
-        campaign: 'Term Plan — Confidence for Every Tomorrow',
+        campaign: 'Term Plan: Confidence for Every Tomorrow',
         dateLocation: 'SEP 2025 – ONGOING',
         metricLabel: 'LEAD TO QUALITY LEAD RATE',
         metricValue: '61%',
@@ -159,13 +168,14 @@ export const caseStudies: CaseStudy[] = [
             platformFull: 'META',
             dateLocation: 'September 2025 – ongoing',
             headlineMetric: '61% Lead to Quality Lead Rate',
-            paragraph: 'Axis Max Life\'s term plan campaign promoted ₹1 crore & ₹2 crore of cover using high-intent custom audiences — Tax Payers, Premium Credit Card Holders etc — on Meta. The targeting precision translated into a 61% lead-to-quality-lead rate, well above typical benchmarks for the insurance category.'
+            paragraph: 'Axis Max Life\'s term plan campaign promoted ₹1 crore & ₹2 crore of cover using high-intent custom audiences (Tax Payers, Premium Credit Card Holders, etc.) on Meta. The targeting precision translated into a 61% lead-to-quality-lead rate, well above typical benchmarks for the insurance category.'
         }
     },
     {
         id: 'vtion-meta',
         slug: 'vtion-meta',
         brand: 'VTION',
+        brandLogo: '/images/Logos/vtion-blue-logo.svg',
         brandColor: '#92278F',
         platform: 'Meta',
         campaign: 'Panelist community app install',
@@ -184,6 +194,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'goboult-meta',
         slug: 'goboult-meta',
         brand: 'boult',
+        brandLogo: '/images/Logos/Goboult.png',
         brandColor: '#000000',
         platform: 'Meta',
         campaign: 'Saber watch & Mustang Thunder',
@@ -202,9 +213,10 @@ export const caseStudies: CaseStudy[] = [
         id: 'farzana-meta',
         slug: 'farzana-meta',
         brand: 'Farzana',
+        brandLogo: '/images/Logos/Farzana.jpeg',
         brandColor: '#2E8B57',
         platform: 'Meta',
-        campaign: 'Weekly sale offers — fresh produce',
+        campaign: 'Weekly sale offers: fresh produce',
         dateLocation: 'JUL 2026 – ONGOING',
         metricLabel: 'ROAS',
         metricValue: '3x',
@@ -213,20 +225,21 @@ export const caseStudies: CaseStudy[] = [
             platformFull: 'META',
             dateLocation: 'July 2026 – ongoing',
             headlineMetric: '3x ROAS',
-            paragraph: 'Farzana\'s always-on Meta strategy promotes fresh sale offers every weekend — from Jordan apricots to Spanish cherries — keeping creative tied to what\'s in season. The consistent, offer-led cadence has sustained a 3x return on ad spend.'
+            paragraph: 'Farzana\'s always-on Meta strategy promotes fresh sale offers every weekend, from Jordan apricots to Spanish cherries, keeping creative tied to what\'s in season. The consistent, offer-led cadence has sustained a 3x return on ad spend.'
         }
     },
     {
         id: 'philips-pinterest',
         slug: 'philips-pinterest',
         brand: 'PHILIPS',
+        brandLogo: '/images/Logos/Philips-Logo.wine.png',
         brandColor: '#0B5EA8',
         platform: 'Pinterest',
         campaign: '2-in-1 AirStyler',
         dateLocation: 'JUL 2025',
         metricLabel: 'LIFT IN OUTBOUND CLICK RATE',
         metricValue: '2x',
-        blurb: 'Placed against hair-pattern search moments — meeting high-intent beauty discovery rather than interrupting it.',
+        blurb: 'Placed against hair-pattern search moments, meeting high-intent beauty discovery rather than interrupting it.',
         fullDetail: {
             platformFull: 'PINTEREST',
             dateLocation: 'July 2025',
@@ -238,6 +251,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'meesho-pinterest',
         slug: 'meesho-pinterest',
         brand: 'meesho',
+        brandLogo: '/images/Logos/Meesho-final-logo_(1).jpg',
         brandColor: '#F43397',
         platform: 'Pinterest',
         campaign: 'First Sunday Maha Sale',
@@ -253,3 +267,4 @@ export const caseStudies: CaseStudy[] = [
         }
     }
 ];
+

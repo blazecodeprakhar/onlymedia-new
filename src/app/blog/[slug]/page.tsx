@@ -33,11 +33,11 @@ const POSTS: Record<string, {
         readTime: "5 min read",
         category: "Strategy",
         author: "OnlyMedia Team",
-        intro: "Running a digital media campaign without clear KPIs is like sailing without a compass — you might move, but you won't know if you're headed in the right direction. Key Performance Indicators (KPIs) act as benchmarks for success, ensuring that every click, impression, and conversion serves a business goal. But not all KPIs are created equal. To truly drive measurable growth, your KPIs need to be SMART — Specific, Measurable, Achievable, Relevant, and Time-bound.",
+        intro: "Running a digital media campaign without clear KPIs is like sailing without a compass - you might move, but you won't know if you're headed in the right direction. Key Performance Indicators (KPIs) act as benchmarks for success, ensuring that every click, impression, and conversion serves a business goal. But not all KPIs are created equal. To truly drive measurable growth, your KPIs need to be SMART - Specific, Measurable, Achievable, Relevant, and Time-bound.",
         sections: [
             {
                 heading: "Why KPIs Matter for Digital Media Campaigns",
-                body: "Digital campaigns generate mountains of data — click-through rates, impressions, conversions, and more. But data without direction creates noise, not insight.",
+                body: "Digital campaigns generate mountains of data - click-through rates, impressions, conversions, and more. But data without direction creates noise, not insight.",
                 items: [
                     { label: "Alignment", text: "They align marketing efforts with business objectives" },
                     { label: "Clarity", text: "They provide clarity for teams and stakeholders" },
@@ -65,9 +65,9 @@ const POSTS: Record<string, {
                 heading: "Common Digital Media KPIs",
                 body: "Your KPIs should map to the marketing funnel stage and overall business goals:",
                 items: [
-                    { label: "Awareness Stage", text: "Impressions, Reach, Video Views — use for launch campaigns and brand building." },
-                    { label: "Consideration Stage", text: "CTR, Engagement Rate, Traffic Volume — use for driving site traffic and generating interest." },
-                    { label: "Conversion Stage", text: "Cost Per Acquisition (CPA), Conversion Rate, ROAS — use for sales-driven campaigns." },
+                    { label: "Awareness Stage", text: "Impressions, Reach, Video Views: use for launch campaigns and brand building." },
+                    { label: "Consideration Stage", text: "CTR, Engagement Rate, Traffic Volume: use for driving site traffic and generating interest." },
+                    { label: "Conversion Stage", text: "Cost Per Acquisition (CPA), Conversion Rate, ROAS: use for sales-driven campaigns." },
                 ]
             },
             {
@@ -75,7 +75,7 @@ const POSTS: Record<string, {
                 items: [
                     { label: "1. Start with Business Objectives", text: "Example: Increase online sales by 15% in Q4." },
                     { label: "2. Break Down into Media Metrics", text: "Which metrics influence sales? CTR, conversion rate, CPA." },
-                    { label: "3. Apply SMART Criteria", text: "Specific — CTR from 1.5% to 2.5%. Measurable — via platform analytics. Achievable — based on history. Relevant — CTR impacts sales. Time-bound — within 6 weeks." },
+                    { label: "3. Apply SMART Criteria", text: "Specific: CTR from 1.5% to 2.5%. Measurable: via platform analytics. Achievable: based on history. Relevant: CTR impacts sales. Time-bound: within 6 weeks." },
                     { label: "4. Align to Funnel Stages", text: "Don't measure conversions on an awareness campaign." },
                     { label: "5. Set Benchmarks", text: "Use past campaign data, industry averages, and competitor insights." },
                     { label: "6. Monitor & Optimize", text: "KPIs aren't static. If CTR lags, tweak creatives, audience, or placements." },
@@ -121,11 +121,11 @@ const POSTS: Record<string, {
         readTime: "4 min read",
         category: "Planning",
         author: "OnlyMedia Team",
-        intro: "In an age where generic, one-size-fits-all media approaches underperform, a custom media plan tailored precisely to your brand's objectives, audience, and budget is no longer a luxury — it's essential. Here's why and how to build one that truly works for you.",
+        intro: "In an age where generic, one-size-fits-all media approaches underperform, a custom media plan tailored precisely to your brand's objectives, audience, and budget is no longer a luxury - it's essential. Here's why and how to build one that truly works for you.",
         sections: [
             {
                 heading: "1. Tailored Strategy Over Generic Tactics",
-                body: "A custom media plan aligns every tactical choice — channels, timing, messaging — with your unique business goals. Unlike plug-and-play models, this is a blueprint built for your brand's context: your customers, your seasonality, your performance benchmarks. Media planning defines who to target, where to reach them, and what message to deliver — and a custom plan ensures each variable maps directly to your growth needs.",
+                body: "A custom media plan aligns every tactical choice - channels, timing, messaging - with your unique business goals. Unlike plug-and-play models, this is a blueprint built for your brand's context: your customers, your seasonality, your performance benchmarks. Media planning defines who to target, where to reach them, and what message to deliver - and a custom plan ensures each variable maps directly to your growth needs.",
             },
             {
                 heading: "2. Efficient Budget Use Through Smarter Allocation",
@@ -133,7 +133,7 @@ const POSTS: Record<string, {
             },
             {
                 heading: "3. Audience Insight, Not Assumption",
-                body: "Generic plans assume cookie-cutter audiences. A custom plan dives deep — defining demographic, behavioral, and psychographic segments that truly matter to your brand. Understanding where your audience is, how frequently they engage, and on what platforms is vital. These insights elevate your targeting beyond guesswork and help optimize creative resonance.",
+                body: "Generic plans assume cookie-cutter audiences. A custom plan dives deep - defining demographic, behavioral, and psychographic segments that truly matter to your brand. Understanding where your audience is, how frequently they engage, and on what platforms is vital. These insights elevate your targeting beyond guesswork and help optimize creative resonance.",
             },
             {
                 heading: "4. Strategic Timing: Flighting, Pulsing, or Always-On?",
@@ -146,22 +146,22 @@ const POSTS: Record<string, {
             },
             {
                 heading: "5. Clarity Through Measurement & Optimization",
-                body: "With your custom media plan, each campaign is measurable, accountable, and optimized. Media plan frameworks outline the right KPIs, then measure performance across reach, frequency, conversions, and ROI. This clarity enables real-time optimization and strategic adjustment — something generic models often lack.",
+                body: "With your custom media plan, each campaign is measurable, accountable, and optimized. Media plan frameworks outline the right KPIs, then measure performance across reach, frequency, conversions, and ROI. This clarity enables real-time optimization and strategic adjustment - something generic models often lack.",
             },
             {
                 heading: "6. Future-Proofed via Iteration",
-                body: "Only a custom plan evolves. Through regular review of past performance, audience shifts, and market trends, your strategy strengthens — not stagnates. Add agile creative testing, channel reallocation, and message refinement, and your investment becomes future-ready.",
+                body: "Only a custom plan evolves. Through regular review of past performance, audience shifts, and market trends, your strategy strengthens - not stagnates. Add agile creative testing, channel reallocation, and message refinement, and your investment becomes future-ready.",
             },
             {
                 heading: "How to Build Your Custom Media Plan",
                 items: [
-                    { label: "1. Define Clear Objectives", text: "Set SMART goals — awareness, lead generation, conversions — aligned with revenue or retention." },
-                    { label: "2. Conduct Market & Audience Research", text: "Know your landscape and customer habits — where they listen, what they watch, how they act." },
-                    { label: "3. Choose Your Media Mix", text: "Plan around platforms where your audience spends time — digital, social, native, programmatic." },
+                    { label: "1. Define Clear Objectives", text: "Set SMART goals: awareness, lead generation, conversions: aligned with revenue or retention." },
+                    { label: "2. Conduct Market & Audience Research", text: "Know your landscape and customer habits: where they listen, what they watch, how they act." },
+                    { label: "3. Choose Your Media Mix", text: "Plan around platforms where your audience spends time: digital, social, native, programmatic." },
                     { label: "4. Set Reach & Frequency Goals", text: "Establish how often you want to reach your audience and how many impressions drive action." },
                     { label: "5. Allocate Budget Flexibly", text: "Prioritize high-performing channels but keep room to pivot based on campaign learnings." },
-                    { label: "6. Develop Creative Messaging", text: "Tailor content to visitor intent and media formats — snappy visuals for social, long-form for search." },
-                    { label: "7. Implement, Monitor & Optimize", text: "Use live dashboards, adjust bids, tweak messaging, shift budgets — always be refining." },
+                    { label: "6. Develop Creative Messaging", text: "Tailor content to visitor intent and media formats: snappy visuals for social, long-form for search." },
+                    { label: "7. Implement, Monitor & Optimize", text: "Use live dashboards, adjust bids, tweak messaging, shift budgets: always be refining." },
                     { label: "8. Review & Iterate", text: "Post-campaign, analyze what worked, then fold insights into the next cycle." },
                 ]
             },
@@ -170,7 +170,7 @@ const POSTS: Record<string, {
                 table: {
                     headers: ["Benefit of Custom Plan", "Why It Matters"],
                     rows: [
-                        ["Alignment to brand objectives", "Drives impact — not just effort"],
+                        ["Alignment to brand objectives", "Drives impact, not just effort"],
                         ["Efficient budget allocation", "Maximizes ROI"],
                         ["Accurate audience targeting", "Minimizes wasted impressions"],
                         ["Strategic timing flexibility", "Matches demand with attention peaks"],
@@ -180,7 +180,7 @@ const POSTS: Record<string, {
                 }
             }
         ],
-        conclusion: "A custom media plan transforms media spend from a cost center into a growth engine. It ensures you reach the right people, with the right message, at the right time — and measure it all with purpose. Ready to build one for your brand? Let's talk."
+        conclusion: "A custom media plan transforms media spend from a cost center into a growth engine. It ensures you reach the right people, with the right message, at the right time - and measure it all with purpose. Ready to build one for your brand? Let's talk."
     },
 
     'data-driven-media-strategy': {
@@ -194,17 +194,17 @@ const POSTS: Record<string, {
         sections: [
             {
                 heading: "1. Start with Clear Objectives",
-                body: "Success begins with clarity. Define what you want to achieve — brand awareness, lead generation, or sales growth. Tie media goals directly to business outcomes: revenue, retention, or customer Lifetime Value.",
+                body: "Success begins with clarity. Define what you want to achieve: brand awareness, lead generation, or sales growth. Tie media goals directly to business outcomes: revenue, retention, or customer Lifetime Value.",
             },
             {
                 heading: "2. Centralize & Collect Quality Data",
-                body: "Collecting relevant, high-quality data — from CRM systems, web analytics, social metrics, to behavioral insights — is critical. The goal is not data for data's sake, but to inform decisions.",
+                body: "Collecting relevant, high-quality data: from CRM systems, web analytics, social metrics, to behavioral insights: is critical. The goal is not data for data's sake, but to inform decisions.",
             },
             {
                 heading: "3. Build Your Audience Intelligence",
                 body: "Unified data across channels creates precise audience segments:",
                 items: [
-                    { label: "Demographics", text: "Age, location, income — foundational segmentation" },
+                    { label: "Demographics", text: "Age, location, income: foundational segmentation" },
                     { label: "Behavior", text: "How users interact with your brand across touchpoints" },
                     { label: "Engagement History", text: "Past interactions that signal purchase intent" },
                 ],
@@ -212,14 +212,14 @@ const POSTS: Record<string, {
             },
             {
                 heading: "4. Forecast & Plan Proactively",
-                body: "Leverage predictive analytics and modeling to forecast campaign outcomes, optimize budget allocation, and plan around seasonality and market shifts. This approach is proactive — not purely reactionary.",
+                body: "Leverage predictive analytics and modeling to forecast campaign outcomes, optimize budget allocation, and plan around seasonality and market shifts. This approach is proactive - not purely reactionary.",
             },
             {
                 heading: "5. Activate Across the Right Channels",
                 body: "Media works best when coordinated across the full ecosystem using the PESO model:",
                 items: [
-                    { label: "Paid", text: "Meta, Google, DV360 — targeted reach and retargeting" },
-                    { label: "Owned", text: "Web, email, social — your controlled properties" },
+                    { label: "Paid", text: "Meta, Google, DV360: targeted reach and retargeting" },
+                    { label: "Owned", text: "Web, email, social: your controlled properties" },
                     { label: "Shared", text: "Social engagement, community-driven content" },
                     { label: "Earned", text: "Press coverage, organic reviews, referrals" },
                 ],
@@ -227,7 +227,7 @@ const POSTS: Record<string, {
             },
             {
                 heading: "6. Visualize & Interpret Insights",
-                body: "Data without clarity is noise. Use effective visual storytelling — match formats to your audience's knowledge level, prioritize relevance over complexity, and narrate insights, not just numbers.",
+                body: "Data without clarity is noise. Use effective visual storytelling: match formats to your audience's knowledge level, prioritize relevance over complexity, and narrate insights, not just numbers.",
             },
             {
                 heading: "7. Attribution That Reflects Reality",
@@ -239,7 +239,7 @@ const POSTS: Record<string, {
             },
             {
                 heading: "9. Encourage a Data-Driven Culture",
-                body: "Even the best strategies fail without organizational buy-in. A healthy data culture empowers every team member to use metrics for decisions — empowering growth, not just execution.",
+                body: "Even the best strategies fail without organizational buy-in. A healthy data culture empowers every team member to use metrics for decisions - empowering growth, not just execution.",
             },
             {
                 heading: "Quick Reference",
@@ -259,7 +259,7 @@ const POSTS: Record<string, {
                 }
             }
         ],
-        conclusion: "A data-driven media strategy isn't an optional upgrade — it's essential. By combining clear goals, integrated data, predictive models, cross-channel execution, and a data-first culture, brands can ensure media investments drive real business outcomes."
+        conclusion: "A data-driven media strategy isn't an optional upgrade - it's essential. By combining clear goals, integrated data, predictive models, cross-channel execution, and a data-first culture, brands can ensure media investments drive real business outcomes."
     }
 }
 
