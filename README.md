@@ -2,7 +2,7 @@
 
 Welcome to **OnlyMedia** — a premium media services agency website built with **Next.js**, **GSAP**, and **Tailwind CSS**. Designed to showcase creative media services with stunning animations, smooth scrolling, and a modern dark aesthetic.
 
-> 🚀 Crafted for impact. Built for performance.
+> 🚀 Crafted for impact. Built forL performance.
 
 ---
 
