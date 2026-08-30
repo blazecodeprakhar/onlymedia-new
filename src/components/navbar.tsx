@@ -114,7 +114,7 @@ function Navbar() {
                     </div>
 
                     <div className="hidden lg:block">
-                        <MainButton text="Get in touch" href="/contact" />
+                        <MainButton text="Partner with us" href="/contact" />
                     </div>
 
                     <button
@@ -153,7 +153,7 @@ function Navbar() {
                                 <div className="flex flex-col gap-3 pt-6">
                                     <MainButton
                                         className="w-full h-14 text-lg"
-                                        text="Get in touch"
+                                        text="Partner with us"
                                         href="/contact"
                                         onClick={() => setOpenDropdown(false)}
                                     />

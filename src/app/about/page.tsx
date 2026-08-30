@@ -120,27 +120,7 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Outro CTA Block */}
-            <div className="w-full relative py-16 md:py-20 bg-neutral-30 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-                <div className="absolute inset-0 opacity-10 blur-3xl rounded-full bg-accent-blue scale-150 transform -translate-y-1/2"></div>
-                <h2 className="text-[30px] sm:text-[40px] md:text-[52px] font-bold text-white mb-3 tracking-tight relative z-10 max-w-3xl leading-[1.15]">
-                    Ready to grow with us?
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-neutral-10 mb-6 md:mb-8 max-w-2xl relative z-10">
-                    Let's architect the perfect media strategy for your brand's future.
-                </p>
-                <div className="relative z-10">
-                    <SmoothLink href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">
-                        <span className="relative z-10 flex items-center">
-                            Work with OnlyMedia
-                            <svg className="ml-3 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </span>
-                        <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
-                    </SmoothLink>
-                </div>
-            </div>
+
 
             <Footer />
         </main>

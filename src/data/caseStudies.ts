@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'sony-max-dv360',
         slug: 'sony-max-dv360',
         brand: 'SONY MAX',
-        brandLogo: '/images/Logos/sony-max.svg',
+        brandLogo: '/images/Logos/SONY_MAX_Logo_2022.png',
         brandColor: '#F58220',
         platform: 'DV360',
         campaign: 'Thamma: World TV Premiere',

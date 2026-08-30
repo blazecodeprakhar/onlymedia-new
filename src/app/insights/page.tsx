@@ -64,8 +64,8 @@ export default function InsightsPage() {
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
                             className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${selectedCategory === cat
-                                    ? 'bg-neutral-30 text-white shadow-md'
-                                    : 'bg-white/80 text-neutral-20 hover:bg-neutral-30 hover:text-white border border-neutral-10/20'
+                                ? 'bg-neutral-30 text-white shadow-md'
+                                : 'bg-white/80 text-neutral-20 hover:bg-neutral-30 hover:text-white border border-neutral-10/20'
                                 }`}
                         >
                             {cat}
@@ -85,8 +85,8 @@ export default function InsightsPage() {
                                 key={study.id}
                                 id={study.slug}
                                 className={`scroll-mt-36 bg-white rounded-3xl p-6 sm:p-10 border transition-all duration-500 shadow-[0_4px_25px_rgba(0,0,0,0.03)] ${isHighlighted
-                                        ? 'border-accent-blue ring-4 ring-accent-blue/15 shadow-2xl bg-blue-50/20'
-                                        : 'border-neutral-10/15 hover:border-accent-blue/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
+                                    ? 'border-accent-blue ring-4 ring-accent-blue/15 shadow-2xl bg-blue-50/20'
+                                    : 'border-neutral-10/15 hover:border-accent-blue/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
                                     }`}
                             >
                                 {/* Top Brand & Platform Badge Header */}
@@ -110,6 +110,9 @@ export default function InsightsPage() {
                                             <h2 className="text-xl sm:text-2xl font-bold text-neutral-30 tracking-tight">
                                                 {study.campaign}
                                             </h2>
+                                            <p className="text-xs sm:text-sm font-semibold text-neutral-20/70 tracking-wide mt-0.5">
+                                                {study.fullDetail.dateLocation}
+                                            </p>
                                         </div>
                                     </div>
 
@@ -120,16 +123,11 @@ export default function InsightsPage() {
                                     </div>
                                 </div>
 
-                                {/* Meta Bar: Date/Location + Headline Metric */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 bg-beige-10/50 rounded-2xl px-6 my-6 border border-beige-20">
-                                    <div className="flex flex-col justify-center">
-                                        <span className="text-xs font-bold text-neutral-10 uppercase tracking-widest">Market & Timeline</span>
-                                        <span className="text-sm font-bold text-neutral-30 mt-0.5">{study.fullDetail.dateLocation}</span>
-                                    </div>
-                                    <div className="flex flex-col justify-center md:items-end">
-                                        <span className="text-xs font-bold text-neutral-10 uppercase tracking-widest">Headline Outcome</span>
-                                        <span className="text-xl sm:text-2xl font-black text-emerald-600 mt-0.5">{study.fullDetail.headlineMetric}</span>
-                                    </div>
+                                {/* Outcome Metric Display (without Headline Outcome or Market & Timeline labels) */}
+                                <div className="py-4 px-6 bg-beige-10/50 rounded-2xl my-6 border border-beige-20 flex items-center justify-between">
+                                    <span className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">
+                                        {study.fullDetail.headlineMetric}
+                                    </span>
                                 </div>
 
                                 {/* Detailed Narrative Paragraph */}

@@ -14,6 +14,7 @@ const brandLogos = [
     { src: '/images/Logos/NeoZep.png', alt: 'NeoZep', rounded: false },
     { src: '/images/Logos/nirma-logo-png_seeklogo-529186.png', alt: 'Nirma', rounded: false },
     { src: '/images/Logos/Philips-Logo.wine.png', alt: 'Philips', rounded: false },
+    { src: '/images/Logos/SONY_MAX_Logo_2022.png', alt: 'Sony MAX', rounded: false },
     { src: '/images/Logos/vtion-blue-logo.svg', alt: 'Vtion', rounded: false },
     { src: '/images/Logos/Acer-logo.jpg', alt: 'Acer', rounded: true },
     { src: '/images/Logos/Avigna House.png', alt: 'Avigna House', rounded: true },

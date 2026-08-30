@@ -36,7 +36,7 @@ function ContactForm() {
                                 <span className="text-accent-blue font-serif italic font-medium">conversation.</span>
                             </h2>
                             <p className="text-base md:text-lg text-neutral-20 leading-relaxed max-w-md">
-                                Whether you're a startup or an established brand, we bring the data and creativity to help you grow.
+                                Leave us your details and our team will get back to you as soon as possible.
                             </p>
                         </div>
 
@@ -46,18 +46,8 @@ function ContactForm() {
                                     <Envelope size={24} weight="duotone" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Email us</p>
+                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Email</p>
                                     <p className="text-base sm:text-lg font-bold text-neutral-30 break-all sm:break-normal">connect@onlymedia.in</p>
-                                </div>
-                            </div>
-
-                            <div className="contact-reveal flex items-center gap-4 md:gap-5 group">
-                                <div className="min-h-12 md:min-h-14 min-w-12 md:min-w-14 rounded-[16px] md:rounded-[18px] bg-accent-blue/5 text-accent-blue flex items-center justify-center group-hover:bg-accent-blue group-hover:text-white transition-all duration-500">
-                                    <Phone size={24} weight="duotone" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Call us</p>
-                                    <p className="text-base sm:text-lg font-bold text-neutral-30">+91 9876543210</p>
                                 </div>
                             </div>
 
@@ -66,7 +56,7 @@ function ContactForm() {
                                     <MapPin size={24} weight="duotone" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Visit Hub</p>
+                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Visit Hub - Mumbai</p>
                                     <p className="text-base sm:text-lg font-bold text-neutral-30">Mumbai, India</p>
                                 </div>
                             </div>
@@ -87,19 +77,40 @@ function ContactForm() {
 
                     {/* Input Form Column */}
                     <div className="lg:col-span-12 xl:col-span-7 contact-reveal">
-                        <form className="flex flex-col gap-5 md:gap-6 bg-beige-10/60 md:p-8 p-5 sm:p-6 rounded-[24px] md:rounded-[32px] border border-neutral-30/5">
+                        <form className="flex flex-col gap-5 md:gap-6 bg-beige-10/60 md:p-8 p-5 sm:p-6 rounded-[24px] md:rounded-[32px] border border-neutral-30/5" onSubmit={(e) => e.preventDefault()}>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {/* Name */}
                                 <div className="flex flex-col gap-2">
-                                    <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Your Name</label>
+                                    <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Name</label>
                                     <input
                                         type="text"
                                         placeholder="Full name"
                                         className="bg-white border-2 border-[#E4E2E2] rounded-xl md:rounded-2xl px-5 py-4 text-neutral-30 text-base font-medium placeholder:text-neutral-10 focus:outline-none focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all"
                                     />
                                 </div>
-                                {/* Email */}
+                                {/* Company Name */}
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Company Name</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Company name"
+                                        className="bg-white border-2 border-[#E4E2E2] rounded-xl md:rounded-2xl px-5 py-4 text-neutral-30 text-base font-medium placeholder:text-neutral-10 focus:outline-none focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {/* Mobile Number */}
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Mobile Number</label>
+                                    <input
+                                        type="tel"
+                                        placeholder="+91 9876543210"
+                                        className="bg-white border-2 border-[#E4E2E2] rounded-xl md:rounded-2xl px-5 py-4 text-neutral-30 text-base font-medium placeholder:text-neutral-10 focus:outline-none focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all"
+                                    />
+                                </div>
+                                {/* Email Address */}
                                 <div className="flex flex-col gap-2">
                                     <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Email Address</label>
                                     <input
@@ -110,30 +121,12 @@ function ContactForm() {
                                 </div>
                             </div>
 
-                            {/* Service */}
+                            {/* Details */}
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">How can we help you succeed?</label>
-                                <div className="relative">
-                                    <select className="bg-white border-2 border-[#E4E2E2] rounded-xl md:rounded-2xl px-5 py-4 text-neutral-30 text-base font-medium focus:outline-none focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all w-full appearance-none cursor-pointer">
-                                        <option>Brand Growth &amp; Strategy</option>
-                                        <option>Web &amp; Digital Design</option>
-                                        <option>Paid Media &amp; Performance</option>
-                                        <option>Content Production</option>
-                                    </select>
-                                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-20">
-                                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
-                                            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Message */}
-                            <div className="flex flex-col gap-2">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Tell us about your project</label>
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-neutral-30 pl-1">Details</label>
                                 <textarea
-                                    rows={5}
-                                    placeholder="Your message and goals..."
+                                    rows={4}
+                                    placeholder="Your message and campaign details..."
                                     className="bg-white border-2 border-[#E4E2E2] rounded-xl md:rounded-2xl px-5 py-4 text-neutral-30 text-base font-medium placeholder:text-neutral-10 focus:outline-none focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all resize-none"
                                 ></textarea>
                             </div>
