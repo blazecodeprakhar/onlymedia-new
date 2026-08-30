@@ -79,7 +79,7 @@ export default function Benefits() {
                     </div>
 
                     <p className="text-sm sm:text-base text-[#332E2C] font-semibold leading-relaxed text-center max-w-3xl mx-auto">
-                        Our campaigns are powered by trusted media platforms and data partners. We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
+                        We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
                     </p>
                 </div>
 
