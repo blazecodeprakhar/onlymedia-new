@@ -48,48 +48,7 @@ function Reviews() {
                     </p>
                 </div>
 
-                {/* Impact Micro Highlights Bar */}
-                <div className="case-studies-reveal grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 w-full max-w-3xl px-2">
-                    <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-blue-20/60 shadow-sm hover:border-accent-blue/40 transition-colors">
-                        <div className="w-10 h-10 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0">
-                            <TrendingUp className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <div className="text-lg sm:text-xl font-black text-neutral-30 leading-none">3.4x</div>
-                            <div className="text-[11px] sm:text-xs font-semibold text-neutral-10 uppercase tracking-wider mt-0.5">Avg ROAS</div>
-                        </div>
-                    </div>
 
-                    <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-blue-20/60 shadow-sm hover:border-accent-blue/40 transition-colors">
-                        <div className="w-10 h-10 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0">
-                            <Target className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <div className="text-lg sm:text-xl font-black text-neutral-30 leading-none">50M+</div>
-                            <div className="text-[11px] sm:text-xs font-semibold text-neutral-10 uppercase tracking-wider mt-0.5">Impressions</div>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-blue-20/60 shadow-sm hover:border-accent-blue/40 transition-colors">
-                        <div className="w-10 h-10 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0">
-                            <BarChart3 className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <div className="text-lg sm:text-xl font-black text-neutral-30 leading-none">-42%</div>
-                            <div className="text-[11px] sm:text-xs font-semibold text-neutral-10 uppercase tracking-wider mt-0.5">Lower CPA</div>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-blue-20/60 shadow-sm hover:border-accent-blue/40 transition-colors">
-                        <div className="w-10 h-10 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0">
-                            <Award className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <div className="text-lg sm:text-xl font-black text-neutral-30 leading-none">100%</div>
-                            <div className="text-[11px] sm:text-xs font-semibold text-neutral-10 uppercase tracking-wider mt-0.5">Measurable</div>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Rotating Case Study Cards Row */}
                 <div
