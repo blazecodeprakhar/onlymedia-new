@@ -20,10 +20,10 @@ function ContactForm() {
     }, { scope: formRef })
 
     return (
-        <section ref={formRef} className="pb-16 md:pb-20 pt-4 bg-linear-to-b from-neutral-0/50 to-beige-0 relative overflow-hidden">
+        <section ref={formRef} className="pb-16 md:pb-20 pt-4 bg-gradient-to-b from-neutral-0/50 to-white relative overflow-hidden">
             {/* Soft decorative background circles */}
             <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-orange/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-20/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="wrapper max-w-[1440px] mx-auto px-4 md:px-6 relative z-10">
                 <div className="bg-white rounded-[32px] md:rounded-[48px] lg:p-16 md:p-12 p-6 sm:p-8 shadow-[0_20px_60px_-20px_rgba(26,22,21,0.06)] border border-neutral-30/[0.01] grid lg:grid-cols-12 md:gap-12 gap-8">

@@ -5,21 +5,21 @@
   --color-blue-20: #9CC1E7;
   --color-blue-10: #E2ECF5;
   --color-blue-0: #EDEFF0;
-  --color-beige-40: #EDDFD0;
-  --color-beige-30: #F4E6DA;
-  --color-beige-20: #F1EBE5;
-  --color-beige-10: #F4F1EE;
+  --color-beige-40: #DbeAFE;
+  --color-beige-30: #E2ECF5;
+  --color-beige-20: #F1F5F9;
+  --color-beige-10: #F8FAFC;
   --color-beige-0: #FFFFFF;
   --color-neutral-30: #1A1615;
   --color-neutral-20: #453F3D;
   --color-neutral-10: #757170;
   --color-stroke: #E4E2E2;
-  --color-dark-brown: #614A44;
-  --color-accent-brown: #754D29;
+  --color-dark-brown: #156CC2;
+  --color-accent-brown: #156CC2;
   --color-accent-blue: #156CC2;
-  --color-accent-yellow: #CF8D13;
-  --color-accent-green: #0EA158;
-  --color-accent-orange: #C9502E;
+  --color-accent-yellow: #2563EB;
+  --color-accent-green: #0284C7;
+  --color-accent-orange: #156CC2;
 
   /* Typographic Scale Variables */
   --text-xs: 0.75rem;
@@ -202,11 +202,11 @@ body {
 }
 
 @utility text-eyebrow-large {
-  @apply text-[18px]/[125%] font-semibold text-dark-brown;
+  @apply text-[18px]/[125%] font-semibold text-accent-blue;
 }
 
 @utility text-eyebrow-small {
-  @apply text-[15px]/[125%] font-semibold text-dark-brown;
+  @apply text-[15px]/[125%] font-semibold text-accent-blue;
 }
 
 @utility text-testemonial {
@@ -218,7 +218,7 @@ body {
 }
 
 @utility content {
-  @apply bg-gradient-to-b box-border from-beige-0 via-beige-10 to-blue-10/30 flex flex-col items-center lg:pb-32 md:pb-20 pb-16 lg:px-0 md:px-10 px-4 lg:gap-16 md:gap-12 gap-8;
+  @apply bg-gradient-to-b box-border from-white via-slate-50 to-blue-10/30 flex flex-col items-center lg:pb-32 md:pb-20 pb-16 lg:px-0 md:px-10 px-4 lg:gap-16 md:gap-12 gap-8;
 }
 
 @keyframes marquee {
@@ -232,7 +232,10 @@ body {
 }
 
 @utility animate-marquee {
-  animation: marquee 35s linear infinite;
+  animation: marquee 65s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes ticker {
@@ -246,12 +249,15 @@ body {
 }
 
 @utility animate-ticker {
-  animation: ticker 40s linear infinite;
+  animation: ticker 75s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 @layer components {
   .hero {
-    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-10 sm:pb-16 lg:min-h-[100vh] min-h-screen max-h-screen md:max-h-none flex justify-center overflow-hidden bg-linear-to-t from-beige-40 to-blue-20;
+    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-10 sm:pb-16 lg:min-h-[100vh] min-h-screen max-h-screen md:max-h-none flex justify-center overflow-hidden bg-gradient-to-t from-[#EBF3FE] via-[#DbeAFE] to-[#9CC1E7];
 
     .hero-content {
       @apply z-2 px-4 w-full max-w-[1250px] pt-28 md:pt-40 flex flex-col items-center gap-6 md:gap-16;
@@ -302,7 +308,7 @@ body {
       }
 
       .logos-ticker-eyebrow {
-        @apply inline-flex items-center px-4 py-1.5 rounded-full border border-dark-brown/30 bg-beige-40/60 text-dark-brown text-[14px] font-semibold tracking-wider uppercase;
+        @apply inline-flex items-center px-4 py-1.5 rounded-full border border-accent-blue/30 bg-blue-10/80 text-accent-blue text-[14px] font-semibold tracking-wider uppercase;
       }
 
       .logos-ticker-title {

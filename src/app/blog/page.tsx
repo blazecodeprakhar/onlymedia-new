@@ -83,11 +83,11 @@ export default function BlogPage() {
     const regularPosts = blogPosts.filter(post => !post.featured)
 
     return (
-        <main ref={mainRef} className="flex flex-col bg-beige-0 min-h-screen">
+        <main ref={mainRef} className="flex flex-col bg-white min-h-screen">
             <Navbar />
 
             {/* Premium Hero Section */}
-            <div className="pt-48 pb-20 bg-linear-to-b from-beige-10 via-beige-0 to-beige-0 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+            <div className="pt-48 pb-20 bg-gradient-to-b from-blue-10/40 via-slate-50 to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center gap-4 mb-8 blog-reveal">
                     <p className="text-eyebrow-large text-accent-blue tracking-[0.5em] uppercase font-black text-xs">
                         INSIGHTS & UPDATES
@@ -110,7 +110,7 @@ export default function BlogPage() {
             </div>
 
             {/* Blog Posts Section */}
-            <div ref={postsRef} className="w-full bg-beige-0 pb-32 pt-10 px-6">
+            <div ref={postsRef} className="w-full bg-white pb-32 pt-10 px-6">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Section Header */}
@@ -141,7 +141,7 @@ export default function BlogPage() {
                                 <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-all duration-500 border border-neutral-10/10">
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                                         {/* Image Side */}
-                                        <div className="relative h-64 lg:h-auto bg-gradient-to-br from-blue-20 via-beige-20 to-beige-40 flex items-center justify-center overflow-hidden">
+                                        <div className="relative h-64 lg:h-auto bg-gradient-to-br from-blue-100 via-blue-50 to-slate-100 flex items-center justify-center overflow-hidden">
                                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(21,108,194,0.1)_0%,transparent_50%)]" />
                                             <div className="relative z-10 text-center p-8">
                                                 <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
@@ -177,7 +177,7 @@ export default function BlogPage() {
 
                                             <div className="flex items-center justify-between">
                                                 <div className="flex items-center gap-3">
-                                                    <div className="w-10 h-10 rounded-full bg-beige-20 flex items-center justify-center">
+                                                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
                                                         <User className="w-5 h-5 text-neutral-10" />
                                                     </div>
                                                     <span className="font-semibold text-neutral-30">{featuredPost.author}</span>
@@ -203,7 +203,7 @@ export default function BlogPage() {
                                     <div className="bg-white rounded-3xl p-8 h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-all duration-500 border border-neutral-10/10 flex flex-col">
                                         {/* Card Header */}
                                         <div className="flex items-center gap-4 mb-5 text-sm text-neutral-10">
-                                            <span className="px-3 py-1 bg-beige-20 text-neutral-30 rounded-full font-semibold text-xs uppercase tracking-wider">
+                                            <span className="px-3 py-1 bg-slate-100 text-neutral-30 rounded-full font-semibold text-xs uppercase tracking-wider">
                                                 {post.category}
                                             </span>
                                             <span className="flex items-center gap-1">

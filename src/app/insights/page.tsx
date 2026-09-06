@@ -32,11 +32,11 @@ export default function InsightsPage() {
         : caseStudies.filter(s => s.platform === selectedCategory)
 
     return (
-        <main className="flex flex-col bg-beige-0 min-h-screen">
+        <main className="flex flex-col bg-white min-h-screen">
             <Navbar />
 
             {/* Premium Insights Hero Section */}
-            <div className="pt-48 pb-16 bg-gradient-to-b from-beige-10 via-beige-0 to-beige-0 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+            <div className="pt-48 pb-16 bg-gradient-to-b from-blue-10/40 via-slate-50 to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center gap-2 mb-6">
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-blue/20 bg-accent-blue/10 text-accent-blue text-xs font-bold tracking-widest uppercase">
                         <TrendingUp className="w-3.5 h-3.5" />
@@ -75,7 +75,7 @@ export default function InsightsPage() {
             </div>
 
             {/* Case Studies Detail List */}
-            <div className="w-full bg-beige-0 pb-32 pt-8 px-4 sm:px-6">
+            <div className="w-full bg-white pb-32 pt-8 px-4 sm:px-6">
                 <div className="max-w-5xl mx-auto flex flex-col gap-10">
                     {filteredStudies.map((study) => {
                         const isHighlighted = activeHash === study.slug
@@ -124,7 +124,7 @@ export default function InsightsPage() {
                                 </div>
 
                                 {/* Outcome Metric Display (without Headline Outcome or Market & Timeline labels) */}
-                                <div className="py-4 px-6 bg-beige-10/50 rounded-2xl my-6 border border-beige-20 flex items-center justify-between">
+                                <div className="py-4 px-6 bg-slate-50 rounded-2xl my-6 border border-slate-200/60 flex items-center justify-between">
                                     <span className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">
                                         {study.fullDetail.headlineMetric}
                                     </span>

@@ -71,7 +71,7 @@ function WhoWeAre() {
         <section id="about" ref={sectionRef} className="who-we-are md:hidden pt-10 pb-10 lg:pt-16 lg:pb-16 bg-neutral-0/50 relative overflow-hidden">
             {/* Dynamic visual elements for pixel-perfect feel */}
             <div className="who-we-are-bg absolute -top-40 -right-40 w-80 md:w-120 h-80 md:h-120 bg-blue-30/10 rounded-full blur-[60px] md:blur-[120px] opacity-20 pointer-events-none" />
-            <div className="hidden md:block who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-orange/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
+            <div className="hidden md:block who-we-are-bg absolute -bottom-40 -left-40 w-100 h-100 bg-accent-blue/5 rounded-full blur-[100px] opacity-15 pointer-events-none" />
 
             <div className="wrapper max-w-7xl mx-auto px-6 relative z-10">
                 {/* Card: flex-col on mobile/tablet, flex-row on xl, always items-center on xl */}
@@ -86,7 +86,7 @@ function WhoWeAre() {
                             </p>
                         </div>
                         <h2 className="main-headline text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] text-neutral-30 font-black tracking-tight transition-all duration-500">
-                            OnlyMedia is where <span className="text-accent-blue">precision targeting</span> delivers <span className="text-accent-orange italic">measurable outcomes.</span>
+                            OnlyMedia is where <span className="text-accent-blue">precision targeting</span> delivers <span className="text-accent-blue font-serif italic">measurable outcomes.</span>
                         </h2>
                     </div>
 

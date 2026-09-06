@@ -30,7 +30,7 @@ const MainButton = ({
       case 'primary':
         return 'bg-neutral-30 hover:bg-neutral-30/[85%]';
       case 'secondary':
-        return 'bg-beige-10 text-neutral-30 hover:bg-beige-20';
+        return 'bg-blue-10 text-neutral-30 hover:bg-blue-20/60';
       case 'tertiary':
         return 'bg-white/[10%] border border-[#E3E1E1] text-neutral-30 hover:text-gray-800 hover:bg-white/[20%]';
       default:

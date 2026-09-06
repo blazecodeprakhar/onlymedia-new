@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { InstagramLogo, LinkedinLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { InstagramLogo, LinkedinLogo, FacebookLogo } from "@phosphor-icons/react";
 import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -93,12 +93,15 @@ function Footer() {
                             At OnlyMedia, audience intelligence, structured execution and creative innovation come together to deliver clarity in media and consistency in outcomes.
                         </p>
                         <div className="flex gap-4">
-                            <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
+                            <a href="https://in.linkedin.com/company/onlymedia-marketing-solutions" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <LinkedinLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </SmoothLink>
-                            <SmoothLink href="#" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
+                            </a>
+                            <a href="https://www.instagram.com/onlymedia_official/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <InstagramLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
-                            </SmoothLink>
+                            </a>
+                            <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
+                                <FacebookLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
+                            </a>
                         </div>
                     </div>
 

@@ -21,11 +21,11 @@ export default function ContactPage() {
     }, { scope: heroRef })
 
     return (
-        <main className="flex flex-col bg-beige-0">
+        <main className="flex flex-col bg-white">
             <Navbar />
 
             {/* Hero Section for Partner With Us */}
-            <div ref={heroRef} className="pt-32 md:pt-40 pb-10 bg-linear-to-b from-beige-10 via-neutral-0/30 to-neutral-0/50 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+            <div ref={heroRef} className="pt-32 md:pt-40 pb-10 bg-gradient-to-b from-blue-10/40 via-slate-50 to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
                 <div className="flex items-center justify-center gap-4 mb-4 contact-reveal">
                     <span className="px-4 py-1.5 rounded-full border border-accent-blue/20 bg-accent-blue/10 text-accent-blue font-black tracking-[0.3em] uppercase text-[10px] md:text-xs">
                         PARTNER WITH US

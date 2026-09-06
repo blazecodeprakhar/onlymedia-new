@@ -270,11 +270,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     if (!post) notFound()
 
     return (
-        <main className="flex flex-col bg-beige-0 min-h-screen">
+        <main className="flex flex-col bg-white min-h-screen">
             <Navbar />
 
             {/* Hero */}
-            <div className="pt-40 pb-16 px-6 bg-gradient-to-b from-blue-10 via-beige-10 to-beige-0">
+            <div className="pt-40 pb-16 px-6 bg-gradient-to-b from-blue-10/40 via-slate-50 to-white">
                 <div className="max-w-4xl mx-auto">
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm text-neutral-10 mb-8">
@@ -317,7 +317,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             </div>
 
             {/* Article Body */}
-            <article className="w-full px-6 py-16 bg-beige-0">
+            <article className="w-full px-6 py-16 bg-white">
                 <div className="max-w-4xl mx-auto">
 
                     {/* Intro */}
@@ -391,7 +391,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                                         </thead>
                                         <tbody>
                                             {section.table.rows.map((row, k) => (
-                                                <tr key={k} className={k % 2 === 0 ? 'bg-white' : 'bg-beige-10/40'}>
+                                                <tr key={k} className={k % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                                                     {row.map((cell, l) => (
                                                         <td key={l} className="px-5 py-4 text-neutral-20 border-b border-neutral-10/10 last:border-b-0 leading-snug">
                                                             {cell}
@@ -407,7 +407,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                     ))}
 
                     {/* Conclusion */}
-                    <div className="mt-12 p-8 md:p-10 bg-gradient-to-br from-blue-10 to-beige-10 rounded-3xl border border-blue-20/40">
+                    <div className="mt-12 p-8 md:p-10 bg-gradient-to-br from-blue-50 to-slate-50 rounded-3xl border border-blue-20/40">
                         <h2 className="text-2xl md:text-3xl font-bold text-neutral-30 mb-4">Conclusion</h2>
                         <p className="text-neutral-20 leading-[1.8] text-base md:text-lg">{post.conclusion}</p>
                     </div>
