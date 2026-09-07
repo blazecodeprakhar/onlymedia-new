@@ -4,11 +4,12 @@ import React, { useEffect, useState } from 'react'
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { caseStudies, CaseStudy } from '@/data/caseStudies'
-import { ArrowUpRight, Filter, TrendingUp } from 'lucide-react'
+import { ArrowUpRight, Filter, TrendingUp, ZoomIn, X } from 'lucide-react'
 
 export default function InsightsPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('All')
     const [activeHash, setActiveHash] = useState<string>('')
+    const [activeZoomImage, setActiveZoomImage] = useState<{ src: string; title: string; brand: string; metric: string } | null>(null)
 
     useEffect(() => {
         const handleHashChange = () => {
@@ -26,6 +27,24 @@ export default function InsightsPage() {
         window.addEventListener('hashchange', handleHashChange)
         return () => window.removeEventListener('hashchange', handleHashChange)
     }, [])
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setActiveZoomImage(null)
+            }
+        }
+
+        if (activeZoomImage) {
+            window.addEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = 'hidden'
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = 'unset'
+        }
+    }, [activeZoomImage])
 
     const filteredStudies = selectedCategory === 'All'
         ? caseStudies
@@ -123,24 +142,105 @@ export default function InsightsPage() {
                                     </div>
                                 </div>
 
-                                {/* Outcome Metric Display (without Headline Outcome or Market & Timeline labels) */}
-                                <div className="py-4 px-6 bg-slate-50 rounded-2xl my-6 border border-slate-200/60 flex items-center justify-between">
-                                    <span className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">
-                                        {study.fullDetail.headlineMetric}
-                                    </span>
-                                </div>
+                                {/* Content Grid: Narrative on Left, Screenshot Card on Right */}
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-6">
+                                    {/* Left Column: Metric & Narrative */}
+                                    <div className={`flex flex-col justify-between ${study.image ? 'lg:col-span-7' : 'lg:col-span-12'}`}>
+                                        {/* Outcome Metric Display */}
+                                        <div className="py-4 px-6 bg-slate-50 rounded-2xl mb-6 border border-slate-200/60 flex items-center justify-between shadow-2xs">
+                                            <span className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">
+                                                {study.fullDetail.headlineMetric}
+                                            </span>
+                                        </div>
 
-                                {/* Detailed Narrative Paragraph */}
-                                <p className="text-base sm:text-lg text-neutral-20 leading-relaxed font-normal">
-                                    {study.fullDetail.paragraph}
-                                </p>
+                                        {/* Detailed Narrative Paragraph */}
+                                        <p className="text-base sm:text-lg text-neutral-20 leading-relaxed font-normal">
+                                            {study.fullDetail.paragraph}
+                                        </p>
+                                    </div>
+
+                                    {/* Right Column: Interactive Case Study Screenshot */}
+                                    {study.image && (
+                                        <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
+                                            <div
+                                                onClick={() => setActiveZoomImage({
+                                                    src: study.image!,
+                                                    title: study.campaign,
+                                                    brand: study.brand,
+                                                    metric: study.fullDetail.headlineMetric
+                                                })}
+                                                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-neutral-200/80 bg-slate-50/80 hover:bg-slate-100/90 hover:border-accent-blue/50 shadow-xs hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center p-3 sm:p-3.5 max-w-full"
+                                                title="Click to view enlarged screenshot"
+                                            >
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img
+                                                    src={study.image}
+                                                    alt={`${study.brand} - ${study.campaign}`}
+                                                    className="max-h-[280px] sm:max-h-[320px] w-auto max-w-full object-contain rounded-xl drop-shadow-md transition-transform duration-500 group-hover:scale-[1.03]"
+                                                    loading="lazy"
+                                                />
+
+                                                {/* Hover Zoom Overlay Badge */}
+                                                <div className="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px] rounded-2xl">
+                                                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-neutral-900 text-xs font-bold shadow-xl transition-transform duration-300 group-hover:scale-105">
+                                                        <ZoomIn className="w-4 h-4 text-accent-blue" />
+                                                        Click to Zoom
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </article>
                         )
                     })}
                 </div>
             </div>
 
+            {/* Interactive Lightbox Zoom Modal (Light Theme) */}
+            {activeZoomImage && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-md p-4 sm:p-8 animate-in fade-in duration-200"
+                    onClick={() => setActiveZoomImage(null)}
+                >
+                    <div
+                        className="relative max-w-5xl w-full bg-white border border-neutral-200/80 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center max-h-[92vh] overflow-hidden"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div className="w-full flex items-center justify-between pb-4 mb-3 border-b border-neutral-100 px-1">
+                            <div>
+                                <span className="text-xs font-extrabold text-accent-blue tracking-widest uppercase block mb-1">
+                                    {activeZoomImage.brand} · {activeZoomImage.metric}
+                                </span>
+                                <h3 className="text-lg sm:text-xl font-bold text-neutral-900 tracking-tight">
+                                    {activeZoomImage.title}
+                                </h3>
+                            </div>
+                            <button
+                                onClick={() => setActiveZoomImage(null)}
+                                className="p-2 rounded-full bg-neutral-100 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-200/80 transition-all duration-200 cursor-pointer"
+                                aria-label="Close zoomed view"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+                        </div>
+
+                        {/* Modal Image Display Container */}
+                        <div className="w-full flex-1 flex items-center justify-center overflow-auto p-3 bg-slate-50/60 rounded-2xl border border-slate-100">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={activeZoomImage.src}
+                                alt={activeZoomImage.title}
+                                className="max-h-[72vh] w-auto max-w-full object-contain rounded-xl shadow-md border border-neutral-200/60"
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <Footer />
         </main>
     )
 }
+

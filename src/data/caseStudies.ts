@@ -10,6 +10,7 @@ export interface CaseStudy {
     metricLabel: string;
     metricValue: string;
     blurb: string;
+    image?: string;
     fullDetail: {
         platformFull: string;
         dateLocation: string;
@@ -31,6 +32,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'CTA',
         metricValue: '1.94%',
         blurb: 'Festive "tap to reveal your discount" units on Blibli turned anniversary offers into direct clicks across Indonesia.',
+        image: '/Casestudy SS/Sharp.png',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'Indonesia · June 2025',
@@ -50,6 +52,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'VIDEO COMPLETION RATE',
         metricValue: '51%',
         blurb: '"Perfectly timed selfies" video units held over half the audience to the end, proof for an instant-capture product.',
+        image: '/Casestudy SS/Fuji FIlms.png',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'March 2026',
@@ -69,6 +72,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'ENGAGEMENT RATE',
         metricValue: '3.62%',
         blurb: 'Premiere key art with a #DekhoDilThaamKar set-reminder CTA drove strong pre-premiere interest.',
+        image: '/Casestudy SS/SonyMax-Thamma.png',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'March 2026',
@@ -88,6 +92,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'ENGAGEMENT RATE',
         metricValue: '2.02%',
         blurb: 'A "swipe to expand storage" interactive unit let users demonstrate the product\'s value themselves.',
+        image: '/Casestudy SS/Sandisk-MicroSD card.png',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'May 2026',
@@ -107,6 +112,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'AD RECALL LIFT (BLS, 7-DAY)',
         metricValue: '+2.7%',
         blurb: 'Non-Skip, Skip and Shorts working together reached 12.42Mn+ viewers and 40.83Mn+ impressions.',
+        image: '/Casestudy SS/LaShield - Own The Sun.png',
         fullDetail: {
             platformFull: 'YOUTUBE',
             dateLocation: 'March 2026',
@@ -126,6 +132,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'VIDEO COMPLETION RATE',
         metricValue: '80%',
         blurb: '30-sec spots across Aaj Tak, Jio TV+, Sony LIV and other top CTV apps held 4 in 5 viewers to the end.',
+        image: '/Casestudy SS/CTV Nirma.png',
         fullDetail: {
             platformFull: 'IMPACT SCREENS (CONNECTED TV)',
             dateLocation: 'March 2026',
@@ -145,6 +152,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'VCR — 10 SEC (JAN–FEB \'26)',
         metricValue: '65%',
         blurb: 'Regional vernacular apps carried a punchy 10-sec film to 65% completion; a 40-sec film still held 44%.',
+        image: '/Casestudy SS/CTV Gopal Namkeen.png',
         fullDetail: {
             platformFull: 'DISPLAY & VIDEO 360 (PROGRAMMATIC)',
             dateLocation: 'February – July 2026 · Gujarat, Rajasthan & Maharashtra',
@@ -164,6 +172,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'LEAD TO QUALITY LEAD RATE',
         metricValue: '61%',
         blurb: 'High-intent custom audiences turned a ₹1Cr cover, ₹595/month offer into consistently qualified leads.',
+        image: '/Casestudy SS/Axismaxlife.png',
         fullDetail: {
             platformFull: 'META',
             dateLocation: 'September 2025 – ongoing',
@@ -183,6 +192,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'INSTALL TO REGISTRATION RATE',
         metricValue: '33%',
         blurb: 'Targeting women and optimising for Day-7 retention meant installs genuinely followed through to sign-up.',
+        image: '/Casestudy SS/Vtion.png',
         fullDetail: {
             platformFull: 'META',
             dateLocation: 'November 2025 – ongoing',
@@ -202,6 +212,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'AVERAGE ORDER VALUE',
         metricValue: '₹3K+',
         blurb: 'Custom audiences built around each product\'s standout spec drove strong upsell into the premium range.',
+        image: '/Casestudy SS/GoBoult.png',
         fullDetail: {
             platformFull: 'META',
             dateLocation: 'March – May 2026',
@@ -221,6 +232,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'ROAS',
         metricValue: '3x',
         blurb: 'An always-on weekend cadence, tied to what\'s in season, has sustained a consistent 3x return on spend.',
+        image: '/Casestudy SS/Farzana.png',
         fullDetail: {
             platformFull: 'META',
             dateLocation: 'July 2026 – ongoing',
@@ -240,6 +252,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'LIFT IN OUTBOUND CLICK RATE',
         metricValue: '2x',
         blurb: 'Placed against hair-pattern search moments, meeting high-intent beauty discovery rather than interrupting it.',
+        image: '/Casestudy SS/Philips Airstyler.png',
         fullDetail: {
             platformFull: 'PINTEREST',
             dateLocation: 'July 2025',
@@ -259,6 +272,7 @@ export const caseStudies: CaseStudy[] = [
         metricLabel: 'CLICK TO PURCHASE RATE',
         metricValue: '6.3%',
         blurb: 'Sale-day creative met shoppers already browsing style boards, converting discovery straight into purchase.',
+        image: '/Casestudy SS/Meesho.png',
         fullDetail: {
             platformFull: 'PINTEREST',
             dateLocation: 'Mumbai · December 2025',

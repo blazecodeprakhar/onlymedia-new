@@ -3,6 +3,7 @@
 import React, { useRef } from 'react'
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,10 +12,10 @@ import { Linkedin, Target, Layers, Palette, TrendingUp, Award, CheckCircle2, Sea
 gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
-    { label: "Combined Leadership Exp.", value: "30+", sub: "Years of industry depth" },
-    { label: "Platform Ecosystems", value: "8+", sub: "Global ad networks" },
-    { label: "Precision Targeting", value: "99.4%", sub: "High-intent signals" },
-    { label: "Measurable Impact", value: "3.2x", sub: "Avg ROAS boost" },
+    { label: "Combined Leadership Exp.", value: 30, suffix: "+", decimals: 0, sub: "Years of industry depth" },
+    { label: "Platform Ecosystems", value: 8, suffix: "+", decimals: 0, sub: "Global ad networks" },
+    { label: "Precision Targeting", value: 99.4, suffix: "%", decimals: 1, sub: "High-intent signals" },
+    { label: "Measurable Impact", value: 3.2, suffix: "x", decimals: 1, sub: "Avg ROAS boost" },
 ];
 
 const PLATFORMS = ["Meta", "DV360", "YouTube", "Google", "Pinterest", "Snapchat", "Reddit", "Connected TV"];
@@ -80,59 +81,62 @@ export default function AboutPage() {
     const processRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // Hero reveal
-        gsap.from(".about-reveal", {
-            y: 35,
-            opacity: 0,
-            duration: 1.1,
-            stagger: 0.12,
-            ease: "expo.out",
-        })
-
-        // Core Pillars reveal
-        gsap.fromTo(".pillar-card",
-            { y: 40, opacity: 0 },
+        // Hero reveal (fast & smooth)
+        gsap.fromTo(".about-reveal",
+            { y: 15, opacity: 0 },
             {
                 y: 0,
                 opacity: 1,
-                duration: 1.0,
-                stagger: 0.12,
-                ease: "expo.out",
+                duration: 0.45,
+                stagger: 0.05,
+                ease: "power2.out",
+            }
+        )
+
+        // Core Pillars reveal
+        gsap.fromTo(".pillar-card",
+            { y: 15, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.45,
+                stagger: 0.05,
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: pillarsRef.current,
-                    start: "top 80%",
+                    start: "top 90%",
                 }
             }
         )
 
         // Process step reveal
         gsap.fromTo(".process-step",
-            { y: 40, opacity: 0 },
+            { y: 15, opacity: 0 },
             {
                 y: 0,
                 opacity: 1,
-                duration: 1.0,
-                stagger: 0.15,
-                ease: "expo.out",
+                duration: 0.45,
+                stagger: 0.05,
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: processRef.current,
-                    start: "top 80%",
+                    start: "top 90%",
                 }
             }
         )
 
         // Team card reveal
         gsap.fromTo(".team-card",
-            { y: 50, opacity: 0 },
+            { y: 15, opacity: 0 },
             {
                 y: 0,
                 opacity: 1,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "expo.out",
+                duration: 0.45,
+                stagger: 0.06,
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: teamRef.current,
-                    start: "top 80%",
+                    start: "top 90%",
                 }
             }
         )
@@ -142,59 +146,68 @@ export default function AboutPage() {
         <main ref={mainRef} className="flex flex-col bg-white min-h-screen">
             <Navbar />
 
-            {/* Light Glassmorphic Hero Section */}
-            <div className="relative pt-32 md:pt-40 pb-16 md:pb-24 bg-gradient-to-b from-[#EBF3FE] via-[#F4F8FE] to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-                {/* Decorative soft glowing elements */}
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-blue/10 rounded-full blur-[150px] pointer-events-none" />
-                <div className="absolute top-10 right-10 w-[350px] h-[350px] bg-blue-200/40 rounded-full blur-[120px] pointer-events-none" />
+            {/* Premium Glassmorphic Hero Section */}
+            <div className="relative pt-44 md:pt-48 pb-20 md:pb-28 bg-gradient-to-b from-[#EBF3FE]/80 via-[#F4F8FE] to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+                {/* Soft glowing ambient lighting */}
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-accent-blue/12 rounded-full blur-[140px] pointer-events-none" />
+                <div className="absolute top-12 right-12 w-[300px] h-[300px] bg-blue-200/40 rounded-full blur-[100px] pointer-events-none" />
 
-                <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto">
+                <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto w-full">
+                    {/* Top Pill Badge */}
                     <div className="flex items-center gap-2 mb-6 about-reveal">
-                        <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent-blue/30 bg-white/90 text-accent-blue text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase shadow-xs backdrop-blur-md">
+                        <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent-blue/30 bg-white/95 text-accent-blue text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase shadow-xs backdrop-blur-md">
                             <span className="w-2 h-2 rounded-full bg-accent-blue animate-ping" />
                             WE ARE ONLYMEDIA
                         </span>
                     </div>
 
-                    <h1 className="text-[36px] sm:text-[56px] md:text-[72px] lg:text-[88px] font-extrabold leading-[1.08] tracking-[-0.03em] text-neutral-30 about-reveal max-w-4xl">
-                        More than an agency. <br />
-                        We are your <span className="text-accent-blue font-serif italic font-medium">growth partners.</span>
+                    {/* Main Headline - Guaranteed Exactly 2 Lines */}
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[80px] font-black leading-[1.08] tracking-[-0.03em] text-neutral-900 about-reveal max-w-5xl mx-auto">
+                        More than an agency. <br className="hidden sm:block" />
+                        We are your <span className="text-accent-blue font-serif italic font-normal">growth partners.</span>
                     </h1>
 
-                    <div className="max-w-3xl mx-auto mt-8 md:mt-10 about-reveal flex flex-col gap-6 text-base sm:text-lg md:text-xl text-neutral-20 leading-[1.65]">
-                        <p className="opacity-90">
-                            OnlyMedia is a managed media partner combining audience intelligence, platform expertise and creative innovation to deliver structured media execution across modern digital ecosystems. We work closely with brands and agencies to activate campaigns with greater precision, clarity and accountability.
+                    {/* Subheading & Strategic Vision Pill */}
+                    <div className="max-w-3xl mx-auto mt-6 md:mt-8 about-reveal flex flex-col items-center gap-6">
+                        <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed font-normal">
+                            OnlyMedia is a managed media partner combining audience intelligence, platform expertise, and creative innovation to deliver structured media execution across modern digital ecosystems. We work closely with brands and agencies to activate campaigns with greater precision, clarity, and accountability.
                         </p>
-                        <div className="flex items-center justify-center gap-3 pt-2">
-                            <span className="h-[2px] w-10 sm:w-14 bg-accent-blue/30 rounded-full" />
-                            <p className="font-bold text-neutral-30 text-lg md:text-xl tracking-tight">
-                                Our vision is creating measurable impact for the world’s most ambitious brands.
+
+                        <div className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-white/90 border border-blue-200/70 shadow-xs backdrop-blur-md">
+                            <Award className="w-5 h-5 text-accent-blue shrink-0" />
+                            <p className="font-bold text-neutral-800 text-sm sm:text-base tracking-tight">
+                                Creating measurable impact for the world’s most ambitious brands.
                             </p>
-                            <span className="h-[2px] w-10 sm:w-14 bg-accent-blue/30 rounded-full" />
                         </div>
                     </div>
 
-                    {/* Light Glassmorphic Ecosystem & Stats Showcase */}
-                    <div className="w-full mt-12 bg-white/90 backdrop-blur-xl rounded-[32px] p-6 sm:p-10 border border-blue-200/60 shadow-[0_20px_50px_rgba(21,108,194,0.07)] about-reveal flex flex-col gap-8">
-                        {/* Platform Pills Row */}
-                        <div className="flex flex-col items-center gap-3">
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-accent-blue">ACTIVATING ACROSS GLOBAL ECOSYSTEMS</span>
+                    {/* Ecosystem & Key Metrics Card Showcase */}
+                    <div className="w-full mt-12 bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-10 border border-blue-200/70 shadow-[0_20px_50px_rgba(21,108,194,0.08)] about-reveal flex flex-col gap-8">
+                        {/* Platform Ecosystem Row */}
+                        <div className="flex flex-col items-center gap-3.5">
+                            <span className="text-xs font-black uppercase tracking-[0.2em] text-accent-blue">ACTIVATING ACROSS GLOBAL ECOSYSTEMS</span>
                             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                                 {PLATFORMS.map((plat) => (
-                                    <span key={plat} className="px-4 py-2 rounded-full bg-[#EBF3FE] text-neutral-30 border border-blue-200/50 text-xs sm:text-sm font-bold shadow-2xs">
+                                    <span key={plat} className="px-4 py-2 rounded-full bg-slate-50 text-neutral-800 hover:bg-accent-blue hover:text-white border border-slate-200/80 text-xs sm:text-sm font-bold transition-all duration-300 shadow-2xs">
                                         {plat}
                                     </span>
                                 ))}
                             </div>
                         </div>
 
-                        {/* KPI Stats Grid */}
+                        {/* KPI Stats Grid with Count-Up Animations */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-slate-100">
                             {STATS.map((stat, i) => (
-                                <div key={i} className="flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-[#F4F8FE] border border-blue-100/80 shadow-2xs">
-                                    <span className="text-3xl sm:text-4xl md:text-5xl font-black text-accent-blue tracking-tight">{stat.value}</span>
-                                    <span className="text-xs sm:text-sm font-bold text-neutral-30 mt-1">{stat.label}</span>
-                                    <span className="text-[11px] text-neutral-400 font-medium">{stat.sub}</span>
+                                <div key={i} className="group/stat flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-[#F4F8FE] border border-blue-100/90 hover:border-accent-blue/40 hover:bg-white hover:shadow-md transition-all duration-300">
+                                    <AnimatedCounter
+                                        value={stat.value}
+                                        decimals={stat.decimals}
+                                        suffix={stat.suffix}
+                                        duration={2.2}
+                                        className="text-3xl sm:text-4xl md:text-5xl font-black text-accent-blue tracking-tight group-hover/stat:scale-105 transition-transform duration-300"
+                                    />
+                                    <span className="text-xs sm:text-sm font-bold text-neutral-800 mt-1.5">{stat.label}</span>
+                                    <span className="text-[11px] text-neutral-500 font-medium mt-0.5">{stat.sub}</span>
                                 </div>
                             ))}
                         </div>
