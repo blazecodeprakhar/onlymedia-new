@@ -33,60 +33,60 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
     return (
         <SmoothLink
             href={`/insights#${study.slug}`}
-            className={`group block shrink-0 w-[300px] sm:w-[360px] md:w-[380px] bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-neutral-10/20 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(21,108,194,0.15)] hover:border-accent-blue/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
+            className={`group block shrink-0 w-[300px] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 border border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(21,108,194,0.14)] hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
         >
             <div>
-                {/* Header: Brand Logo Image + Platform Pill */}
-                <div className="flex items-center justify-between gap-3 mb-4 h-10">
+                {/* Header: Normalized Brand Logo Image + Platform Pill */}
+                <div className="flex items-center justify-between gap-3 mb-4 h-11 border-b border-slate-100 pb-3">
                     {study.brandLogo ? (
-                        <div className="h-9 sm:h-10 max-w-[140px] flex items-center shrink-0">
+                        <div className="h-9 w-32 flex items-center justify-start shrink-0 overflow-hidden">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={study.brandLogo}
                                 alt={study.brand}
-                                className="max-h-full max-w-[130px] w-auto object-contain rounded-md border border-neutral-200/60 p-1 bg-white shadow-2xs group-hover:border-accent-blue/40 transition-all duration-300"
+                                className="max-h-8 max-w-[120px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />
                         </div>
                     ) : (
                         <span
-                            className="text-xl sm:text-2xl font-black tracking-tight text-neutral-30 group-hover:text-accent-blue transition-colors duration-300"
+                            className="text-xl font-black tracking-tight text-neutral-900 group-hover:text-accent-blue transition-colors duration-300"
                             style={{ color: study.brandColor }}
                         >
                             {study.brand}
                         </span>
                     )}
 
-                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border shrink-0 ${getPlatformBadgeStyle(study.platform)}`}>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold tracking-wider uppercase border shrink-0 ${getPlatformBadgeStyle(study.platform)}`}>
                         <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
                         {study.platform}
                     </span>
                 </div>
 
                 {/* Campaign Title */}
-                <h3 className="text-base sm:text-lg font-bold text-neutral-30 line-clamp-1 leading-snug mb-1">
+                <h3 className="text-base sm:text-lg font-bold text-neutral-900 line-clamp-1 leading-snug mb-1 group-hover:text-accent-blue transition-colors">
                     {study.campaign}
                 </h3>
 
                 {/* Date / Location */}
-                <p className="text-[12px] font-semibold text-neutral-10 tracking-wider uppercase mb-4">
+                <p className="text-[11px] font-semibold text-neutral-400 tracking-wider uppercase mb-4">
                     {study.dateLocation}
                 </p>
 
-                {/* Metric Block - Website Theme Blue box inside card */}
-                <div className="bg-gradient-to-r from-accent-blue to-[#0E5196] rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:from-[#0E5196] group-hover:to-accent-blue transition-all duration-500 border border-blue-400/30 shadow-md shadow-accent-blue/15">
-                    <p className="text-[11px] font-bold tracking-widest text-white/80 uppercase mb-1">
+                {/* Metric Block */}
+                <div className="bg-gradient-to-br from-accent-blue via-[#0E5196] to-[#0A3D73] rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:from-[#0E5196] group-hover:to-accent-blue transition-all duration-500 border border-blue-400/30 shadow-md shadow-accent-blue/15">
+                    <p className="text-[10px] font-extrabold tracking-widest text-white/80 uppercase mb-1">
                         {study.metricLabel}
                     </p>
                     <div className="flex items-baseline justify-between">
                         <span className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-sm">
                             {study.metricValue}
                         </span>
-                        <ArrowUpRight className="w-5 h-5 text-white/90 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                        <ArrowUpRight className="w-5 h-5 text-white/90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </div>
                 </div>
 
                 {/* Short Result Blurb */}
-                <p className="text-sm text-neutral-20 leading-relaxed line-clamp-2">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-2 font-normal">
                     {study.blurb}
                 </p>
             </div>

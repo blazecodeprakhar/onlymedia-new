@@ -93,7 +93,7 @@ function Footer() {
                             At OnlyMedia, audience intelligence, structured execution and creative innovation come together to deliver clarity in media and consistency in outcomes.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://in.linkedin.com/company/onlymedia-marketing-solutions" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
+                            <a href="https://www.linkedin.com/company/onlymedia-marketing-solutions/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">
                                 <LinkedinLogo size={20} className="text-neutral-30 group-hover:text-accent-blue transition-colors" weight="fill" />
                             </a>
                             <a href="https://www.instagram.com/onlymedia_official/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-neutral-30/5 hover:bg-accent-blue/20 transition-colors group">

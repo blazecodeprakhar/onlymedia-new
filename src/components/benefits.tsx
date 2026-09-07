@@ -46,39 +46,31 @@ export default function Benefits() {
                     <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Measurable Growth</h2>
                 </div>
 
-                {/* Integration Logos card - full width remake */}
-                <div className="card-top-2 benefits-reveal p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full overflow-hidden shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+                {/* Integration Logos card - full width static 4-column grid */}
+                <div className="card-top-2 benefits-reveal p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
                     {/* Centered heading */}
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1615] text-center w-full tracking-tight">
                         Connecting Brands Across Platforms
                     </h3>
 
-                    {/* Single-line Infinite Ticker Row */}
-                    <div
-                        className="w-full overflow-hidden py-2"
-                        style={{
-                            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent)',
-                            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent)'
-                        }}
-                    >
-                        <div className="flex w-max animate-marquee gap-5 sm:gap-7 items-center">
-                            {[...SOCIAL_LOGOS, ...SOCIAL_LOGOS, ...SOCIAL_LOGOS, ...SOCIAL_LOGOS].map((logo, i) => (
-                                <div
-                                    key={`${logo.alt}-${i}`}
-                                    className="h-14 sm:h-16 px-6 py-2.5 bg-white/95 backdrop-blur-md rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(21,108,194,0.06)] flex items-center justify-center shrink-0 transition-all duration-300"
-                                >
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={logo.src}
-                                        alt={logo.alt}
-                                        className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] object-contain"
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                    {/* Static 4-Column Grid for 8 Platforms */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl mx-auto my-1">
+                        {SOCIAL_LOGOS.map((logo) => (
+                            <div
+                                key={logo.alt}
+                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(21,108,194,0.06)] hover:shadow-[0_12px_28px_rgba(21,108,194,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    className="max-h-10 sm:max-h-12 w-auto max-w-[130px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                        ))}
                     </div>
 
-                    <p className="text-sm sm:text-base text-[#332E2C] font-semibold leading-relaxed text-center max-w-3xl mx-auto">
+                    <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C] font-semibold leading-relaxed text-center w-full max-w-none whitespace-nowrap overflow-x-auto">
                         We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
                     </p>
                 </div>
