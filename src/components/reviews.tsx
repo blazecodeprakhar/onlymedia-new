@@ -71,10 +71,14 @@ function Reviews() {
                     </div>
                 </div>
 
-                {/* Still Case Study Cards Row with Smooth Scroll */}
+                {/* Still Case Study Cards Row with Smooth Scroll & Edge Fade Mask */}
                 <div
                     ref={scrollContainerRef}
-                    className="w-full max-w-7xl overflow-x-auto scroll-smooth no-scrollbar py-4 px-2 flex gap-6 case-studies-reveal select-none"
+                    className="w-full max-w-7xl overflow-x-auto scroll-smooth no-scrollbar py-4 px-4 flex gap-6 case-studies-reveal select-none"
+                    style={{
+                        maskImage: 'linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)'
+                    }}
                 >
                     {caseStudies.map((study) => (
                         <CaseStudyCard key={study.id} study={study} />
