@@ -182,8 +182,8 @@ export default function AboutPage() {
                     </div>
 
                     {/* Ecosystem & Key Metrics Card Showcase */}
+                    {/* 
                     <div className="w-full mt-12 bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-10 border border-blue-200/70 shadow-[0_20px_50px_rgba(21,108,194,0.08)] about-reveal flex flex-col gap-8">
-                        {/* Platform Ecosystem Row */}
                         <div className="flex flex-col items-center gap-3.5">
                             <span className="text-xs font-black uppercase tracking-[0.2em] text-accent-blue">ACTIVATING ACROSS GLOBAL ECOSYSTEMS</span>
                             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -195,7 +195,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* KPI Stats Grid with Count-Up Animations */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-slate-100">
                             {STATS.map((stat, i) => (
                                 <div key={i} className="group/stat flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-[#F4F8FE] border border-blue-100/90 hover:border-accent-blue/40 hover:bg-white hover:shadow-md transition-all duration-300">
@@ -212,10 +211,12 @@ export default function AboutPage() {
                             ))}
                         </div>
                     </div>
+                    */}
                 </div>
             </div>
 
             {/* Core Capabilities Section */}
+            {/* 
             <div ref={pillarsRef} className="w-full py-16 md:py-24 px-6 bg-slate-50/60 border-y border-neutral-100 relative">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 md:mb-16">
@@ -251,6 +252,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
+            */}
 
             {/* Operating Model Pipeline */}
             <div ref={processRef} className="w-full py-16 md:py-24 px-6 bg-white border-b border-neutral-100 relative">
@@ -315,7 +317,7 @@ export default function AboutPage() {
                             </div>
 
                             <p className="text-neutral-20 text-base sm:text-lg leading-relaxed mb-6 flex-grow font-normal">
-                                Leads strategy, brand partnerships and client success across the OnlyMedia ecosystem. With 14+ years of experience in digital media, the focus remains on building audience-led strategies that combine platform precision, structured planning and measurable business outcomes across evolving digital ecosystems.
+                                With 14+ years in digital media, Ankita brings a strong blend of strategic thinking, relationship building and attention to detail. Her strength lies in understanding people, simplifying complex challenges and turning ideas into effective solutions. At OnlyMedia, she brings a thoughtful, collaborative approach to building lasting client relationships and creating an organization that people trust.
                             </p>
 
                             <div className="flex flex-wrap gap-2 mb-8">
@@ -355,7 +357,7 @@ export default function AboutPage() {
                             </div>
 
                             <p className="text-neutral-20 text-base sm:text-lg leading-relaxed mb-6 flex-grow font-normal">
-                                Drives integrated media execution, innovation and platform-led growth solutions across digital, transit and emerging media environments. With 16+ years of experience spanning VAS, digital and programmatic ecosystems, the approach combines executional depth with immersive media thinking to create scalable and high-impact brand experiences.
+                                With 16+ years in digital media and marketing, Akshay is driven by curiosity, strategic thinking and a strong understanding of what makes media work. His strength lies in connecting the bigger business objective with the right audience, technology and media opportunity. At OnlyMedia, he brings an entrepreneurial mindset, a passion for innovation and a relentless focus on creating solutions that deliver real value for clients.
                             </p>
 
                             <div className="flex flex-wrap gap-2 mb-8">
