@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useLenis } from '@/lib/lenis'
 
@@ -13,10 +13,41 @@ import { useLenis } from '@/lib/lenis'
  */
 export default function SmoothScrollManager() {
     const pathname = usePathname()
-    const router = useRouter()
     const lenis = useLenis()
+    const prevPathname = useRef(pathname)
 
-    // Handle hash link clicks (same-page anchor navigation only)
+    // Route-change scroll reset: Whenever pathname changes (e.g. / -> /about),
+    // immediately reset window and Lenis scroll position to top (0, 0).
+    useEffect(() => {
+        if (prevPathname.current !== pathname) {
+            prevPathname.current = pathname
+
+            // Reset scroll immediately
+            window.scrollTo(0, 0)
+            if (lenis) {
+                lenis.scrollTo(0, { immediate: true })
+            }
+
+            // If navigating to a URL with a hash (e.g. /#features), scroll to element
+            if (window.location.hash && window.location.hash !== '#') {
+                const hash = window.location.hash
+                setTimeout(() => {
+                    const el = document.querySelector(hash) as HTMLElement
+                    if (el && lenis) {
+                        lenis.scrollTo(el, {
+                            offset: -80,
+                            duration: 1.0,
+                            easing: (t: number) => 1 - Math.pow(1 - t, 4)
+                        })
+                    } else if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' })
+                    }
+                }, 100)
+            }
+        }
+    }, [pathname, lenis])
+
+    // Handle link click events
     useEffect(() => {
         const handler = (e: MouseEvent) => {
             const link = (e.target as HTMLElement).closest('a')
@@ -40,27 +71,45 @@ export default function SmoothScrollManager() {
                 // Ignore modifier-clicks (open in new tab)
                 if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
 
-                const isSamePage = targetUrl.pathname === pathname
+                const currentPath = pathname ? pathname.replace(/\/$/, '') || '/' : '/'
+                const targetPath = targetUrl.pathname ? targetUrl.pathname.replace(/\/$/, '') || '/' : '/'
+                const isSamePage = targetPath === currentPath
                 const hasHash = targetUrl.hash && targetUrl.hash !== '#'
 
-                // ONLY intercept same-page hash links for smooth scroll
-                if (isSamePage && hasHash) {
-                    e.preventDefault()
-                    e.stopPropagation()
-                    const el = document.querySelector(targetUrl.hash) as HTMLElement
-                    if (el && lenis) {
-                        lenis.scrollTo(el, {
-                            offset: -80,
-                            duration: 1.0,
-                            easing: (t: number) => 1 - Math.pow(1 - t, 4)
-                        })
-                    } else if (el) {
-                        el.scrollIntoView({ behavior: 'smooth' })
+                if (isSamePage) {
+                    if (hasHash) {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        const el = document.querySelector(targetUrl.hash) as HTMLElement
+                        if (el && lenis) {
+                            lenis.scrollTo(el, {
+                                offset: -80,
+                                duration: 1.0,
+                                easing: (t: number) => 1 - Math.pow(1 - t, 4)
+                            })
+                        } else if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' })
+                        }
+                    } else {
+                        // Same page without hash (e.g. clicking About while on /about): smooth scroll to top of page
+                        e.preventDefault()
+                        e.stopPropagation()
+                        if (lenis) {
+                            lenis.scrollTo(0, {
+                                duration: 1.0,
+                                easing: (t: number) => 1 - Math.pow(1 - t, 4)
+                            })
+                        } else {
+                            window.scrollTo({ top: 0, behavior: 'smooth' })
+                        }
+                    }
+                } else {
+                    // Navigating to a DIFFERENT page: reset scroll position immediately
+                    window.scrollTo(0, 0)
+                    if (lenis) {
+                        lenis.scrollTo(0, { immediate: true })
                     }
                 }
-
-                // For ALL other links (different page, no hash): do nothing.
-                // Let Next.js <Link> handle routing instantly with no scroll manipulation.
 
             } catch {
                 // Ignore invalid URLs

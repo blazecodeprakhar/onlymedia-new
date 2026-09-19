@@ -19,27 +19,51 @@ export default function SmoothLink({ href, children, className, onClick, prefetc
     const lenis = useLenis()
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        const isHashLink = href.startsWith('#') || href.startsWith(`${pathname}#`)
+        // Normalize paths for comparison (ignoring trailing slashes)
+        const currentPath = pathname ? pathname.replace(/\/$/, '') || '/' : '/'
+        
+        let targetPath = ''
+        let hash = ''
+        try {
+            const url = new URL(href, 'http://dummy.com')
+            targetPath = url.pathname.replace(/\/$/, '') || '/'
+            hash = url.hash
+        } catch {
+            targetPath = href
+        }
 
-        if (isHashLink) {
-            // Same-page anchor: smooth scroll to element
-            e.preventDefault()
-            const hashIndex = href.indexOf('#')
-            const hash = href.substring(hashIndex)
-            const target = document.querySelector(hash) as HTMLElement
-            if (target) {
+        const isSamePage = targetPath === currentPath
+
+        if (isSamePage) {
+            if (hash && hash !== '#') {
+                // Same-page anchor: smooth scroll to element
+                e.preventDefault()
+                const target = document.querySelector(hash) as HTMLElement
+                if (target) {
+                    if (lenis) {
+                        lenis.scrollTo(target, { offset: -80, duration: 1.0, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+                    } else {
+                        target.scrollIntoView({ behavior: 'smooth' })
+                    }
+                }
+            } else {
+                // Same-page top link (e.g. clicking About while on /about): smooth scroll to top of page
+                e.preventDefault()
                 if (lenis) {
-                    lenis.scrollTo(target, { offset: -80, duration: 1.0, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
+                    lenis.scrollTo(0, { duration: 1.0, easing: (t: number) => 1 - Math.pow(1 - t, 4) })
                 } else {
-                    target.scrollIntoView({ behavior: 'smooth' })
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
                 }
             }
             if (onClick) onClick(e)
             return
         }
 
-        // All other navigation: let Next.js <Link> handle it instantly.
-        // DO NOT scroll or animate anything on the current page.
+        // All other navigation (different page): reset scroll to top immediately so the new page opens at the top
+        window.scrollTo(0, 0)
+        if (lenis) {
+            lenis.scrollTo(0, { immediate: true })
+        }
         if (onClick) onClick(e)
     }
 
