@@ -153,7 +153,7 @@ function Hero() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ duration: 0.8, ease: EXPO_EASE, delay: heroDelay + 1.1 }}
                     >
-                        <MainButton text="Why OnlyMedia" href="#why-us" className="shadow-[0_20px_50px_rgba(26,67,236,0.15)]" />
+                        <MainButton text="Why OnlyMedia" href="#why-us" className="shadow-[0_20px_50px_rgba(0,123,255,0.15)]" />
                         <MainButton variant="tertiary" text="Services" href="#features" />
                     </motion.div>
                 </div>

@@ -14,12 +14,12 @@
   --color-neutral-20: #453F3D;
   --color-neutral-10: #757170;
   --color-stroke: #E4E2E2;
-  --color-dark-brown: #156CC2;
-  --color-accent-brown: #156CC2;
-  --color-accent-blue: #156CC2;
-  --color-accent-yellow: #2563EB;
-  --color-accent-green: #0284C7;
-  --color-accent-orange: #156CC2;
+  --color-dark-brown: #007BFF;
+  --color-accent-brown: #007BFF;
+  --color-accent-blue: #007BFF;
+  --color-accent-yellow: #007BFF;
+  --color-accent-green: #007BFF;
+  --color-accent-orange: #007BFF;
 
   /* Typographic Scale Variables */
   --text-xs: 0.75rem;

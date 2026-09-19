@@ -33,7 +33,7 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
     return (
         <SmoothLink
             href={`/insights#${study.slug}`}
-            className={`group block shrink-0 w-[300px] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 border border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(21,108,194,0.14)] hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
+            className={`group block shrink-0 w-[300px] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 border border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(0,123,255,0.18)] hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${className}`}
         >
             <div>
                 {/* Header: Normalized Brand Logo Image + Platform Pill */}
@@ -73,7 +73,7 @@ export default function CaseStudyCard({ study, className = '' }: CaseStudyCardPr
                 </p>
 
                 {/* Metric Block */}
-                <div className="bg-gradient-to-br from-accent-blue via-[#0E5196] to-[#0A3D73] rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:from-[#0E5196] group-hover:to-accent-blue transition-all duration-500 border border-blue-400/30 shadow-md shadow-accent-blue/15">
+                <div className="bg-gradient-to-br from-[#007BFF] via-[#0062cc] to-[#004085] rounded-2xl p-4 sm:p-5 my-4 relative overflow-hidden group-hover:from-[#0062cc] group-hover:to-[#007BFF] transition-all duration-500 border border-blue-400/30 shadow-md shadow-accent-blue/15">
                     <p className="text-[10px] font-extrabold tracking-widest text-white/80 uppercase mb-1">
                         {study.metricLabel}
                     </p>

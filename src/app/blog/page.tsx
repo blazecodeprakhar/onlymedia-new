@@ -142,7 +142,7 @@ export default function BlogPage() {
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                                         {/* Image Side */}
                                         <div className="relative h-64 lg:h-auto bg-gradient-to-br from-blue-100 via-blue-50 to-slate-100 flex items-center justify-center overflow-hidden">
-                                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(21,108,194,0.1)_0%,transparent_50%)]" />
+                                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,123,255,0.1)_0%,transparent_50%)]" />
                                             <div className="relative z-10 text-center p-8">
                                                 <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
                                                     <span className="text-4xl font-black text-accent-blue">{featuredPost.id}</span>

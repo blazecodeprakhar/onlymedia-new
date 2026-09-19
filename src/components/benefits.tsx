@@ -58,7 +58,7 @@ export default function Benefits() {
                         {SOCIAL_LOGOS.map((logo) => (
                             <div
                                 key={logo.alt}
-                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(21,108,194,0.06)] hover:shadow-[0_12px_28px_rgba(21,108,194,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(0,123,255,0.06)] hover:shadow-[0_12px_28px_rgba(0,123,255,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
                             >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img

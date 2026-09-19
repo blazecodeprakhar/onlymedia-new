@@ -172,7 +172,7 @@ export default function FAQPage() {
                     Reach out to our team directly. We're here to help you navigate your media strategy.
                 </p>
                 <div className="relative z-10">
-                    <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.4)] overflow-hidden relative">
+                    <Link href="/contact" className="group flex items-center justify-center bg-accent-blue text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(0,123,255,0.4)] overflow-hidden relative">
                         <span className="relative z-10 flex items-center">
                             Get in touch
                             <svg className="ml-3 w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
