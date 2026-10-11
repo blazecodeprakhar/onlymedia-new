@@ -7,7 +7,7 @@ import { caseStudies, CaseStudy } from '@/data/caseStudies'
 import { ArrowUpRight, Filter, TrendingUp, ZoomIn, X } from 'lucide-react'
 
 export default function InsightsPage() {
-    const [selectedCategory, setSelectedCategory] = useState<string>('All')
+    const [selectedCategory, setSelectedCategory] = useState<string>('DV360')
     const [activeHash, setActiveHash] = useState<string>('')
     const [activeZoomImage, setActiveZoomImage] = useState<{ src: string; title: string; brand: string; metric: string } | null>(null)
 
@@ -46,9 +46,7 @@ export default function InsightsPage() {
         }
     }, [activeZoomImage])
 
-    const filteredStudies = selectedCategory === 'All'
-        ? caseStudies
-        : caseStudies.filter(s => s.platform === selectedCategory)
+    const filteredStudies = caseStudies.filter(s => s.platform === selectedCategory)
 
     return (
         <main className="flex flex-col bg-white min-h-screen">
@@ -78,7 +76,7 @@ export default function InsightsPage() {
                         <Filter className="w-3.5 h-3.5" />
                         Platform:
                     </div>
-                    {['All', 'DV360', 'Meta', 'YouTube', 'Pinterest', 'CTV / OTT', 'Prog. Video'].map((cat) => (
+                    {['DV360', 'Meta', 'YouTube', 'Pinterest', 'CTV / OTT', 'Prog. Video'].map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}

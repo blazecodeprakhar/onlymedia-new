@@ -24,74 +24,76 @@ function ContactForm() {
     return (
         <section ref={formRef} className="pb-8 md:pb-12 pt-2 relative">
             <div className="wrapper max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
-                <div className="bg-white rounded-[32px] md:rounded-[48px] lg:p-16 md:p-12 p-6 sm:p-8 shadow-[0_20px_60px_-20px_rgba(26,22,21,0.06)] border border-neutral-30/[0.01] grid lg:grid-cols-12 md:gap-12 gap-8">
+                <div className="bg-white rounded-[32px] md:rounded-[48px] lg:p-14 md:p-10 p-6 sm:p-8 shadow-[0_20px_60px_-20px_rgba(26,22,21,0.06)] border border-neutral-30/[0.01] grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch">
 
                     {/* Brand Info Column */}
-                    <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6 md:gap-8">
-                        <div className="contact-reveal">
-                            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] font-extrabold leading-[1.1] tracking-tight text-neutral-30 mb-3 md:mb-4">
-                                Let's start a <br />
-                                <span className="text-accent-blue font-serif italic font-medium">conversation.</span>
-                            </h2>
-                            <p className="text-base md:text-lg text-neutral-20 leading-relaxed max-w-md">
-                                Leave us your details and our team will get back to you as soon as possible.
-                            </p>
-                        </div>
+                    <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                        <div className="flex flex-col gap-6">
+                            <div className="contact-reveal">
+                                <h2 className="text-[28px] sm:text-[34px] md:text-[40px] xl:text-[42px] font-extrabold leading-[1.1] tracking-tight text-neutral-30 mb-3">
+                                    Let's start a <br />
+                                    <span className="text-accent-blue font-serif italic font-medium">conversation.</span>
+                                </h2>
+                                <p className="text-sm md:text-base text-neutral-20 leading-relaxed max-w-sm">
+                                    Leave us your details and our team will get back to you as soon as possible.
+                                </p>
+                            </div>
 
-                        <div className="flex flex-col gap-5 md:gap-6">
-                            <div className="contact-reveal flex items-center gap-4 md:gap-5 group">
-                                <div className="min-h-12 md:min-h-14 min-w-12 md:min-w-14 rounded-[16px] md:rounded-[18px] bg-accent-blue/5 text-accent-blue flex items-center justify-center group-hover:bg-accent-blue group-hover:text-white transition-all duration-500">
-                                    <Envelope size={24} weight="duotone" />
+                            <div className="flex flex-col gap-4">
+                                <div className="contact-reveal flex items-center gap-4 group">
+                                    <div className="h-12 w-12 rounded-[16px] bg-accent-blue/5 text-accent-blue flex items-center justify-center group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
+                                        <Envelope size={22} weight="duotone" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Email</p>
+                                        <p className="text-base font-bold text-neutral-30 break-all sm:break-normal">connect@onlymedia.in</p>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col">
-                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Email</p>
-                                    <p className="text-base sm:text-lg font-bold text-neutral-30 break-all sm:break-normal">connect@onlymedia.in</p>
+
+                                <div className="contact-reveal flex items-center gap-4 group">
+                                    <div className="h-12 w-12 rounded-[16px] bg-accent-blue/5 text-accent-blue flex items-center justify-center group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
+                                        <MapPin size={22} weight="duotone" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Visit Hub - Mumbai</p>
+                                        <p className="text-base font-bold text-neutral-30">Mumbai, India</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="contact-reveal flex items-center gap-4 md:gap-5 group">
-                                <div className="min-h-12 md:min-h-14 min-w-12 md:min-w-14 rounded-[16px] md:rounded-[18px] bg-accent-blue/5 text-accent-blue flex items-center justify-center group-hover:bg-accent-blue group-hover:text-white transition-all duration-500">
-                                    <MapPin size={24} weight="duotone" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-neutral-10/70 mb-0.5">Visit Hub - Mumbai</p>
-                                    <p className="text-base sm:text-lg font-bold text-neutral-30">Mumbai, India</p>
-                                </div>
+                            <div className="contact-reveal flex gap-3 mt-1">
+                                <a href="https://www.linkedin.com/company/onlymedia-marketing-solutions/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-sm">
+                                    <LinkedinLogo size={19} weight="fill" />
+                                </a>
+                                <a href="https://www.instagram.com/onlymedia_official/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-sm">
+                                    <InstagramLogo size={19} weight="fill" />
+                                </a>
+                                <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-sm">
+                                    <FacebookLogo size={19} weight="fill" />
+                                </a>
                             </div>
-                        </div>
-
-                        <div className="contact-reveal flex gap-3 md:gap-4 mt-1 md:mt-2">
-                            <a href="https://www.linkedin.com/company/onlymedia-marketing-solutions/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 md:h-12 md:w-12 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
-                                <LinkedinLogo size={20} weight="fill" />
-                            </a>
-                            <a href="https://www.instagram.com/onlymedia_official/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 md:h-12 md:w-12 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
-                                <InstagramLogo size={20} weight="fill" />
-                            </a>
-                            <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 md:h-12 md:w-12 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
-                                <FacebookLogo size={20} weight="fill" />
-                            </a>
                         </div>
 
                         {/* Bottom Skyline Graphic (Desktop Only - Hidden on Mobile) */}
-                        <div className="hidden lg:block mt-auto pt-4 pointer-events-none select-none contact-reveal">
-                            <div className="w-full max-w-[380px] xl:max-w-[420px] rounded-2xl overflow-hidden drop-shadow-[0_12px_24px_rgba(0,102,255,0.08)]">
+                        <div className="hidden lg:block pt-3 pointer-events-none select-none contact-reveal">
+                            <div className="w-full max-w-[320px] xl:max-w-[350px]">
                                 <Image
                                     src={formBottomImg}
                                     alt="OnlyMedia Mumbai Hub"
-                                    width={440}
-                                    height={200}
+                                    width={350}
+                                    height={155}
                                     draggable={false}
                                     onDragStart={(e) => e.preventDefault()}
                                     onContextMenu={(e) => e.preventDefault()}
-                                    className="w-full h-auto object-contain pointer-events-none select-none"
+                                    className="w-full h-auto object-contain pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,102,255,0.08)]"
                                 />
                             </div>
                         </div>
                     </div>
 
                     {/* Input Form Column */}
-                    <div className="lg:col-span-12 xl:col-span-7 contact-reveal">
-                        <form className="flex flex-col gap-5 md:gap-6 bg-beige-10/60 md:p-8 p-5 sm:p-6 rounded-[24px] md:rounded-[32px] border border-neutral-30/5" onSubmit={(e) => e.preventDefault()}>
+                    <div className="lg:col-span-7 flex flex-col h-full contact-reveal">
+                        <form className="h-full flex flex-col justify-between gap-5 md:gap-6 bg-beige-10/60 md:p-8 p-5 sm:p-6 rounded-[24px] md:rounded-[32px] border border-neutral-30/5" onSubmit={(e) => e.preventDefault()}>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {/* Name */}
