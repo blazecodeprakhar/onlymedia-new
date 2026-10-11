@@ -18,6 +18,7 @@ function Navbar() {
     const [openDropdown, setOpenDropdown] = useState(false)
     const [mounted, setMounted] = useState(false)
     const [activeSection, setActiveSection] = useState<string>('Home')
+    const [isScrolledPastHero, setIsScrolledPastHero] = useState<boolean>(false)
     const navContainerRef = useRef<HTMLDivElement>(null)
     const isMobileQuery = useMediaQuery({ query: '(max-width: 1024px)' })
     const isMobile = mounted ? isMobileQuery : false
@@ -40,19 +41,27 @@ function Navbar() {
 
         if (pathname.startsWith('/about')) {
             setActiveSection('About');
+            setIsScrolledPastHero(true);
             return;
         }
         if (pathname.startsWith('/insights')) {
             setActiveSection('Insights');
+            setIsScrolledPastHero(true);
             return;
         }
         if (pathname !== '/') {
             setActiveSection('');
+            setIsScrolledPastHero(true);
             return;
         }
 
-        // On Home page ('/'): listen to scroll to dynamically reflect Home vs Solutions
+        // On Home page ('/'): listen to scroll to check if scrolled away from hero and reflect Home vs Solutions
         const updateHomeSection = () => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            
+            // Check if user has scrolled away from the hero section (e.g. past top 200px)
+            setIsScrolledPastHero(scrollY > 200);
+
             const featuresEl = document.getElementById('features');
             if (featuresEl) {
                 const rect = featuresEl.getBoundingClientRect();
@@ -117,6 +126,9 @@ function Navbar() {
         { name: 'ImpactFrames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
     ]
 
+    // Only show active pill indicator when scrolled past the hero section on the home page (or on other pages)
+    const showActivePill = pathname !== '/' || isScrolledPastHero;
+
     return (
         <header className='p-4 md:p-5 flex justify-center fixed z-50 w-full'>
             <div
@@ -139,7 +151,9 @@ function Navbar() {
                     <div className="hidden lg:block">
                         <ul className="flex items-center gap-1 text-[15px] text-neutral-30 relative">
                             {navigationLinks.map((link) => {
-                                const isActive = activeSection === link.name;
+                                const isCurrent = activeSection === link.name;
+                                const isHighlighted = isCurrent && showActivePill;
+
                                 return (
                                     <li key={link.name} className="relative z-10">
                                         <SmoothLink
@@ -151,10 +165,10 @@ function Navbar() {
                                                     setActiveSection(link.name);
                                                 }
                                             }}
-                                            className={`relative z-10 px-4 py-2 rounded-full transition-colors duration-200 flex items-center gap-1 cursor-pointer select-none ${
-                                                isActive
+                                            className={`relative z-10 px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-1 cursor-pointer select-none ${
+                                                isHighlighted
                                                     ? 'text-neutral-900 font-bold'
-                                                    : 'text-neutral-600 hover:text-neutral-950 font-medium'
+                                                    : 'text-neutral-700 hover:text-neutral-950 font-medium'
                                             }`}
                                         >
                                             <span>{link.name}</span>
@@ -163,17 +177,22 @@ function Navbar() {
                                             )}
                                         </SmoothLink>
 
-                                        {isActive && (
-                                            <motion.div
-                                                layoutId="navbar-active-pill"
-                                                className="absolute inset-0 rounded-full bg-white/90 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-neutral-300/40 z-0"
-                                                transition={{
-                                                    type: "spring",
-                                                    stiffness: 400,
-                                                    damping: 32
-                                                }}
-                                            />
-                                        )}
+                                        <AnimatePresence>
+                                            {isHighlighted && (
+                                                <motion.div
+                                                    layoutId="navbar-active-pill"
+                                                    initial={{ opacity: 0, scale: 0.85 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    exit={{ opacity: 0, scale: 0.85 }}
+                                                    className="absolute inset-0 rounded-full bg-white/90 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-neutral-300/40 z-0"
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 400,
+                                                        damping: 32
+                                                    }}
+                                                />
+                                            )}
+                                        </AnimatePresence>
                                     </li>
                                 );
                             })}
@@ -207,14 +226,14 @@ function Navbar() {
                             <div className="p-6 flex flex-col gap-2">
                                 <ul className="flex flex-col gap-1 text-body-large text-neutral-30 pb-6 border-b border-white/20">
                                     {navigationLinks.map((link) => {
-                                        const isActive = activeSection === link.name;
+                                        const isHighlighted = activeSection === link.name && showActivePill;
                                         return (
                                             <li
                                                 key={link.name}
                                                 className={`py-3 px-3 rounded-2xl transition-all duration-200 group flex justify-center ${
-                                                    isActive
+                                                    isHighlighted
                                                         ? 'bg-white/90 text-neutral-950 font-bold shadow-xs border border-white/60'
-                                                        : 'hover:bg-white/30 text-neutral-700'
+                                                        : 'hover:bg-white/30 text-neutral-700 font-medium'
                                                 }`}
                                                 onClick={() => {
                                                     if (link.name !== 'ImpactFrames') setActiveSection(link.name);
