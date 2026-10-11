@@ -1,6 +1,7 @@
 'use client'
-
 import React, { useRef } from 'react'
+import Image from 'next/image';
+import { motion } from 'motion/react';
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -8,6 +9,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Linkedin, Target, Layers, Palette, TrendingUp, Award, CheckCircle2, Search, BarChart3, ArrowRight } from "lucide-react";
+import heroLeftImg from "../../../public/images/contact-hero-left.png";
+import heroRightImg from "../../../public/images/contact-hero-right.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,6 +143,22 @@ export default function AboutPage() {
                 }
             }
         )
+
+        // Gentle perpetual floating animation for PC graphics
+        gsap.to(".floating-left-hero", {
+            y: -12,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        })
+        gsap.to(".floating-right-hero", {
+            y: 12,
+            duration: 4.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        })
     }, { scope: mainRef })
 
     return (
@@ -152,7 +171,51 @@ export default function AboutPage() {
                 <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-accent-blue/12 rounded-full blur-[140px] pointer-events-none" />
                 <div className="absolute top-12 right-12 w-[300px] h-[300px] bg-blue-200/40 rounded-full blur-[100px] pointer-events-none" />
 
-                <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto w-full">
+                {/* Floating Left Graphic (PC Only - Hidden on Mobile) */}
+                <div className="hidden lg:block absolute -left-2 xl:left-4 2xl:left-12 top-28 xl:top-32 w-[320px] xl:w-[400px] 2xl:w-[450px] pointer-events-none select-none z-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: -40, scale: 0.92 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                        className="floating-left-hero w-full h-auto drop-shadow-[0_20px_40px_rgba(0,102,255,0.12)]"
+                    >
+                        <Image
+                            src={heroLeftImg}
+                            alt="Ideas to Impact"
+                            width={440}
+                            height={293}
+                            priority
+                            draggable={false}
+                            onDragStart={(e) => e.preventDefault()}
+                            onContextMenu={(e) => e.preventDefault()}
+                            className="w-full h-auto object-contain pointer-events-none select-none"
+                        />
+                    </motion.div>
+                </div>
+
+                {/* Floating Right Graphic (PC Only - Hidden on Mobile) */}
+                <div className="hidden lg:block absolute -right-2 xl:right-4 2xl:right-12 top-24 xl:top-28 w-[320px] xl:w-[400px] 2xl:w-[450px] pointer-events-none select-none z-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: 40, scale: 0.92 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                        className="floating-right-hero w-full h-auto drop-shadow-[0_20px_40px_rgba(0,102,255,0.12)]"
+                    >
+                        <Image
+                            src={heroRightImg}
+                            alt="Smarter Campaigns"
+                            width={440}
+                            height={293}
+                            priority
+                            draggable={false}
+                            onDragStart={(e) => e.preventDefault()}
+                            onContextMenu={(e) => e.preventDefault()}
+                            className="w-full h-auto object-contain pointer-events-none select-none"
+                        />
+                    </motion.div>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto w-full">
                     {/* Top Pill Badge */}
                     <div className="flex items-center gap-2 mb-6 about-reveal">
                         <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent-blue/30 bg-white/95 text-accent-blue text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase shadow-xs backdrop-blur-md">
@@ -162,13 +225,13 @@ export default function AboutPage() {
                     </div>
 
                     {/* Main Headline - Guaranteed Exactly 2 Lines */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[80px] font-black leading-[1.08] tracking-[-0.03em] text-neutral-900 about-reveal max-w-5xl mx-auto">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] font-black leading-[1.08] tracking-[-0.03em] text-neutral-900 about-reveal max-w-3xl mx-auto">
                         More than an agency. <br className="hidden sm:block" />
                         We are your <span className="text-accent-blue font-serif italic font-normal">growth partners.</span>
                     </h1>
 
                     {/* Subheading & Strategic Vision Pill */}
-                    <div className="max-w-3xl mx-auto mt-6 md:mt-8 about-reveal flex flex-col items-center gap-6">
+                    <div className="max-w-xl xl:max-w-2xl mx-auto mt-6 md:mt-8 about-reveal flex flex-col items-center gap-6">
                         <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed font-normal">
                             OnlyMedia is a managed media partner combining audience intelligence, platform expertise, and creative innovation to deliver structured media execution across modern digital ecosystems. We work closely with brands and agencies to activate campaigns with greater precision, clarity, and accountability.
                         </p>
