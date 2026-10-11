@@ -77,15 +77,8 @@ function BenefitsCard({
           className="relative w-full h-full p-6 xl:p-8 flex flex-col gap-6 lg:gap-8 bg-[#E4EEFD] rounded-3xl hover:shadow-[0_20px_45px_rgba(0,102,255,0.12)] hover:-translate-y-1 transition-all duration-300 min-h-[320px] shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <div className="flex items-center justify-between w-full">
-            <div className="icon bg-white text-accent-blue size-12 xl:size-14 flex items-center justify-center rounded-2xl shrink-0 transition-transform duration-300 lg:group-hover:scale-110 shadow-sm">
-              {icon}
-            </div>
-            {href && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-xs font-bold border border-accent-blue/20 transition-all duration-300 group-hover:bg-accent-blue group-hover:text-white">
-                Visit <ExternalLink size={12} />
-              </span>
-            )}
+          <div className="icon bg-white text-accent-blue size-12 xl:size-14 flex items-center justify-center rounded-2xl shrink-0 transition-transform duration-300 lg:group-hover:scale-110 shadow-sm">
+            {icon}
           </div>
 
           <div className="texts flex flex-col gap-4 flex-grow">
@@ -97,16 +90,8 @@ function BenefitsCard({
             </p>
           </div>
 
-          <div className="mt-auto pt-4 text-[13px] font-bold text-accent-blue flex items-center gap-1.5">
-            {href ? (
-              <span className="inline-flex items-center gap-1.5">
-                Explore {title} <ExternalLink size={13} />
-              </span>
-            ) : (
-              <span className="flex lg:hidden items-center gap-1.5">
-                Tap to reveal <span className="text-lg leading-none">&rarr;</span>
-              </span>
-            )}
+          <div className="mt-auto pt-4 text-[13px] font-bold text-accent-blue flex lg:hidden items-center gap-1.5">
+            Tap to reveal <span className="text-lg leading-none">&rarr;</span>
           </div>
         </div>
 
