@@ -4,6 +4,7 @@ import Image from "next/image"
 import MainButton from "./buttons/mainButton"
 import { Menu, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger, SplitText } from "gsap/all";
@@ -13,8 +14,10 @@ import { motion, AnimatePresence } from "motion/react";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function Navbar() {
+    const pathname = usePathname();
     const [openDropdown, setOpenDropdown] = useState(false)
     const [mounted, setMounted] = useState(false)
+    const [activeSection, setActiveSection] = useState<string>('Home')
     const navContainerRef = useRef<HTMLDivElement>(null)
     const isMobileQuery = useMediaQuery({ query: '(max-width: 1024px)' })
     const isMobile = mounted ? isMobileQuery : false
@@ -30,6 +33,41 @@ function Navbar() {
         document.addEventListener('mousedown', handleClickOutside)
         return () => document.removeEventListener('mousedown', handleClickOutside)
     }, [])
+
+    // Track active page and in-page sections
+    useEffect(() => {
+        if (!pathname) return;
+
+        if (pathname.startsWith('/about')) {
+            setActiveSection('About');
+            return;
+        }
+        if (pathname.startsWith('/insights')) {
+            setActiveSection('Insights');
+            return;
+        }
+        if (pathname !== '/') {
+            setActiveSection('');
+            return;
+        }
+
+        // On Home page ('/'): listen to scroll to dynamically reflect Home vs Solutions
+        const updateHomeSection = () => {
+            const featuresEl = document.getElementById('features');
+            if (featuresEl) {
+                const rect = featuresEl.getBoundingClientRect();
+                if (rect.top <= 260 && rect.bottom >= 150) {
+                    setActiveSection('Solutions');
+                    return;
+                }
+            }
+            setActiveSection('Home');
+        };
+
+        updateHomeSection();
+        window.addEventListener('scroll', updateHomeSection, { passive: true });
+        return () => window.removeEventListener('scroll', updateHomeSection);
+    }, [pathname]);
 
     useGSAP(() => {
         if (!mounted) return;
@@ -97,19 +135,48 @@ function Navbar() {
                         </div>
                     </SmoothLink>
 
-                    {/* Desktop Menu */}
+                    {/* Desktop Menu with Animated Active Capsule */}
                     <div className="hidden lg:block">
-                        <ul className="flex gap-1 text-body-large text-neutral-30">
-                            {navigationLinks.map((link) => (
-                                <li key={link.name} className="py-2 px-4 hover:rounded-full hover:bg-white/30 transition-colors group">
-                                    <SmoothLink href={link.href} target={link.target} rel={link.rel} className="flex items-center gap-1">
-                                        <span>{link.name}</span>
-                                        {link.target === '_blank' && (
-                                            <ArrowUpRight size={14} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                        <ul className="flex items-center gap-1 text-[15px] text-neutral-30 relative">
+                            {navigationLinks.map((link) => {
+                                const isActive = activeSection === link.name;
+                                return (
+                                    <li key={link.name} className="relative z-10">
+                                        <SmoothLink
+                                            href={link.href}
+                                            target={link.target}
+                                            rel={link.rel}
+                                            onClick={() => {
+                                                if (link.name !== 'ImpactFrames') {
+                                                    setActiveSection(link.name);
+                                                }
+                                            }}
+                                            className={`relative z-10 px-4 py-2 rounded-full transition-colors duration-200 flex items-center gap-1 cursor-pointer select-none ${
+                                                isActive
+                                                    ? 'text-neutral-900 font-bold'
+                                                    : 'text-neutral-600 hover:text-neutral-950 font-medium'
+                                            }`}
+                                        >
+                                            <span>{link.name}</span>
+                                            {link.target === '_blank' && (
+                                                <ArrowUpRight size={13} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                                            )}
+                                        </SmoothLink>
+
+                                        {isActive && (
+                                            <motion.div
+                                                layoutId="navbar-active-pill"
+                                                className="absolute inset-0 rounded-full bg-white/90 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-neutral-300/40 z-0"
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 400,
+                                                    damping: 32
+                                                }}
+                                            />
                                         )}
-                                    </SmoothLink>
-                                </li>
-                            ))}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
@@ -139,16 +206,30 @@ function Navbar() {
                         >
                             <div className="p-6 flex flex-col gap-2">
                                 <ul className="flex flex-col gap-1 text-body-large text-neutral-30 pb-6 border-b border-white/20">
-                                    {navigationLinks.map((link) => (
-                                        <li key={link.name} className="py-3 px-3 rounded-2xl hover:bg-white/30 transition-colors group flex justify-center" onClick={() => setOpenDropdown(false)}>
-                                            <SmoothLink href={link.href} target={link.target} rel={link.rel} className="flex items-center gap-1 justify-center w-full">
-                                                <span>{link.name}</span>
-                                                {link.target === '_blank' && (
-                                                    <ArrowUpRight size={16} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                                                )}
-                                            </SmoothLink>
-                                        </li>
-                                    ))}
+                                    {navigationLinks.map((link) => {
+                                        const isActive = activeSection === link.name;
+                                        return (
+                                            <li
+                                                key={link.name}
+                                                className={`py-3 px-3 rounded-2xl transition-all duration-200 group flex justify-center ${
+                                                    isActive
+                                                        ? 'bg-white/90 text-neutral-950 font-bold shadow-xs border border-white/60'
+                                                        : 'hover:bg-white/30 text-neutral-700'
+                                                }`}
+                                                onClick={() => {
+                                                    if (link.name !== 'ImpactFrames') setActiveSection(link.name);
+                                                    setOpenDropdown(false);
+                                                }}
+                                            >
+                                                <SmoothLink href={link.href} target={link.target} rel={link.rel} className="flex items-center gap-1 justify-center w-full">
+                                                    <span>{link.name}</span>
+                                                    {link.target === '_blank' && (
+                                                        <ArrowUpRight size={16} className="opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                                                    )}
+                                                </SmoothLink>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                                 <div className="flex flex-col gap-3 pt-6">
                                     <MainButton

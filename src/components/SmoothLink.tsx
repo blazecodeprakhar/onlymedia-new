@@ -9,12 +9,12 @@ interface SmoothLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
     href: string
     children: React.ReactNode
     className?: string
-    onClick?: (e?: any) => void
+    onClick?: (e?: React.MouseEvent<HTMLAnchorElement>) => void
     prefetch?: boolean
     ref?: React.Ref<HTMLAnchorElement>
 }
 
-export default function SmoothLink({ href, children, className, onClick, prefetch = false, ref, ...props }: SmoothLinkProps) {
+export default function SmoothLink({ href, children, className, onClick, prefetch = true, ref, ...props }: SmoothLinkProps) {
     const pathname = usePathname()
     const lenis = useLenis()
 
@@ -59,11 +59,6 @@ export default function SmoothLink({ href, children, className, onClick, prefetc
             return
         }
 
-        // All other navigation (different page): reset scroll to top immediately so the new page opens at the top
-        window.scrollTo(0, 0)
-        if (lenis) {
-            lenis.scrollTo(0, { immediate: true })
-        }
         if (onClick) onClick(e)
     }
 
