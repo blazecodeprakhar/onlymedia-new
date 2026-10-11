@@ -36,8 +36,14 @@ function LogosTicker() {
                     <h2 className="logos-ticker-title">Powering Growth Across Brands</h2>
                 </div>
 
-                {/* Ticker wrapper — no scroll, clips overflow */}
-                <div className="overflow-hidden w-full">
+                {/* Ticker wrapper — no scroll, clips overflow with faded edges */}
+                <div
+                    className="overflow-hidden w-full relative"
+                    style={{
+                        maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                    }}
+                >
                     <div className="flex animate-ticker w-max">
                         {/* First logo group */}
                         {brandLogos.map((logo, index) => (

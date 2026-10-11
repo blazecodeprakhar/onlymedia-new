@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image"
-import MainButton from "./buttons/mainButton"
+import dashboardImg from "../../public/images/dashboard.png"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger, SplitText } from "gsap/all"
@@ -145,17 +145,6 @@ function Hero() {
                             We combine audience intelligence, platform expertise and creative innovation to deliver accountable media outcomes.
                         </motion.p>
                     </div>
-
-                    {/* Buttons fade-up */}
-                    <motion.div
-                        className="buttons"
-                        initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.8, ease: EXPO_EASE, delay: heroDelay + 1.1 }}
-                    >
-                        <MainButton text="Why OnlyMedia" href="#why-us" className="shadow-[0_20px_50px_rgba(0,123,255,0.15)]" />
-                        <MainButton variant="tertiary" text="Services" href="#features" />
-                    </motion.div>
                 </div>
 
                 <div className="hero-image hidden md:block">
@@ -165,7 +154,7 @@ function Hero() {
                         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: heroDelay + 0.3 }}
                         style={{ width: '100%', height: '100%' }}
                     >
-                        <Image height={1250} width={1250} src={'/images/dashboard.png'} alt="dashboard" className="object-cover object-center w-full h-full" priority />
+                        <Image src={dashboardImg} alt="dashboard" className="object-cover object-center w-full h-full" priority />
                     </motion.div>
                 </div>
             </div>

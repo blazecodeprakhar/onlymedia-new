@@ -20,7 +20,7 @@ export default function Home() {
         <WhoWeAre />
         <Benefits />
         <LogosTicker />
-        <Reviews />
+        {/* <Reviews /> */}
       </div>
       <StackedCardsSection />
       <Footer />
