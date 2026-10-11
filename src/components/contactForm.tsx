@@ -1,10 +1,12 @@
 'use client'
 
 import React, { useRef } from 'react'
+import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import MainButton from './buttons/mainButton'
 import { Envelope, Phone, MapPin, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react'
+import formBottomImg from '../../public/images/contact-form-bottom.png'
 
 function ContactForm() {
     const formRef = useRef<HTMLDivElement>(null)
@@ -20,12 +22,8 @@ function ContactForm() {
     }, { scope: formRef })
 
     return (
-        <section ref={formRef} className="pb-16 md:pb-20 pt-4 bg-gradient-to-b from-neutral-0/50 to-white relative overflow-hidden">
-            {/* Soft decorative background circles */}
-            <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-20/10 rounded-full blur-[120px] pointer-events-none" />
-
-            <div className="wrapper max-w-[1440px] mx-auto px-4 md:px-6 relative z-10">
+        <section ref={formRef} className="pb-8 md:pb-12 pt-2 relative">
+            <div className="wrapper max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
                 <div className="bg-white rounded-[32px] md:rounded-[48px] lg:p-16 md:p-12 p-6 sm:p-8 shadow-[0_20px_60px_-20px_rgba(26,22,21,0.06)] border border-neutral-30/[0.01] grid lg:grid-cols-12 md:gap-12 gap-8">
 
                     {/* Brand Info Column */}
@@ -72,6 +70,22 @@ function ContactForm() {
                             <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 md:h-12 md:w-12 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-md">
                                 <FacebookLogo size={20} weight="fill" />
                             </a>
+                        </div>
+
+                        {/* Bottom Skyline Graphic (Desktop Only - Hidden on Mobile) */}
+                        <div className="hidden lg:block mt-auto pt-4 pointer-events-none select-none contact-reveal">
+                            <div className="w-full max-w-[380px] xl:max-w-[420px] rounded-2xl overflow-hidden drop-shadow-[0_12px_24px_rgba(0,102,255,0.08)]">
+                                <Image
+                                    src={formBottomImg}
+                                    alt="OnlyMedia Mumbai Hub"
+                                    width={440}
+                                    height={200}
+                                    draggable={false}
+                                    onDragStart={(e) => e.preventDefault()}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    className="w-full h-auto object-contain pointer-events-none select-none"
+                                />
+                            </div>
                         </div>
                     </div>
 
@@ -133,7 +147,7 @@ function ContactForm() {
 
                             <div className="pt-2">
                                 <MainButton
-                                    text="Send Message"
+                                    text="Send Message →"
                                     className="px-14 py-4 md:py-5 bg-neutral-30 text-white hover:bg-accent-blue transition-all duration-300 shadow-xl text-base font-bold w-full md:w-auto"
                                 />
                             </div>
