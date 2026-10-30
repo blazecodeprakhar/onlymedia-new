@@ -43,7 +43,7 @@ export default function Benefits() {
                 {/* Header */}
                 <div className="benefits-header benefits-reveal">
                     <span className="benefits-eyebrow">WHAT WE DO</span>
-                    <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Measurable Growth</h2>
+                    <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Performance</h2>
                 </div>
 
                 {/* Integration Logos card - full width static 4-column grid */}
@@ -71,7 +71,7 @@ export default function Benefits() {
                     </div>
 
                     <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C] font-semibold leading-relaxed text-center w-full max-w-none whitespace-nowrap overflow-x-auto">
-                        We combine strong platform relationships with advanced targeting and analytics to deliver measurable growth for brands.
+                        We combine strong platform relationships with advanced targeting and analytics to deliver scalable performance for brands.
                     </p>
                 </div>
 

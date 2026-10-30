@@ -48,7 +48,7 @@ function Reviews() {
                         </span>
 
                         <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-neutral-900 tracking-tight leading-[1.15]">
-                            OnlyMedia <span className="text-accent-blue font-serif italic font-normal">Data-Driven Media Solutions</span> That Deliver Measurable Growth
+                            OnlyMedia <span className="text-accent-blue font-serif italic font-normal">Data-Driven Media Solutions</span> That Deliver Measurable Impact
                         </h2>
                     </div>
 
