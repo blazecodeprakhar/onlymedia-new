@@ -24,14 +24,26 @@ export default function Benefits() {
     const mainRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // Reveal animation for header + cards
-        gsap.from('.benefits-reveal', {
+        // Reveal animation for header
+        gsap.from('.benefits-header', {
             y: 30,
+            opacity: 0,
             duration: 0.8,
-            stagger: 0.15,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: mainRef.current,
+                start: 'top 90%',
+            }
+        })
+
+        // Reveal animation for platform logos card
+        gsap.from('.card-top-2', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.card-top-2',
                 start: 'top 90%',
             }
         })
@@ -41,41 +53,12 @@ export default function Benefits() {
         <section id="features" ref={mainRef} className="benefits-section">
             <div className="benefits-inner">
                 {/* Header */}
-                <div className="benefits-header benefits-reveal">
+                <div className="benefits-header">
                     <span className="benefits-eyebrow">WHAT WE DO</span>
                     <h2 className="text-h2 max-w-3xl text-[#1A1615] font-extrabold">Strategic Media Solutions Built for Performance</h2>
                 </div>
 
-                {/* Integration Logos card - full width static 4-column grid */}
-                <div className="card-top-2 benefits-reveal p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
-                    {/* Centered heading */}
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1615] text-center w-full tracking-tight">
-                        Connecting Brands Across Platforms
-                    </h3>
-
-                    {/* Static 4-Column Grid for 8 Platforms */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl mx-auto my-1">
-                        {SOCIAL_LOGOS.map((logo) => (
-                            <div
-                                key={logo.alt}
-                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(0,123,255,0.06)] hover:shadow-[0_12px_28px_rgba(0,123,255,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
-                            >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={logo.src}
-                                    alt={logo.alt}
-                                    className="max-h-10 sm:max-h-12 w-auto max-w-[130px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105"
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C] font-semibold leading-relaxed text-center w-full max-w-none whitespace-nowrap overflow-x-auto">
-                        We combine strong platform relationships with advanced targeting and analytics to deliver scalable performance for brands.
-                    </p>
-                </div>
-
-                {/* Bottom three feature cards */}
+                {/* Four Service Cards */}
                 <div className="benefits-cards-bottom">
                     <BenefitsCard
                         icon={<Target size={24} />}
@@ -102,6 +85,35 @@ export default function Benefits() {
                         frontQuote="Premium video environments demand more than reach."
                         backDescription="Audience-led CTV and video strategies across YouTube, OTT and Connected TV ecosystems designed to drive attention, engagement and measurable brand impact."
                     />
+                </div>
+
+                {/* Integration Logos card - full width static 4-column grid */}
+                <div className="card-top-2 p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+                    {/* Centered heading */}
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1615] text-center w-full tracking-tight">
+                        Connecting Brands Across Platforms
+                    </h3>
+
+                    {/* Static 4-Column Grid for 8 Platforms */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl mx-auto my-1">
+                        {SOCIAL_LOGOS.map((logo) => (
+                            <div
+                                key={logo.alt}
+                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(0,123,255,0.06)] hover:shadow-[0_12px_28px_rgba(0,123,255,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    className="max-h-10 sm:max-h-12 w-auto max-w-[130px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C] font-semibold leading-relaxed text-center w-full max-w-none whitespace-nowrap overflow-x-auto">
+                        We combine strong platform relationships with advanced targeting and analytics to deliver scalable performance for brands.
+                    </p>
                 </div>
             </div>
         </section>
