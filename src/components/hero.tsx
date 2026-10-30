@@ -149,12 +149,19 @@ function Hero() {
 
                 <div className="hero-image hidden md:block">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8, y: 150, rotateX: '15deg' }}
+                        initial={{ opacity: 0, scale: 0.94, y: 40, rotateX: '8deg' }}
                         animate={{ opacity: 1, scale: 1, y: 0, rotateX: '0deg' }}
-                        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: heroDelay + 0.3 }}
+                        transition={{ duration: 0.9, ease: EXPO_EASE, delay: heroDelay + 0.15 }}
                         style={{ width: '100%', height: '100%' }}
                     >
-                        <Image src={dashboardImg} alt="dashboard" className="object-cover object-center w-full h-full" priority />
+                        <Image
+                            src={dashboardImg}
+                            alt="Every Channel. One Clear Direction. - OnlyMedia Dashboard"
+                            className="object-cover object-center w-full h-full"
+                            sizes="(max-width: 1280px) 100vw, 1250px"
+                            quality={90}
+                            priority
+                        />
                     </motion.div>
                 </div>
             </div>

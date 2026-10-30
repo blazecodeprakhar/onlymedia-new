@@ -37,16 +37,38 @@ export default function Benefits() {
         })
 
         // Reveal animation for platform logos card
-        gsap.from('.card-top-2', {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: '.card-top-2',
-                start: 'top 90%',
+        gsap.fromTo('.card-top-2',
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.card-top-2',
+                    start: 'top 85%',
+                    once: true,
+                }
             }
-        })
+        )
+
+        // Stagger entrance for platform logo items
+        gsap.fromTo('.platform-logo-item',
+            { opacity: 0, y: 15, scale: 0.96 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.45,
+                stagger: 0.04,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.card-top-2',
+                    start: 'top 85%',
+                    once: true,
+                }
+            }
+        )
     }, { scope: mainRef })
 
     return (
@@ -88,7 +110,7 @@ export default function Benefits() {
                 </div>
 
                 {/* Integration Logos card - full width static 4-column grid */}
-                <div className="card-top-2 p-6 sm:p-10 flex flex-col gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#EBF3FE] to-[#E1EDFD] border border-blue-200/50 rounded-3xl w-full shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+                <div className="card-top-2">
                     {/* Centered heading */}
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1615] text-center w-full tracking-tight">
                         Connecting Brands Across Platforms
@@ -99,7 +121,7 @@ export default function Benefits() {
                         {SOCIAL_LOGOS.map((logo) => (
                             <div
                                 key={logo.alt}
-                                className="group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(0,123,255,0.06)] hover:shadow-[0_12px_28px_rgba(0,123,255,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                                className="platform-logo-item group h-20 sm:h-24 p-4 bg-white rounded-2xl border border-blue-200/60 shadow-[0_4px_16px_rgba(0,123,255,0.06)] hover:shadow-[0_12px_28px_rgba(0,123,255,0.14)] hover:border-accent-blue/40 hover:-translate-y-1 transition-[box-shadow,border-color,transform] duration-200 flex items-center justify-center cursor-pointer"
                             >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
@@ -111,7 +133,7 @@ export default function Benefits() {
                         ))}
                     </div>
 
-                    <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C] font-semibold leading-relaxed text-center w-full max-w-none whitespace-nowrap overflow-x-auto">
+                    <p className="text-xs sm:text-sm md:text-[15px] text-[#332E2C]/80 font-medium leading-relaxed text-center w-full max-w-2xl mx-auto px-4">
                         We combine strong platform relationships with advanced targeting and analytics to deliver scalable performance for brands.
                     </p>
                 </div>

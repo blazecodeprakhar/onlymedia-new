@@ -66,21 +66,6 @@ export default function AboutPage() {
             }
         )
 
-        // Core Pillars reveal
-        gsap.fromTo(".pillar-card",
-            { y: 15, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.45,
-                stagger: 0.05,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: pillarsRef.current,
-                    start: "top 90%",
-                }
-            }
-        )
 
         // Team card reveal
         gsap.fromTo(".team-card",
