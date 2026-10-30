@@ -53,37 +53,136 @@ const PILLARS = [
 export default function AboutPage() {
     const mainRef = useRef<HTMLDivElement>(null)
     const teamRef = useRef<HTMLDivElement>(null)
-    const pillarsRef = useRef<HTMLDivElement>(null)
+    const workRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // Hero reveal (fast & smooth)
-        gsap.fromTo(".about-reveal",
-            { y: 15, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.45,
-                stagger: 0.05,
-                ease: "power2.out",
-            }
-        )
+        // 1. Hero Entrance Timeline (First visit instant choreography)
+        const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+        // Background ambient glow expansion
+        heroTl.fromTo(".about-glow",
+            { scale: 0.75, opacity: 0 },
+            { scale: 1, opacity: 0.6, duration: 1.5, ease: "sine.out" },
+            0
+        );
 
-        // Team card reveal
-        gsap.fromTo(".team-card",
-            { y: 15, opacity: 0 },
+        // Eyebrow badge slide down + tracking expansion
+        heroTl.fromTo(".about-eyebrow",
+            { opacity: 0, y: -18, letterSpacing: "0.15em" },
+            { opacity: 1, y: 0, letterSpacing: "0.25em", duration: 0.8 },
+            0.1
+        );
+
+        // Main Headline reveal with smooth blur clear
+        heroTl.fromTo(".about-headline",
+            { opacity: 0, y: 35, filter: "blur(8px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.0, ease: "expo.out" },
+            0.2
+        );
+
+        // Strategy pill tags staggered pop
+        heroTl.fromTo(".about-tag-pill",
+            { opacity: 0, y: 16, scale: 0.9 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.08, ease: "back.out(1.4)" },
+            0.45
+        );
+
+        // Right column introduction text
+        heroTl.fromTo(".about-intro-text",
+            { opacity: 0, y: 25, filter: "blur(4px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.85, stagger: 0.15 },
+            0.3
+        );
+
+        // Hero proof points / stat boxes
+        heroTl.fromTo(".about-stat-box",
+            { opacity: 0, y: 20, scale: 0.95 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12 },
+            0.6
+        );
+
+        // 2. Real Work in Action Section (ScrollTrigger)
+        gsap.fromTo(".work-header",
+            { opacity: 0, y: 30 },
             {
-                y: 0,
                 opacity: 1,
-                duration: 0.45,
-                stagger: 0.06,
-                ease: "power2.out",
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
                 scrollTrigger: {
-                    trigger: teamRef.current,
+                    trigger: ".work-header",
                     start: "top 90%",
+                    once: true,
                 }
             }
-        )
+        );
+
+        gsap.fromTo(".work-card",
+            { opacity: 0, y: 45, scale: 0.95 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.75,
+                stagger: 0.12,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".work-cards-grid",
+                    start: "top 85%",
+                    once: true,
+                }
+            }
+        );
+
+        // 3. Leadership Section (ScrollTrigger)
+        gsap.fromTo(".leadership-header",
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".leadership-header",
+                    start: "top 90%",
+                    once: true,
+                }
+            }
+        );
+
+        gsap.fromTo(".team-card",
+            { opacity: 0, y: 50, scale: 0.95 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.85,
+                stagger: 0.15,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".team-cards-grid",
+                    start: "top 85%",
+                    once: true,
+                }
+            }
+        );
+
+        gsap.fromTo(".team-badge",
+            { opacity: 0, scale: 0.85, y: 8 },
+            {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.45,
+                stagger: 0.04,
+                ease: "back.out(1.5)",
+                scrollTrigger: {
+                    trigger: ".team-cards-grid",
+                    start: "top 80%",
+                    once: true,
+                }
+            }
+        );
     }, { scope: mainRef })
 
     return (
@@ -93,45 +192,49 @@ export default function AboutPage() {
             {/* Clean, Premium About Introduction Section */}
             <div className="relative pt-40 md:pt-48 pb-16 md:pb-24 bg-gradient-to-b from-[#F6FAFF] via-[#FBFCFE] to-white px-6 md:px-12 lg:px-16 overflow-hidden">
                 {/* Subtle refined ambient background glow */}
-                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none" />
+                <div className="about-glow absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     {/* Top Two-Column Grid: Headline on left, Introduction on right */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
                         {/* Left Column: Eyebrow + Headline + Strategic Pillars */}
-                        <div className="lg:col-span-7 flex flex-col text-left about-reveal">
-                            <span className="text-accent-blue font-bold text-xs sm:text-sm uppercase tracking-[0.25em] mb-4 inline-block">
+                        <div className="lg:col-span-7 flex flex-col text-left">
+                            <span className="about-eyebrow text-accent-blue font-bold text-xs sm:text-sm uppercase tracking-[0.25em] mb-4 inline-block">
                                 About OnlyMedia
                             </span>
-                            <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900">
+                            <h1 className="about-headline text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900">
                                 More than an agency. <br />
                                 We are your <span className="text-accent-blue font-serif italic font-normal">growth partners.</span>
                             </h1>
 
                             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-8 pt-6 border-t border-neutral-200/80 text-xs sm:text-sm font-semibold text-neutral-700">
-                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Audience Strategy</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Programmatic Media</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Connected TV & OTT</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Interactive Formats</span>
+                                <span className="about-tag-pill px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs hover:border-accent-blue/40 transition-colors">Audience Strategy</span>
+                                <span className="about-tag-pill px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs hover:border-accent-blue/40 transition-colors">Programmatic Media</span>
+                                <span className="about-tag-pill px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs hover:border-accent-blue/40 transition-colors">Connected TV & OTT</span>
+                                <span className="about-tag-pill px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs hover:border-accent-blue/40 transition-colors">Interactive Formats</span>
                             </div>
                         </div>
 
                         {/* Right Column: Company Introduction & Key Proof Points */}
-                        <div className="lg:col-span-5 flex flex-col text-left lg:pt-3 about-reveal">
-                            <p className="text-lg sm:text-xl text-neutral-800 font-medium leading-relaxed">
+                        <div className="lg:col-span-5 flex flex-col text-left lg:pt-3">
+                            <p className="about-intro-text text-lg sm:text-xl text-neutral-800 font-medium leading-relaxed">
                                 OnlyMedia is a managed media partner combining audience intelligence, platform expertise, and creative innovation to deliver structured media execution across modern digital ecosystems.
                             </p>
-                            <p className="text-base text-neutral-600 leading-relaxed font-normal mt-4">
+                            <p className="about-intro-text text-base text-neutral-600 leading-relaxed font-normal mt-4">
                                 We work closely with brands and agencies to activate campaigns with greater precision, clarity, and accountability — moving beyond generic ad placements to deliver measurable outcomes.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6 pt-6 mt-6 border-t border-neutral-200/80">
-                                <div>
-                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">8+</p>
+                                <div className="about-stat-box">
+                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">
+                                        <AnimatedCounter value={8} suffix="+" duration={1.6} />
+                                    </p>
                                     <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-0.5">Platform Ecosystems</p>
                                 </div>
-                                <div>
-                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">30+ Yrs</p>
+                                <div className="about-stat-box">
+                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">
+                                        <AnimatedCounter value={30} suffix="+ Yrs" duration={1.8} />
+                                    </p>
                                     <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-0.5">Combined Leadership Depth</p>
                                 </div>
                             </div>
@@ -139,8 +242,8 @@ export default function AboutPage() {
                     </div>
 
                     {/* Real Work & Campaign Execution Showcase */}
-                    <div className="mt-16 md:mt-20 pt-10 border-t border-neutral-200/70 about-reveal">
-                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                    <div ref={workRef} className="mt-16 md:mt-20 pt-10 border-t border-neutral-200/70">
+                        <div className="work-header flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
                             <div>
                                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-blue">Real Work in Action</span>
                                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight mt-1">
@@ -152,12 +255,12 @@ export default function AboutPage() {
                             </span>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                        <div className="work-cards-grid grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                             {caseStudies.slice(0, 3).map((study) => (
                                 <SmoothLink
                                     key={study.id}
                                     href={`/insights#${study.slug}`}
-                                    className="group bg-white rounded-3xl border border-neutral-200/80 hover:border-accent-blue/50 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
+                                    className="work-card group bg-white rounded-3xl border border-neutral-200/80 hover:border-accent-blue/50 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
                                 >
                                     {/* Campaign Creative Thumbnail */}
                                     <div className="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50/40 p-4 flex items-center justify-center overflow-hidden border-b border-neutral-100">
@@ -245,20 +348,20 @@ export default function AboutPage() {
             {/* Leadership Section */}
             <div ref={teamRef} className="w-full bg-white py-16 md:py-24 px-6 team-section relative border-t border-neutral-100">
                 <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-12 md:mb-16">
+                    <div className="leadership-header text-center mb-12 md:mb-16">
                         <span className="text-accent-blue uppercase tracking-widest text-xs font-extrabold mb-3 inline-block">LEADERSHIP</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-30 tracking-tight">BUILT BY MEDIA SPECIALISTS</h2>
                         <p className="text-base md:text-lg text-neutral-20 mt-3 max-w-2xl mx-auto">Experience across audience strategy, platform ecosystems and structured media execution built around measurable outcomes.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <div className="team-cards-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
                         {/* Ankita Shah */}
                         <div className="team-card group flex flex-col bg-white rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_24px_50px_rgba(0,123,255,0.15)] transition-all duration-500 border border-blue-200/60 hover:border-accent-blue/50 relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/5 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
 
                             <div className="flex items-center gap-5 mb-6">
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-blue to-blue-600 text-white font-black text-2xl flex items-center justify-center shadow-md shrink-0">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-blue to-blue-600 text-white font-black text-2xl flex items-center justify-center shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
                                     AS
                                 </div>
                                 <div>
@@ -274,13 +377,15 @@ export default function AboutPage() {
                             </p>
 
                             <div className="flex flex-wrap gap-2 mb-8">
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Audience Strategy</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Brand Partnerships</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Client Success</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Audience Strategy</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Brand Partnerships</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Client Success</span>
                             </div>
 
                             <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">14+ YRS EXPERIENCE</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                    <AnimatedCounter value={14} suffix="+ YRS EXPERIENCE" duration={1.6} />
+                                </span>
                                 <a
                                     href="https://www.linkedin.com/in/ankita-shah-b59b4923/"
                                     target="_blank"
@@ -298,7 +403,7 @@ export default function AboutPage() {
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/5 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
 
                             <div className="flex items-center gap-5 mb-6">
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-blue to-blue-600 text-white font-black text-2xl flex items-center justify-center shadow-md shrink-0">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-blue to-blue-600 text-white font-black text-2xl flex items-center justify-center shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
                                     AS
                                 </div>
                                 <div>
@@ -314,13 +419,15 @@ export default function AboutPage() {
                             </p>
 
                             <div className="flex flex-wrap gap-2 mb-8">
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Programmatic Execution</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">CTV Solutions</span>
-                                <span className="px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Media Innovation</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Programmatic Execution</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">CTV Solutions</span>
+                                <span className="team-badge px-3.5 py-1.5 rounded-full bg-[#EBF3FE] text-neutral-30 text-xs font-semibold border border-blue-200/50">Media Innovation</span>
                             </div>
 
                             <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">16+ YRS EXPERIENCE</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                    <AnimatedCounter value={16} suffix="+ YRS EXPERIENCE" duration={1.6} />
+                                </span>
                                 <a
                                     href="https://www.linkedin.com/in/akshayshah18/"
                                     target="_blank"
