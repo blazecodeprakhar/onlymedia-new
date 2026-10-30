@@ -8,7 +8,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Linkedin, Target, Layers, Palette, TrendingUp, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Linkedin, Target, Layers, Palette, TrendingUp, CheckCircle2 } from "lucide-react";
+import { caseStudies } from "@/data/caseStudies";
+import SmoothLink from "@/components/SmoothLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -151,107 +153,90 @@ export default function AboutPage() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                            {/* Card 1: Fujifilm */}
-                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
-                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img src="/images/Logos/Fujifilms.png" alt="Fujifilm" className="max-w-full max-h-full object-contain" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold text-neutral-900">Fujifilm</p>
-                                            <p className="text-[11px] text-neutral-500">Instax Mini 13 Launch</p>
-                                        </div>
-                                    </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
-                                        DV360 Video
-                                    </span>
-                                </div>
-                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
-                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img src="/Casestudy SS/Fuji FIlms.png" alt="Fujifilm Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    </div>
-                                </div>
-                                <div className="p-5 flex flex-col justify-between flex-1">
-                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                                        In-banner immersive video storytelling designed to drive completion and product recall.
-                                    </p>
-                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
-                                        <span className="text-[11px] font-semibold text-neutral-500">Video Completion Rate</span>
-                                        <span className="text-sm font-black text-accent-blue">51%</span>
-                                    </div>
-                                </div>
-                            </div>
+                            {caseStudies.slice(0, 3).map((study) => (
+                                <SmoothLink
+                                    key={study.id}
+                                    href={`/insights#${study.slug}`}
+                                    className="group bg-white rounded-3xl border border-neutral-200/80 hover:border-accent-blue/50 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
+                                >
+                                    {/* Campaign Creative Thumbnail */}
+                                    <div className="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50/40 p-4 flex items-center justify-center overflow-hidden border-b border-neutral-100">
+                                        {study.image ? (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img
+                                                src={study.image}
+                                                alt={`${study.brand} - ${study.campaign}`}
+                                                className="w-full h-full object-contain rounded-xl drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+                                                loading="lazy"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-neutral-400">
+                                                <Layers className="w-8 h-8 opacity-40" />
+                                            </div>
+                                        )}
 
-                            {/* Card 2: Sharp */}
-                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
-                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img src="/images/Logos/logo-sharp.svg" alt="Sharp" className="max-w-full max-h-full object-contain" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold text-neutral-900">Sharp</p>
-                                            <p className="text-[11px] text-neutral-500">55th Anniversary Campaign</p>
+                                        {/* Platform Badge Overlay */}
+                                        <div className="absolute top-3 left-3">
+                                            <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-white/95 text-neutral-800 border border-neutral-200/70 shadow-xs backdrop-blur-md">
+                                                {study.platform}
+                                            </span>
                                         </div>
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
-                                        Interactive DV360
-                                    </span>
-                                </div>
-                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
-                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img src="/Casestudy SS/Sharp.png" alt="Sharp Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    </div>
-                                </div>
-                                <div className="p-5 flex flex-col justify-between flex-1">
-                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                                        Interactive "tap-to-reveal" gamified ad units delivering above-benchmark click engagement.
-                                    </p>
-                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
-                                        <span className="text-[11px] font-semibold text-neutral-500">Click-Through Action</span>
-                                        <span className="text-sm font-black text-accent-blue">1.94% CTA</span>
-                                    </div>
-                                </div>
-                            </div>
 
-                            {/* Card 3: Sony MAX */}
-                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
-                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img src="/images/Logos/SONY_MAX_Logo_2022.png" alt="Sony MAX" className="max-w-full max-h-full object-contain" />
-                                        </div>
+                                    {/* Card Content Body */}
+                                    <div className="p-6 flex flex-col flex-1 justify-between gap-5">
                                         <div>
-                                            <p className="text-xs font-bold text-neutral-900">Sony MAX</p>
-                                            <p className="text-[11px] text-neutral-500">Premiere Activation</p>
+                                            {/* Brand Logo & Name Header */}
+                                            <div className="flex items-center justify-between gap-3 mb-3">
+                                                <div className="flex items-center gap-2">
+                                                    {study.brandLogo ? (
+                                                        <div className="h-6 max-w-[90px] flex items-center shrink-0">
+                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                            <img
+                                                                src={study.brandLogo}
+                                                                alt={study.brand}
+                                                                className="max-h-full max-w-full object-contain"
+                                                            />
+                                                        </div>
+                                                    ) : (
+                                                        <span className="text-xs font-black text-neutral-800 tracking-tight" style={{ color: study.brandColor || undefined }}>
+                                                            {study.brand}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">
+                                                    {study.dateLocation}
+                                                </span>
+                                            </div>
+
+                                            {/* Campaign Title */}
+                                            <h4 className="text-lg sm:text-xl font-bold text-neutral-900 tracking-tight group-hover:text-accent-blue transition-colors duration-200 line-clamp-1">
+                                                {study.campaign}
+                                            </h4>
+
+                                            {/* Blurb */}
+                                            <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed font-normal mt-2 line-clamp-2">
+                                                {study.blurb}
+                                            </p>
+                                        </div>
+
+                                        {/* Key Performance Metric Footer */}
+                                        <div className="pt-4 border-t border-neutral-100 flex items-center justify-between mt-auto bg-slate-50/70 -mx-6 -mb-6 p-4 px-6">
+                                            <div>
+                                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 block">
+                                                    {study.metricLabel}
+                                                </span>
+                                                <span className="text-base sm:text-lg font-black text-emerald-600 tracking-tight">
+                                                    {study.metricValue}
+                                                </span>
+                                            </div>
+                                            <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-400 group-hover:text-accent-blue group-hover:border-accent-blue/30 transition-colors shadow-2xs">
+                                                <ArrowUpRight className="w-4 h-4" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
-                                        Connected TV / OTT
-                                    </span>
-                                </div>
-                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
-                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img src="/Casestudy SS/SonyMax-Thamma.png" alt="Sony MAX Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    </div>
-                                </div>
-                                <div className="p-5 flex flex-col justify-between flex-1">
-                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                                        High-impact connected television and streaming video strategies across large-screen audiences.
-                                    </p>
-                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
-                                        <span className="text-[11px] font-semibold text-neutral-500">Living Room Reach</span>
-                                        <span className="text-sm font-black text-accent-blue">High Attention</span>
-                                    </div>
-                                </div>
-                            </div>
+                                </SmoothLink>
+                            ))}
                         </div>
                     </div>
                 </div>
