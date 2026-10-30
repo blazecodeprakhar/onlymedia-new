@@ -56,129 +56,114 @@ export default function AboutPage() {
     const workRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // 1. Hero Entrance Timeline (First visit instant choreography)
-        const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        // 1. Hero Entrance Timeline (Fast, Snappy, Smooth)
+        const heroTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
         // Background ambient glow expansion
         heroTl.fromTo(".about-glow",
-            { scale: 0.75, opacity: 0 },
-            { scale: 1, opacity: 0.6, duration: 1.5, ease: "sine.out" },
+            { scale: 0.85, opacity: 0 },
+            { scale: 1, opacity: 0.6, duration: 0.8, ease: "sine.out" },
             0
         );
 
-        // Eyebrow badge slide down + tracking expansion
+        // Eyebrow badge slide down
         heroTl.fromTo(".about-eyebrow",
-            { opacity: 0, y: -18, letterSpacing: "0.15em" },
-            { opacity: 1, y: 0, letterSpacing: "0.25em", duration: 0.8 },
-            0.1
+            { opacity: 0, y: -10 },
+            { opacity: 1, y: 0, duration: 0.4 },
+            0.05
         );
 
-        // Main Headline reveal with smooth blur clear
+        // Main Headline reveal
         heroTl.fromTo(".about-headline",
-            { opacity: 0, y: 35, filter: "blur(8px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.0, ease: "expo.out" },
-            0.2
+            { opacity: 0, y: 18 },
+            { opacity: 1, y: 0, duration: 0.5, clearProps: "transform,opacity" },
+            0.1
         );
 
         // Strategy pill tags staggered pop
         heroTl.fromTo(".about-tag-pill",
-            { opacity: 0, y: 16, scale: 0.9 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.08, ease: "back.out(1.4)" },
-            0.45
+            { opacity: 0, y: 10, scale: 0.94 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.35, stagger: 0.05, ease: "back.out(1.2)", clearProps: "transform,opacity" },
+            0.2
         );
 
         // Right column introduction text
         heroTl.fromTo(".about-intro-text",
-            { opacity: 0, y: 25, filter: "blur(4px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.85, stagger: 0.15 },
-            0.3
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, clearProps: "transform,opacity" },
+            0.15
         );
 
         // Hero proof points / stat boxes
         heroTl.fromTo(".about-stat-box",
-            { opacity: 0, y: 20, scale: 0.95 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12 },
-            0.6
+            { opacity: 0, y: 14 },
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, clearProps: "transform,opacity" },
+            0.25
         );
 
-        // 2. Real Work in Action Section (ScrollTrigger)
+        // 2. Real Work in Action Section (Snappy ScrollTrigger)
         gsap.fromTo(".work-header",
-            { opacity: 0, y: 30 },
+            { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: "power3.out",
+                duration: 0.5,
+                ease: "power2.out",
+                clearProps: "transform,opacity",
                 scrollTrigger: {
                     trigger: ".work-header",
-                    start: "top 90%",
+                    start: "top 92%",
                     once: true,
                 }
             }
         );
 
         gsap.fromTo(".work-card",
-            { opacity: 0, y: 45, scale: 0.95 },
+            { opacity: 0, y: 28 },
             {
                 opacity: 1,
                 y: 0,
-                scale: 1,
-                duration: 0.75,
-                stagger: 0.12,
-                ease: "power3.out",
+                duration: 0.5,
+                stagger: 0.1,
+                ease: "power2.out",
+                clearProps: "transform,opacity",
                 scrollTrigger: {
                     trigger: ".work-cards-grid",
-                    start: "top 85%",
-                    once: true,
-                }
-            }
-        );
-
-        // 3. Leadership Section (ScrollTrigger)
-        gsap.fromTo(".leadership-header",
-            { opacity: 0, y: 30 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".leadership-header",
                     start: "top 90%",
                     once: true,
                 }
             }
         );
 
-        gsap.fromTo(".team-card",
-            { opacity: 0, y: 50, scale: 0.95 },
+        // 3. Leadership Section (Snappy ScrollTrigger - No Lag, No Stutter)
+        gsap.fromTo(".leadership-header",
+            { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
-                scale: 1,
-                duration: 0.85,
-                stagger: 0.15,
-                ease: "power3.out",
+                duration: 0.5,
+                ease: "power2.out",
+                clearProps: "transform,opacity",
                 scrollTrigger: {
-                    trigger: ".team-cards-grid",
-                    start: "top 85%",
+                    trigger: ".leadership-header",
+                    start: "top 92%",
                     once: true,
                 }
             }
         );
 
-        gsap.fromTo(".team-badge",
-            { opacity: 0, scale: 0.85, y: 8 },
+        gsap.fromTo(".team-card",
+            { opacity: 0, y: 28 },
             {
                 opacity: 1,
-                scale: 1,
                 y: 0,
-                duration: 0.45,
-                stagger: 0.04,
-                ease: "back.out(1.5)",
+                duration: 0.55,
+                stagger: 0.1,
+                ease: "power2.out",
+                clearProps: "transform,opacity",
                 scrollTrigger: {
                     trigger: ".team-cards-grid",
-                    start: "top 80%",
+                    start: "top 90%",
                     once: true,
                 }
             }
@@ -260,7 +245,7 @@ export default function AboutPage() {
                                 <SmoothLink
                                     key={study.id}
                                     href={`/insights#${study.slug}`}
-                                    className="work-card group bg-white rounded-3xl border border-neutral-200/80 hover:border-accent-blue/50 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
+                                    className="work-card group bg-white rounded-3xl border border-neutral-200/80 hover:border-accent-blue/50 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-[box-shadow,border-color,transform] duration-300 flex flex-col overflow-hidden cursor-pointer"
                                 >
                                     {/* Campaign Creative Thumbnail */}
                                     <div className="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50/40 p-4 flex items-center justify-center overflow-hidden border-b border-neutral-100">
@@ -357,7 +342,7 @@ export default function AboutPage() {
                     <div className="team-cards-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
                         {/* Ankita Shah */}
-                        <div className="team-card group flex flex-col bg-white rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_24px_50px_rgba(0,123,255,0.15)] transition-all duration-500 border border-blue-200/60 hover:border-accent-blue/50 relative overflow-hidden">
+                        <div className="team-card group flex flex-col bg-white rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_24px_50px_rgba(0,123,255,0.15)] hover:-translate-y-1 transition-[box-shadow,border-color,transform] duration-300 border border-blue-200/60 hover:border-accent-blue/50 relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/5 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
 
                             <div className="flex items-center gap-5 mb-6">
@@ -383,9 +368,7 @@ export default function AboutPage() {
                             </div>
 
                             <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                                    <AnimatedCounter value={14} suffix="+ YRS EXPERIENCE" duration={1.6} />
-                                </span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">14+ YRS EXPERIENCE</span>
                                 <a
                                     href="https://www.linkedin.com/in/ankita-shah-b59b4923/"
                                     target="_blank"
@@ -399,7 +382,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Akshay Shah */}
-                        <div className="team-card group flex flex-col bg-white rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_24px_50px_rgba(0,123,255,0.15)] transition-all duration-500 border border-blue-200/60 hover:border-accent-blue/50 relative overflow-hidden">
+                        <div className="team-card group flex flex-col bg-white rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_24px_50px_rgba(0,123,255,0.15)] hover:-translate-y-1 transition-[box-shadow,border-color,transform] duration-300 border border-blue-200/60 hover:border-accent-blue/50 relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/5 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
 
                             <div className="flex items-center gap-5 mb-6">
@@ -425,9 +408,7 @@ export default function AboutPage() {
                             </div>
 
                             <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                                    <AnimatedCounter value={16} suffix="+ YRS EXPERIENCE" duration={1.6} />
-                                </span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">16+ YRS EXPERIENCE</span>
                                 <a
                                     href="https://www.linkedin.com/in/akshayshah18/"
                                     target="_blank"
