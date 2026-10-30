@@ -8,9 +8,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Linkedin, Target, Layers, Palette, TrendingUp, Award, CheckCircle2, Search, BarChart3, ArrowRight } from "lucide-react";
-import heroLeftImg from "../../../public/images/contact-hero-left.png";
-import heroRightImg from "../../../public/images/contact-hero-right.png";
+import { Linkedin, Target, Layers, Palette, TrendingUp, CheckCircle2, Search, BarChart3, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -143,138 +141,178 @@ export default function AboutPage() {
                 }
             }
         )
-
-        // Gentle perpetual floating animation for PC graphics
-        gsap.to(".floating-left-hero", {
-            y: -12,
-            duration: 4,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        })
-        gsap.to(".floating-right-hero", {
-            y: 12,
-            duration: 4.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        })
     }, { scope: mainRef })
 
     return (
         <main ref={mainRef} className="flex flex-col bg-white min-h-screen">
             <Navbar />
 
-            {/* Premium Glassmorphic Hero Section */}
-            <div className="relative pt-44 md:pt-48 pb-20 md:pb-28 bg-gradient-to-b from-[#EBF3FE]/80 via-[#F4F8FE] to-white flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-                {/* Soft glowing ambient lighting */}
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-accent-blue/12 rounded-full blur-[140px] pointer-events-none" />
-                <div className="absolute top-12 right-12 w-[300px] h-[300px] bg-blue-200/40 rounded-full blur-[100px] pointer-events-none" />
+            {/* Clean, Premium About Introduction Section */}
+            <div className="relative pt-40 md:pt-48 pb-16 md:pb-24 bg-gradient-to-b from-[#F6FAFF] via-[#FBFCFE] to-white px-6 md:px-12 lg:px-16 overflow-hidden">
+                {/* Subtle refined ambient background glow */}
+                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none" />
 
-                {/* Floating Left Graphic (PC Only - Hidden on Mobile) */}
-                <div className="hidden lg:block absolute -left-2 xl:left-4 2xl:left-12 top-28 xl:top-32 w-[320px] xl:w-[400px] 2xl:w-[450px] pointer-events-none select-none z-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: -40, scale: 0.92 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                        className="floating-left-hero w-full h-auto drop-shadow-[0_20px_40px_rgba(0,102,255,0.12)]"
-                    >
-                        <Image
-                            src={heroLeftImg}
-                            alt="Ideas to Impact"
-                            width={440}
-                            height={293}
-                            priority
-                            draggable={false}
-                            onDragStart={(e) => e.preventDefault()}
-                            onContextMenu={(e) => e.preventDefault()}
-                            className="w-full h-auto object-contain pointer-events-none select-none"
-                        />
-                    </motion.div>
-                </div>
+                <div className="max-w-7xl mx-auto relative z-10">
+                    {/* Top Two-Column Grid: Headline on left, Introduction on right */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                        {/* Left Column: Eyebrow + Headline + Strategic Pillars */}
+                        <div className="lg:col-span-7 flex flex-col text-left about-reveal">
+                            <span className="text-accent-blue font-bold text-xs sm:text-sm uppercase tracking-[0.25em] mb-4 inline-block">
+                                About OnlyMedia
+                            </span>
+                            <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900">
+                                More than an agency. <br />
+                                We are your <span className="text-accent-blue font-serif italic font-normal">growth partners.</span>
+                            </h1>
 
-                {/* Floating Right Graphic (PC Only - Hidden on Mobile) */}
-                <div className="hidden lg:block absolute -right-2 xl:right-4 2xl:right-12 top-24 xl:top-28 w-[320px] xl:w-[400px] 2xl:w-[450px] pointer-events-none select-none z-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: 40, scale: 0.92 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                        className="floating-right-hero w-full h-auto drop-shadow-[0_20px_40px_rgba(0,102,255,0.12)]"
-                    >
-                        <Image
-                            src={heroRightImg}
-                            alt="Smarter Campaigns"
-                            width={440}
-                            height={293}
-                            priority
-                            draggable={false}
-                            onDragStart={(e) => e.preventDefault()}
-                            onContextMenu={(e) => e.preventDefault()}
-                            className="w-full h-auto object-contain pointer-events-none select-none"
-                        />
-                    </motion.div>
-                </div>
-
-                <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto w-full">
-                    {/* Top Pill Badge */}
-                    <div className="flex items-center gap-2 mb-6 about-reveal">
-                        <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent-blue/30 bg-white/95 text-accent-blue text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase shadow-xs backdrop-blur-md">
-                            <span className="w-2 h-2 rounded-full bg-accent-blue animate-ping" />
-                            WE ARE ONLYMEDIA
-                        </span>
-                    </div>
-
-                    {/* Main Headline - Guaranteed Exactly 2 Lines */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] font-black leading-[1.08] tracking-[-0.03em] text-neutral-900 about-reveal max-w-3xl mx-auto">
-                        More than an agency. <br className="hidden sm:block" />
-                        We are your <span className="text-accent-blue font-serif italic font-normal">growth partners.</span>
-                    </h1>
-
-                    {/* Subheading & Strategic Vision Pill */}
-                    <div className="max-w-xl xl:max-w-2xl mx-auto mt-6 md:mt-8 about-reveal flex flex-col items-center gap-6">
-                        <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed font-normal">
-                            OnlyMedia is a managed media partner combining audience intelligence, platform expertise, and creative innovation to deliver structured media execution across modern digital ecosystems. We work closely with brands and agencies to activate campaigns with greater precision, clarity, and accountability.
-                        </p>
-
-                        <div className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-white/90 border border-blue-200/70 shadow-xs backdrop-blur-md">
-                            <Award className="w-5 h-5 text-accent-blue shrink-0" />
-                            <p className="font-bold text-neutral-800 text-sm sm:text-base tracking-tight">
-                                Creating measurable impact for the world’s most ambitious brands.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Ecosystem & Key Metrics Card Showcase */}
-                    {/* 
-                    <div className="w-full mt-12 bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-10 border border-blue-200/70 shadow-[0_20px_50px_rgba(21,108,194,0.08)] about-reveal flex flex-col gap-8">
-                        <div className="flex flex-col items-center gap-3.5">
-                            <span className="text-xs font-black uppercase tracking-[0.2em] text-accent-blue">ACTIVATING ACROSS GLOBAL ECOSYSTEMS</span>
-                            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                                {PLATFORMS.map((plat) => (
-                                    <span key={plat} className="px-4 py-2 rounded-full bg-slate-50 text-neutral-800 hover:bg-accent-blue hover:text-white border border-slate-200/80 text-xs sm:text-sm font-bold transition-all duration-300 shadow-2xs">
-                                        {plat}
-                                    </span>
-                                ))}
+                            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-8 pt-6 border-t border-neutral-200/80 text-xs sm:text-sm font-semibold text-neutral-700">
+                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Audience Strategy</span>
+                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Programmatic Media</span>
+                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Connected TV & OTT</span>
+                                <span className="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-2xs">Interactive Formats</span>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-slate-100">
-                            {STATS.map((stat, i) => (
-                                <div key={i} className="group/stat flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-[#F4F8FE] border border-blue-100/90 hover:border-accent-blue/40 hover:bg-white hover:shadow-md transition-all duration-300">
-                                    <AnimatedCounter
-                                        value={stat.value}
-                                        decimals={stat.decimals}
-                                        suffix={stat.suffix}
-                                        duration={2.2}
-                                        className="text-3xl sm:text-4xl md:text-5xl font-black text-accent-blue tracking-tight group-hover/stat:scale-105 transition-transform duration-300"
-                                    />
-                                    <span className="text-xs sm:text-sm font-bold text-neutral-800 mt-1.5">{stat.label}</span>
-                                    <span className="text-[11px] text-neutral-500 font-medium mt-0.5">{stat.sub}</span>
+                        {/* Right Column: Company Introduction & Key Proof Points */}
+                        <div className="lg:col-span-5 flex flex-col text-left lg:pt-3 about-reveal">
+                            <p className="text-lg sm:text-xl text-neutral-800 font-medium leading-relaxed">
+                                OnlyMedia is a managed media partner combining audience intelligence, platform expertise, and creative innovation to deliver structured media execution across modern digital ecosystems.
+                            </p>
+                            <p className="text-base text-neutral-600 leading-relaxed font-normal mt-4">
+                                We work closely with brands and agencies to activate campaigns with greater precision, clarity, and accountability — moving beyond generic ad placements to deliver measurable outcomes.
+                            </p>
+
+                            <div className="grid grid-cols-2 gap-6 pt-6 mt-6 border-t border-neutral-200/80">
+                                <div>
+                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">8+</p>
+                                    <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-0.5">Platform Ecosystems</p>
                                 </div>
-                            ))}
+                                <div>
+                                    <p className="text-3xl font-black text-neutral-900 tracking-tight">30+ Yrs</p>
+                                    <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-0.5">Combined Leadership Depth</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    */}
+
+                    {/* Real Work & Campaign Execution Showcase */}
+                    <div className="mt-16 md:mt-20 pt-10 border-t border-neutral-200/70 about-reveal">
+                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                            <div>
+                                <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-blue">Real Work in Action</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight mt-1">
+                                    Structured execution across global ecosystems
+                                </h3>
+                            </div>
+                            <span className="text-xs sm:text-sm text-neutral-500 font-medium">
+                                Verified campaign activations & creative units
+                            </span>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                            {/* Card 1: Fujifilm */}
+                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src="/images/Logos/Fujifilms.png" alt="Fujifilm" className="max-w-full max-h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-bold text-neutral-900">Fujifilm</p>
+                                            <p className="text-[11px] text-neutral-500">Instax Mini 13 Launch</p>
+                                        </div>
+                                    </div>
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
+                                        DV360 Video
+                                    </span>
+                                </div>
+                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
+                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src="/Casestudy SS/Fuji FIlms.png" alt="Fujifilm Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                </div>
+                                <div className="p-5 flex flex-col justify-between flex-1">
+                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                                        In-banner immersive video storytelling designed to drive completion and product recall.
+                                    </p>
+                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
+                                        <span className="text-[11px] font-semibold text-neutral-500">Video Completion Rate</span>
+                                        <span className="text-sm font-black text-accent-blue">51%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 2: Sharp */}
+                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src="/images/Logos/logo-sharp.svg" alt="Sharp" className="max-w-full max-h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-bold text-neutral-900">Sharp</p>
+                                            <p className="text-[11px] text-neutral-500">55th Anniversary Campaign</p>
+                                        </div>
+                                    </div>
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
+                                        Interactive DV360
+                                    </span>
+                                </div>
+                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
+                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src="/Casestudy SS/Sharp.png" alt="Sharp Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                </div>
+                                <div className="p-5 flex flex-col justify-between flex-1">
+                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                                        Interactive "tap-to-reveal" gamified ad units delivering above-benchmark click engagement.
+                                    </p>
+                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
+                                        <span className="text-[11px] font-semibold text-neutral-500">Click-Through Action</span>
+                                        <span className="text-sm font-black text-accent-blue">1.94% CTA</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 3: Sony MAX */}
+                            <div className="group bg-white rounded-2xl border border-neutral-200/80 hover:border-accent-blue/40 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                                <div className="p-5 flex items-center justify-between border-b border-neutral-100 bg-neutral-50/50">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-white border border-neutral-200/60 p-1 flex items-center justify-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src="/images/Logos/SONY_MAX_Logo_2022.png" alt="Sony MAX" className="max-w-full max-h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-bold text-neutral-900">Sony MAX</p>
+                                            <p className="text-[11px] text-neutral-500">Premiere Activation</p>
+                                        </div>
+                                    </div>
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-100">
+                                        Connected TV / OTT
+                                    </span>
+                                </div>
+                                <div className="p-4 bg-neutral-50 flex items-center justify-center overflow-hidden">
+                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xs border border-neutral-200/60 bg-white">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src="/Casestudy SS/SonyMax-Thamma.png" alt="Sony MAX Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                </div>
+                                <div className="p-5 flex flex-col justify-between flex-1">
+                                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                                        High-impact connected television and streaming video strategies across large-screen audiences.
+                                    </p>
+                                    <div className="pt-3 mt-3 border-t border-neutral-100 flex items-center justify-between">
+                                        <span className="text-[11px] font-semibold text-neutral-500">Living Room Reach</span>
+                                        <span className="text-sm font-black text-accent-blue">High Attention</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
