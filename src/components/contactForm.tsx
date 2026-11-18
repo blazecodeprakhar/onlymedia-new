@@ -1,12 +1,10 @@
 'use client'
 
 import React, { useRef } from 'react'
-import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import MainButton from './buttons/mainButton'
 import { Envelope, MapPin, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react'
-import formBottomImg from '../../public/images/contact-form-bottom.png'
 
 function ContactForm() {
     const formRef = useRef<HTMLDivElement>(null)
@@ -32,7 +30,7 @@ function ContactForm() {
                 <div className="bg-white/95 backdrop-blur-md rounded-[32px] md:rounded-[48px] lg:p-14 md:p-10 p-6 sm:p-8 shadow-[0_24px_70px_-20px_rgba(25,42,61,0.09)] border border-white/80 grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch">
 
                     {/* Brand Info Column */}
-                    <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                    <div className="lg:col-span-5 flex flex-col justify-start h-full">
                         <div className="flex flex-col gap-6">
                             <div className="contact-reveal">
                                 <h2 className="text-[28px] sm:text-[34px] md:text-[40px] xl:text-[42px] font-extrabold leading-[1.1] tracking-tight text-neutral-30 mb-3">
@@ -76,22 +74,6 @@ function ContactForm() {
                                 <a href="https://www.facebook.com/people/OnlyMedia/61574909529047/" target="_blank" rel="noopener noreferrer" className="h-11 w-11 rounded-xl bg-neutral-0 hover:bg-neutral-30 hover:text-white text-neutral-20 flex items-center justify-center transition-all duration-300 shadow-sm">
                                     <FacebookLogo size={19} weight="fill" />
                                 </a>
-                            </div>
-                        </div>
-
-                        {/* Bottom Skyline Graphic (Desktop Only - Hidden on Mobile) */}
-                        <div className="hidden lg:block pt-3 pointer-events-none select-none contact-reveal">
-                            <div className="w-full max-w-[320px] xl:max-w-[350px]">
-                                <Image
-                                    src={formBottomImg}
-                                    alt="OnlyMedia Mumbai Hub"
-                                    width={350}
-                                    height={155}
-                                    draggable={false}
-                                    onDragStart={(e) => e.preventDefault()}
-                                    onContextMenu={(e) => e.preventDefault()}
-                                    className="w-full h-auto object-contain pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,102,255,0.08)]"
-                                />
                             </div>
                         </div>
                     </div>
