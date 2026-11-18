@@ -5,33 +5,38 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import MainButton from './buttons/mainButton'
-import { Envelope, Phone, MapPin, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react'
+import { Envelope, MapPin, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react'
 import formBottomImg from '../../public/images/contact-form-bottom.png'
 
 function ContactForm() {
     const formRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        gsap.from(".contact-reveal", {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power2.out",
-        })
+        gsap.fromTo(
+            ".contact-reveal",
+            { y: 24, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.85,
+                stagger: 0.08,
+                ease: "power3.out",
+                clearProps: "transform,opacity",
+            }
+        )
     }, { scope: formRef })
 
     return (
         <section ref={formRef} className="pb-8 md:pb-12 pt-2 relative">
             <div className="wrapper max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
-                <div className="bg-white rounded-[32px] md:rounded-[48px] lg:p-14 md:p-10 p-6 sm:p-8 shadow-[0_20px_60px_-20px_rgba(26,22,21,0.06)] border border-neutral-30/[0.01] grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch">
+                <div className="bg-white/95 backdrop-blur-md rounded-[32px] md:rounded-[48px] lg:p-14 md:p-10 p-6 sm:p-8 shadow-[0_24px_70px_-20px_rgba(25,42,61,0.09)] border border-white/80 grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch">
 
                     {/* Brand Info Column */}
                     <div className="lg:col-span-5 flex flex-col justify-between h-full">
                         <div className="flex flex-col gap-6">
                             <div className="contact-reveal">
                                 <h2 className="text-[28px] sm:text-[34px] md:text-[40px] xl:text-[42px] font-extrabold leading-[1.1] tracking-tight text-neutral-30 mb-3">
-                                    Let's start a <br />
+                                    Let’s start a <br />
                                     <span className="text-accent-blue font-serif italic font-medium">conversation.</span>
                                 </h2>
                                 <p className="text-sm md:text-base text-neutral-20 leading-relaxed max-w-sm">

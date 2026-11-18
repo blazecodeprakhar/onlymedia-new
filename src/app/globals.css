@@ -255,45 +255,118 @@ body {
   }
 }
 
+@keyframes heroSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heroSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes heroPulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+
+  75%,
+  100% {
+    transform: scale(5.5);
+    opacity: 0;
+  }
+}
+
 @layer components {
   .hero {
-    @apply relative lg:h-[1400px] md:h-[1120px] h-auto pb-10 sm:pb-16 lg:min-h-[100vh] min-h-screen max-h-screen md:max-h-none flex justify-center overflow-hidden bg-gradient-to-t from-[#EBF3FE] via-[#DbeAFE] to-[#9CC1E7];
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: linear-gradient(180deg, #9BC0E8 0%, #CFE0F8 55%, #E4EEFC 88%, #F6F9FE 100%);
+    @apply relative w-full pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24 flex items-center overflow-hidden;
+
+    .hero-dot-grid {
+      background-image: radial-gradient(circle, rgba(25, 42, 61, 0.16) 1.25px, transparent 1.7px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+    }
+
+    .hero-dot-spotlight {
+      background-image: radial-gradient(circle, #027BFF 2.3px, transparent 2.9px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(circle 240px at var(--spot-x, 74%) var(--spot-y, 50%), #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle 240px at var(--spot-x, 74%) var(--spot-y, 50%), #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+    }
+
+    .hero-radar-spin-a {
+      transform-origin: 300px 300px;
+      animation: heroSpin 90s linear infinite;
+    }
+
+    .hero-radar-spin-b {
+      transform-origin: 300px 300px;
+      animation: heroSpinReverse 140s linear infinite;
+    }
+
+    .hero-radar-pulse {
+      transform-origin: 300px 300px;
+      animation: heroPulseRing 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    .hero-cursor-reticle {
+      display: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      cursor: none;
+
+      * {
+        cursor: none;
+      }
+
+      .hero-cursor-reticle {
+        display: block;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-radar-spin-a,
+      .hero-radar-spin-b,
+      .hero-radar-pulse {
+        animation: none;
+      }
+    }
 
     .hero-content {
-      @apply z-2 px-4 w-full max-w-[1250px] pt-28 md:pt-40 flex flex-col items-center gap-6 md:gap-16;
+      @apply relative z-10 w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center;
 
-      .top {
-        @apply max-w-[1000px] flex flex-col items-center gap-10 md:gap-12;
+      .hero-copy {
+        @apply w-full max-w-[760px] flex flex-col items-start text-left;
 
-        .texts {
-          @apply flex flex-col items-center gap-6 text-center px-4 md:px-0;
-
-          .hero-title {
-            @apply lg:text-[110px]/[0.9] md:text-[80px]/[1] text-[44px]/[1.1] sm:text-[52px]/[1.1] text-neutral-30 font-black tracking-[-0.04em];
-          }
-
-          .hero-description {
-            @apply text-base sm:text-lg md:text-2xl text-neutral-20 leading-[1.6] max-w-[800px] mt-2 md:mt-6 px-2;
-          }
+        .hero-title {
+          font-size: clamp(2.35rem, 6vw, 5.25rem);
+          @apply m-0 font-black leading-[1.04] tracking-[-0.04em] text-[#192A3D];
         }
 
-        .buttons {
-          @apply flex gap-5 md:gap-4 flex-col sm:flex-row w-full sm:w-auto px-6 sm:px-0 items-center;
+        .hero-rotating-word {
+          @apply italic font-serif font-medium text-[#027BFF];
+        }
+
+        .hero-description {
+          @apply mt-6 sm:mt-7 mb-0 max-w-[520px] xl:max-w-[590px] text-[16px] sm:text-lg md:text-[20px] leading-[1.65] text-[#2F4359] font-normal;
         }
       }
-
-      .hero-image {
-        @apply lg:h-[1200px] md:h-[850px] h-[450px] w-full max-w-[1250px];
-        transform: perspective(1000px);
-      }
-    }
-
-    .hero-left-cloud {
-      @apply absolute lg:w-fit h-fit w-65 top-50 lg:-left-105 -left-60;
-    }
-
-    .hero-right-cloud {
-      @apply absolute lg:w-fit h-fit w-65 top-50 lg:-right-105 -right-60;
     }
   }
 
@@ -418,5 +491,104 @@ body {
   .integrations-ticker-1,
   .integrations-ticker-2 {
     @apply flex flex-nowrap gap-4;
+  }
+
+  /* ── Contact Page Concentric Radar Backdrop ── */
+  .contact-page-shell {
+    background: linear-gradient(180deg, #E8F1FD 0%, #EEF4FD 36%, #F5F9FF 62%, #FFFFFF 82%);
+  }
+
+  .contact-micro-grid {
+    background-image: radial-gradient(circle, rgba(25, 42, 61, 0.07) 1px, transparent 1.25px);
+    background-size: 26px 26px;
+    mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 88%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 88%);
+  }
+
+  .contact-spotlight {
+    background: radial-gradient(circle 360px at var(--cx, 50%) var(--cy, 260px), rgba(2, 123, 255, 0.085) 0%, rgba(2, 123, 255, 0.03) 45%, transparent 72%);
+  }
+
+  .contact-radar-mask {
+    mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 94%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 94%);
+  }
+
+  .contact-orbit-a {
+    transform-origin: 900px 900px;
+    animation: contactSpin 78s linear infinite;
+  }
+
+  .contact-orbit-b {
+    transform-origin: 900px 900px;
+    animation: contactSpinReverse 112s linear infinite;
+  }
+
+  .contact-sonar-1 {
+    transform-origin: 900px 900px;
+    animation: contactSonar 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  .contact-sonar-2 {
+    transform-origin: 900px 900px;
+    animation: contactSonar 5s cubic-bezier(0.16, 1, 0.3, 1) 2.5s infinite;
+  }
+
+  .contact-node-halo {
+    animation: contactNodeGlow 3.2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-orbit-a,
+    .contact-orbit-b,
+    .contact-sonar-1,
+    .contact-sonar-2,
+    .contact-node-halo {
+      animation: none;
+    }
+  }
+}
+
+@keyframes contactSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes contactSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes contactSonar {
+  0% {
+    transform: scale(1);
+    opacity: 0.38;
+  }
+
+  80%,
+  100% {
+    transform: scale(5.2);
+    opacity: 0;
+  }
+}
+
+@keyframes contactNodeGlow {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+
+  50% {
+    opacity: 0.08;
   }
 }
