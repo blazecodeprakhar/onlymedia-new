@@ -99,7 +99,7 @@ export default function Benefits() {
                         title="Impact Frames"
                         frontQuote="Attention is earned through interaction."
                         backDescription="We create formats that transform passive impressions into active engagement, making brand experiences more memorable."
-                        href="https://impactframes.netlify.app/"
+                        href="https://www.impactframes.in/"
                     />
                     <BenefitsCard
                         icon={<Tv size={24} />}

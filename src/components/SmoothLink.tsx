@@ -19,6 +19,11 @@ export default function SmoothLink({ href, children, className, onClick, prefetc
     const lenis = useLenis()
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (props.target === '_blank' || /^(https?:|mailto:|tel:)/i.test(href)) {
+            if (onClick) onClick(e)
+            return
+        }
+
         // Normalize paths for comparison (ignoring trailing slashes)
         const currentPath = pathname ? pathname.replace(/\/$/, '') || '/' : '/'
         

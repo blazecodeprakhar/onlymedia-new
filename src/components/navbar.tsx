@@ -123,7 +123,7 @@ function Navbar() {
         { name: 'About', href: '/about' },
         { name: 'Solutions', href: '/#features' },
         { name: 'Insights', href: '/insights' },
-        { name: 'ImpactFrames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
+        { name: 'ImpactFrames', href: 'https://www.impactframes.in/', target: '_blank', rel: 'noopener noreferrer' },
     ]
 
     // Only show active pill indicator when scrolled past the hero section on the home page (or on other pages)

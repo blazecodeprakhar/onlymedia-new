@@ -19,7 +19,7 @@ function Footer() {
     const solutions = [
         { name: 'Managed Media Services', href: '#' },
         { name: 'Audience Intelligence', href: '#' },
-        { name: 'Impact Frames', href: 'https://impactframes.netlify.app/', target: '_blank', rel: 'noopener noreferrer' },
+        { name: 'Impact Frames', href: 'https://www.impactframes.in/', target: '_blank', rel: 'noopener noreferrer' },
         { name: 'Impact Screens', href: '#' },
     ];
 
